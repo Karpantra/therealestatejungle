@@ -1,0 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 80%), url('<%= image_path('parisjungle.jpg')%>');">
+
+
+
+  <div class="banner-content">
+
+    <h1>The <br> Real Estate <br> Jungle</h1>
+    <p>Le guide qui vous accompagne dans votre recherche de bureaux</p>
+
+    <%= form_tag('#', method: :get, class: 'form-search') do %>
+    <div class="flexbox">
+      <%= submit_tag "Trouvez les bureaux de vos rêves", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
+    </div>
+    <% end %>
+  </div>
+</div>

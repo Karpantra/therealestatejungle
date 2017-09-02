@@ -1,0 +1,54 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 92vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+}
+
+#banner-form {
+height: auto;
+}
+
+.banner-content h1 {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom:10px;
+}
+
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: white;
+  margin-bottom: 30px;
+  font-family: 'Montserrat_light', sans-serif;
+}
+
+.banner-content {
+  label {
+    color: black;
+  }
+}
+
+.btn {
+  background-color: #00C29A;
+  border-color: #00C29A;
+  font-size: 12px;
+  width: auto;
+  padding: 15px 25px;
+  font-family: 'Montserrat_light', sans-serif;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  opacity: 0.8;
+  background-color: #00C29A;
+  border-color: #00C29A;
+}

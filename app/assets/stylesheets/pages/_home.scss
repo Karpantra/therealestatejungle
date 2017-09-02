@@ -1,1 +1,71 @@
-// Specific CSS for your home-page
+.home-container {
+background: #F0F0F0;
+margin-top: 50px;
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.title-features h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  color: #00C29A;
+}
+
+.card {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.card h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+}
+
+.card p {
+  font-family: 'Montserrat_light', sans-serif;
+  font-size: 15px;
+}
+
+.btn-recall {
+  background-color: #00C29A;
+  border-color: #00C29A;
+  font-size: 12px;
+  width: auto;
+  padding: 15px 25px;
+  margin-bottom: 50px;
+  font-family: 'Montserrat_light', sans-serif;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  // border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-recall:hover {
+  opacity: 0.8;
+  background-color: #00C29A;
+  border-color: #00C29A;
+}
+
+.form-search {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#home-footer {
+  background: #373942;
+  padding: 50px;
+}
+
+#home-footer a {
+  font-size: 25px;
+  color: #00C29A;
+  padding: 10px;
+}
+
+#home-footer a:hover {
+  color: white;
+}
+
+.footer-logo img{
+  height: 100px;
+  border-radius: 50px;
+}

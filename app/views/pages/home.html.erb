@@ -1,2 +1,61 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/banner' %>
+
+<div class="container text-center home-container">
+    <div class="text-center title-features">
+      <h1>Notre accompagnement</h1>
+    </div>
+    <div class="card">
+     <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+       <%= image_tag "Download-Computer.svg" %>
+       <h2>Renseignez en ligne votre cahier des charges </h2>
+       <p>Il vous suffit de remplir le formulaire en ligne nous décrivant les critères de votre recherche</p>
+       <!--  <a class="btn-default" href="#">Learn more</a> -->
+     </div>
+    </div>
+
+    <div class="card">
+     <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+       <%= image_tag "Hacker.svg" %>
+       <h2>Un guide prend en charge votre demande</h2>
+       <p>Nous analysons en toute confidentialité votre cahier des charges et prenons contact avec vous pour personnaliser le modus operandis</p>
+       <!-- <a class="btn-default" href="#">Learn more</a> -->
+     </div>
+    </div>
+    <div class="card">
+     <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+       <%= image_tag "Apartment.svg" %>
+       <h2>Nous vous présentons les offres disponibles</h2>
+
+       <p>Nous travaillons avec l'ensemble des acteurs du marché donc pas de conflit d'intérêt. Nous recherchons les meilleures solutions (coworking, baux classiques court ou long terme)</p>
+       <!-- <a class="btn-default" href="#">Learn more</a> -->
+     </div>
+    </div>
+
+    <div class="card">
+      <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+       <%= image_tag "Key.svg" %>
+       <h2>Nous gérons avec vous l'ensemble du projet</h2>
+
+       <p>Votre guide vous accompagne tout au long du projet, analyse du marché, visites, négociations et finalisation des accords</p>
+       <!-- <a class="btn-default" href="#">Learn more</a> -->
+      </div>
+    </div>
+  </div>
+
+
+  <%= form_tag('#', method: :get, class: 'form-search') do %>
+  <div class="flexbox">
+  <%= submit_tag "Trouvez les bureaux de vos rêves", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+  </div>
+  <% end %>
+
+<div id="home-footer">
+  <ul  class="list-inline">
+    <li><%= link_to root_path, class: "footer-logo" do %>
+    <%= image_tag "the Real Estate Jungle footer.png" %>
+  <% end %></li>
+    <li><a href=""><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+    <li><a href=""><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+    <li><a href=""><i class="fa fa-users" aria-hidden="true"></i></a></li>
+  </ul>
+</div>
