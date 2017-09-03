@@ -17,6 +17,10 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+# Linkedin
+gem 'omniauth'
+gem 'omniauth-linkedin'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
