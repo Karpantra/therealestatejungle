@@ -7,7 +7,6 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '49f8697f4b32ade044bb1ad326470995a18230ace7b4ceee23e1a8bd899bc42a40ca106a89bdbbbd463c2aa43552200c9f8a5e6838dbbcb3a7467270d781e61f'
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -25,6 +24,18 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
+    scope: 'email',
+    info_fields: 'email, first_name, last_name',
+    image_size: 'square',  # 50x50, guaranteed ratio
+    secure_image_url: true
+
+  config.omniauth :linkedin, ENV["LI_ID"], ENV["LI_SECRET"],
+    scope: 'r_basicprofile r_emailaddress',
+    info_fields: 'email, first_name, last_name',
+    image_size: 'square',  # 50x50, guaranteed ratio
+    secure_image_url: true
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

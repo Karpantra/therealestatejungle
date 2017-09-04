@@ -17,9 +17,10 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
-# Linkedin
+# Linkedin & facebook connect
 gem 'omniauth'
 gem 'omniauth-linkedin'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'binding_of_caller'
