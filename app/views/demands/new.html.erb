@@ -1,38 +1,250 @@
-<form id="signup" action="somewhere" method="POST">
-    <ul id="section-tabs">
-      <li class="current active"><span>1.</span> Creds</li>
-      <li><span>2.</span> Deets</li>
-      <li><span>3.</span> Settings</li>
-      <li><span>4.</span> Last Words</li>
-    </ul>
-  <div id="fieldsets">
-  <fieldset class="current">
-    <label for="email">Email:</label>
-    <input name="email" type="email" class="required email" />
-    <label name="password" for="password">Password:</label>
-    <input type="password" minlength="10" class="required">
-  </fieldset>
-  <fieldset class="next">
-    <label for="username">Username:</label>
-    <input name="username" type="text">
-    <label for="bio">Short Bio:</label>
-    <textarea name="bio" class="required"></textarea>
-  </fieldset>
-  <fieldset class="next">
-    <label for="interests">Basic Interests:</label>
-    <textarea name="bio"></textarea>
-    <p>Receive newsletter?<br>
-      <input type="radio" name="newsletter" value="yes"><label for="newsletter">yes</label>
-      <input type="radio" name="newsletter" value="no"><label for="newsletter">no</label>
-    </p>
-  </fieldset>
-  <fieldset class="next">
-    <label for="referrer">Referred by:</label>
-    <input type="text" name="referrer">
-    <label for="phone">Daytime Phone:</label>
-    <input type="tel" name="phone">
-  </fieldset>
-  <a class="btn" id="next">Next Section ▷</a>
-  <input type="submit" class="btn">
+<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso16.css" />
+
+<!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: #373942}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: #ffffff !important;} .bootstrap-iso .btn-custom{background: #00c29a} .bootstrap-iso .btn-custom:hover{background: #00ae86;}.bootstrap-iso .form-control:focus { border-color: #00c29a;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6);} .asteriskField{color: red;}.bootstrap-iso form .input-group-addon {color:#373942; background-color: #00c29a; border-radius: 4px; padding-left:12px}</style>
+
+<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+
+<div class="text-center">
+  <h1>Renseignez votre cahier des charges</h1>
+  <p>Le temps estimé pour remplir le formulaire est de 3 minutes</p>
+</div>
+<div class="bootstrap-iso">
+<br>
+<br>
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+    <form method="post">
+     <div class="form-group ">
+      <label class="control-label requiredField">
+       1. Que souhaitez-vous ?
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="">
+       <div class="radio">
+        <label class="radio">
+         <input name="lease_or_buy" type="radio" value="Louer"/>
+         Louer
+        </label>
+       </div>
+       <div class="radio">
+        <label class="radio">
+         <input name="lease_or_buy" type="radio" value="Acheter"/>
+         Acheter
+        </label>
+       </div>
+       <div class="radio">
+        <label class="radio">
+         <input name="lease_or_buy" type="radio" value="Les deux sont envisageables"/>
+         Les deux sont envisageables
+        </label>
+       </div>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="company_name">
+       2. Quel est le nom de votre soci&eacute;t&eacute;/startup ?
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="company_name" name="company_name" placeholder="Ma soci&eacute;t&eacute;" type="text"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="lease_budget">
+       3. En cas de location, quel est votre budget maximum annuel hors charges et taxes (HC HT) ?
+      </label>
+      <div class="input-group">
+       <input class="form-control" id="lease_budget" name="lease_budget" placeholder="150 000" type="text"/>
+       <div class="input-group-addon">
+        &euro;/an HC HT
+       </div>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="buy_buget">
+       4. En cas d'achat, quel est votre budget hors droits (HD) (environ 8% du prix d'achat) ?
+      </label>
+      <div class="input-group">
+       <input class="form-control" id="buy_buget" name="buy_buget" placeholder="1 200 000" type="text"/>
+       <div class="input-group-addon">
+        &euro; HD
+       </div>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField">
+       O&ugrave; souhaitez-vous vous implanter ?
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class=" ">
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="location" type="checkbox" value="Paris Centre - Ouest (arr. 1, 2, 8, 9, 16 ou 17)"/>
+         Paris Centre - Ouest (arr. 1, 2, 8, 9, 16 ou 17)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="location" type="checkbox" value="Paris Centre - Est (arr. 3, 4, 10, 11 ou 12) "/>
+         Paris Centre - Est (arr. 3, 4, 10, 11 ou 12)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="location" type="checkbox" value="Paris Nord (18, 19 ou 20)"/>
+         Paris Nord (18, 19 ou 20)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="location" type="checkbox" value="Paris Sud (5, 6, 7, 13, 14 ou 15)"/>
+         Paris Sud (5, 6, 7, 13, 14 ou 15)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="location" type="checkbox" value="Croissant Ouest (de Asni&egrave;res &agrave; St-Cloud)"/>
+         Croissant Ouest (de Asni&egrave;res &agrave; St-Cloud)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="location" type="checkbox" value="Croissant Est (de Aubervilliers &agrave; Villejuif)"/>
+         Croissant Est (de Aubervilliers &agrave; Villejuif)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="location" type="checkbox" value="Deuxi&egrave;me couronne parisienne (ex. Antony, Villepinte, etc.)"/>
+         Deuxi&egrave;me couronne parisienne (ex. Antony, Villepinte, etc.)
+        </label>
+       </div>
+       <span class="help-block" id="hint_location">
+        Vous pouvez s&eacute;lectionner plusieurs r&eacute;ponses.
+       </span>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="surface">
+       5. Quelle surface recherchez-vous ?
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="input-group">
+       <input class="form-control" id="surface" name="surface" placeholder="500" type="text"/>
+       <div class="input-group-addon">
+        m2 SUBL
+       </div>
+      </div>
+      <span class="help-block" id="hint_surface">
+       La surface SUBL (Surface Utile Brut Locative) repr&eacute;sente l'espace comprenant les postes de travail, les salles de r&eacute;unions, les espaces communs, etc.).
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="workstation_number">
+       6. De combien de postes de travail avez-vous besoin ?
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="workstation_number" name="workstation_number" placeholder="50" type="text"/>
+      <span class="help-block" id="hint_workstation_number">
+       Un poste de travail repr&eacute;sente le bureau d'un collaborateur. Vous pouvez avoir moins de postes que le nombre d'employ&eacute;s (dans le cas d'une politique de bureaux non attribu&eacute;s par exemple).
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="meeting_room_number">
+       7. De combien de salles de r&eacute;union avez-vous besoin ?
+      </label>
+      <input class="form-control" id="meeting_room_number" name="meeting_room_number" placeholder="5" type="text"/>
+      <span class="help-block" id="hint_meeting_room_number">
+       Indiquez simplement le nombre id&eacute;al, nous ajusterons par la suite la taille des salles dont vous avez besoin pour organiser vos r&eacute;unions. Ou laissez blanc si vous n'en avez pas besoin.
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="parking_number">
+       8. De combien de places de parking avez-vous besoin ?
+      </label>
+      <input class="form-control" id="parking_number" name="parking_number" placeholder="15" type="text"/>
+      <span class="help-block" id="hint_parking_number">
+       Indiquez simplement le nombre id&eacute;al ou laissez blanc si vous n'en avez pas l'utilit&eacute;.
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField">
+       9. Quelle type de surface recherchez-vous
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class=" ">
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="surface_type" type="checkbox" value="Coworking (espace de travail partag&eacute;)"/>
+         Coworking (espace de travail partag&eacute;)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="surface_type" type="checkbox" value="Open space (espace de travail privatis&eacute;)"/>
+         Open space (espace de travail privatis&eacute;)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="surface_type" type="checkbox" value="Bureaux cloisonn&eacute;s (espace de travail privatis&eacute; avec bureaux ferm&eacute;s)"/>
+         Bureaux cloisonn&eacute;s (espace de travail privatis&eacute; avec bureaux ferm&eacute;s)
+        </label>
+       </div>
+       <div class="checkbox">
+        <label class="checkbox">
+         <input name="surface_type" type="checkbox" value="Espace mixte (diff&eacute;rents espaces de travail privatis&eacute;s ou non)"/>
+         Espace mixte (diff&eacute;rents espaces de travail privatis&eacute;s ou non)
+        </label>
+       </div>
+       <span class="help-block" id="hint_surface_type">
+        Vous pouvez en s&eacute;lectionner plusieurs si vous n'&ecirc;tes pas encore d&eacute;termin&eacute;s sur votre choix.
+       </span>
+      </div>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="move_in_date">
+       10. A quelle date souhaitez-vous vous installer dans vos nouveaux bureaux ?
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="move_in_date" name="move_in_date" placeholder="MM/DD/YYYY" type="text"/>
+      <span class="help-block" id="hint_move_in_date">
+       Indiquez simplement la date &agrave; laquelle vous souhaitez pouvoir commencer &agrave; travailler. Nous prendrons en compte des p&eacute;riodes d'am&eacute;nagement si n&eacute;cessaire).
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="other_spec">
+       11. Avez-vous des besoins sp&eacute;cifiques que vous souhaiteriez partager d&egrave;s maintenant ?
+      </label>
+      <textarea class="form-control" cols="40" id="other_spec" name="other_spec" placeholder="Nous recherchons un espace atypique avec une grande hauteur sous plafond..." rows="10"></textarea>
+      <span class="help-block" id="hint_other_spec">
+       Un besoin sp&eacute;cifique peut &ecirc;tre par exemple: un grand plateau type industriel, une tr&egrave;s grande salle de r&eacute;union, une terrasse, une contrainte de confidentialit&eacute;, un besoin en salle serveurs, etc.
+      </span>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
+        Envoyer mon cahier des charges
+       </button>
+      </div>
+     </div>
+    </form>
+   </div>
   </div>
-</form>
+ </div>
+</div>
