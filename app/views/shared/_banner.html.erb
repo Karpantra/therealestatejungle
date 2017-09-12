@@ -7,10 +7,18 @@
     <h1>The <br> Real Estate <br> Jungle</h1>
     <p>Le guide qui vous accompagne dans votre recherche de bureaux</p>
 
+    <% if user_signed_in? %>
     <%= link_to new_user_demand_path(current_user), method: :get, class: 'form-search' do %>
     <div class="flexbox">
       <%= submit_tag "TROUVEZ LES BUREAUX DE VOS RÊVES", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
     </div>
+    <% end %>
+    <% else %>
+    <%= form_tag('#', method: :get, class: 'form-search') do %>
+    <div class="flexbox">
+    <%= submit_tag "TROUVEZ LES BUREAUX DE VOS RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>
