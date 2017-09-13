@@ -17,6 +17,11 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+# Datepicker
+gem 'rails-assets-bootstrap-datepicker'
+gem 'simple_form_bootstrap_datepicker'
+
+
 # Linkedin & facebook connect
 gem 'omniauth'
 gem 'omniauth-linkedin'
