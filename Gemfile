@@ -18,8 +18,14 @@ gem 'simple_form'
 gem 'uglifier'
 
 # Datepicker
-gem 'rails-assets-bootstrap-datepicker'
-gem 'simple_form_bootstrap_datepicker'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'momentjs-rails', '>= 2.9.0'
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
+
+gem 'jquery-ui-rails'
+gem 'jquery-ui-sass-rails'
 
 
 # Linkedin & facebook connect

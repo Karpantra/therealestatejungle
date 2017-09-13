@@ -7,11 +7,15 @@ class DemandsController < ApplicationController
     @demand = Demand.new(demand_params)
     @demand.user = current_user
       if @demand.save
+        flash[:notice] = "Votre cahier des charges a bien été enregistré"
         redirect_to root_path
       else
       render :new
     end
+  end
 
+  def index
+    @demand = Demand.all
   end
 
   private
