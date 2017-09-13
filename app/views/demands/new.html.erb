@@ -1,21 +1,53 @@
+
+<div class="text-center">
+  <h1>Votre recherche immobilière</h1>
+  <p>Le temps estimé pour remplir le formulaire est de 3 minutes</p>
+</div>
+<div class="container demand-container">
+  <div class="raw">
+    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+      <%= simple_form_for @demand do |f| %>
+      <%= f.label "Que souhaitez-vous faire ?" %>
+      <%= f.input :lease, as: :boolean, label: "Louer" %>
+      <%= f.input :buy, as: :boolean, label: "Acheter" %>
+      <%= f.hint "Cochez les deux cases si vous n'avez pas encore décidé de votre stratégie" %>
+      <%= f.input :company_name, placeholder: "Ma société", label: "Quel est le nom de votre société ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
+      <%= f.input :lease_budget, placeholder: "150 000", label: "En cas de location, quel est votre budget maximum annuel hors charges et taxes (HC HT) ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
+      <%= f.input :buy_budget, placeholder: "1 200 000", label: "En cas d'achat, quel est votre budget hors droits (HD) (environ 8% du prix d'achat) ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
+      <%= f.label "Où souhaitez-vous vous implanter ?" %>
+      <%= f.input :location_1, label: "Je veux être absolument dans ces quartiers...", collection: Demand::ZONE, error: "Merci de remplir ce champs pour valider le formulaire" %>
+      <%= f.input :location_2, label: "...dans ces quartiers pourquoi pas...", collection: Demand::ZONE %>
+      <%= f.input :location_3, label: "...mais regardons un peu plus large.", collection: Demand::ZONE %>
+      <%= f.input :surface, label: "Quelle surface recherchez-vous ?", error: "Merci de remplir ce champs pour valider le formulaire", placeholder: "500", hint: "La surface SUBL (Surface Utile Brut Locative) représente l'espace comprenant les postes de travail, les salles de réunions, les espaces communs, etc.)." %>
+      <%= f.input :workstation_number, label: "De combien de postes de travail avez-vous besoin ?", placeholder: "45", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Un poste de travail représente le bureau d'un collaborateur. Vous pouvez avoir moins de postes que le nombre d'employés (dans le cas d'une politique de bureaux non attribués par exemple)." %>
+      <%= f.input :meeting_room_number, label: "De combien de salles de réunions avez-vous besoin ?", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal, nous ajusterons par la suite la taille des salles dont vous avez besoin pour organiser vos réunions. Ou laissez blanc si vous n'en avez pas besoin." %>
+      <%= f.input :parking_number, label: "De combien de places de parking avez-vous besoin ?", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal ou laissez blanc si vous n'en avez pas l'utilité." %>
+      <%= f.input :surface_type, label: "Quel type de surface recherchez-vous ?", collection: Demand::SPACES, error: "Merci de remplir ce champs pour valider le formulaire", hint: "Merci d'indiquer votre préférence." %>
+      <%= f.input :move_in_date, label: "A quelle date souhaitez-vous vous installer dans vos nouveaux bureaux ?", placeholder: "DD/MM/YYYY", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement la date à laquelle vous souhaitez pouvoir commencer à travailler. Nous prendrons en compte des périodes d'aménagement si nécessaire)." %>
+      <%= f.input :other_spec, label: "Avez-vous des besoins spécifiques que vous souhaiteriez partager dès maintenant ?", hint: "Un besoin spécifique peut être par exemple: un grand plateau type industriel, une très grande salle de réunion, une terrasse, une contrainte de confidentialité, un besoin en salle serveurs, etc.", placeholder: "Nous recherchons un espace atypique avec une grande hauteur sous plafond..." %>
+      <%= f.submit "Envoyer mon cahier des charges", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso16.css" />
+<!-- <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso16.css" /> -->
 
 <!-- Inline CSS based on choices in "Settings" tab -->
-<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: #373942}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: #ffffff !important;} .bootstrap-iso .btn-custom{background: #00c29a} .bootstrap-iso .btn-custom:hover{background: #00ae86;}.bootstrap-iso .form-control:focus { border-color: #00c29a;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6);} .asteriskField{color: red;}.bootstrap-iso form .input-group-addon {color:#373942; background-color: #00c29a; border-radius: 4px; padding-left:12px}</style>
+<!-- <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: #373942}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: #ffffff !important;} .bootstrap-iso .btn-custom{background: #00c29a} .bootstrap-iso .btn-custom:hover{background: #00ae86;}.bootstrap-iso .form-control:focus { border-color: #00c29a;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6);} .asteriskField{color: red;}.bootstrap-iso form .input-group-addon {color:#373942; background-color: #00c29a; border-radius: 4px; padding-left:12px}</style> -->
 
 <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
 
-<div class="text-center">
-  <h1>Renseignez votre cahier des charges</h1>
-  <p>Le temps estimé pour remplir le formulaire est de 3 minutes</p>
-</div>
+<!--
 <div class="bootstrap-iso">
-<br>
 <br>
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3">
+
+
     <form method="post">
      <div class="form-group ">
       <label class="control-label requiredField">
@@ -247,4 +279,5 @@
    </div>
   </div>
  </div>
-</div>
+</div> -->
+

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :demands, only: [:new, :create]
   end
+
+  resources :demands, only: [:create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
