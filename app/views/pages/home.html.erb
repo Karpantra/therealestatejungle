@@ -76,7 +76,7 @@
             </div>
             <% end %>
             <% else %>
-            <%= form_tag(new_user_session_path, method: :get, class: 'form-search') do %>
+            <%= link_to new_user_session_path, method: :get, class: 'form-search' do %>
             <div class="flexbox">
               <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
             </div>
