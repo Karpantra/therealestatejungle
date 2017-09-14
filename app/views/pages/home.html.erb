@@ -8,7 +8,7 @@
    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
      <%= image_tag "Download-Computer.svg", alt: "coworking" %>
      <h2>Renseignez en ligne votre cahier des charges </h2>
-     <p>Il vous suffit de remplir le formulaire en ligne nous décrivant les critères de votre recherche</p>
+     <p>Il vous suffit de remplir le formulaire nous décrivant les critères de votre recherche immobilière</p>
      <!--  <a class="btn-default" href="#">Learn more</a> -->
    </div>
  </div>
@@ -43,7 +43,7 @@
 <% if user_signed_in? %>
 <%= link_to new_user_demand_path(current_user), method: :get, class: 'form-search' do %>
 <div class="flexbox">
-  <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
+  <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
 </div>
 <% end %>
 <% else %>
