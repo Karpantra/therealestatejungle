@@ -1,19 +1,19 @@
 .banner {
   color: white;
   text-align: center;
-  height: 92vh;
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   background-position: center;
-  background-attachment: fixed;
+  // background-attachment: fixed;
 }
 
-#banner-form {
-height: auto;
-}
+// #banner-form {
+// height: auto;
+// }
 
 .banner-content h1 {
   font-family: 'Bungee Shade', cursive;

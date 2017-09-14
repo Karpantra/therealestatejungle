@@ -10,6 +10,17 @@
   justify-content: space-between;
 }
 
+/* Home navbar*/
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  .navbar-wagon-link {
+    color: white;
+  }
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 40px;
@@ -27,6 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 10px;
 }
 
 /* Basic navbar item */
