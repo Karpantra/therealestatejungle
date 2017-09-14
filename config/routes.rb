@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
+  root to: 'pages#contact'
 
   resources :users do
     resources :demands, only: [:new, :create, :index]
