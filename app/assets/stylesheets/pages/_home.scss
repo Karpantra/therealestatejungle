@@ -1,8 +1,9 @@
 .home-container {
-background: #F0F0F0;
+background: white;
 margin-top: 50px;
 box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 5px;
 }
 
 .title-features h1 {
@@ -111,6 +112,9 @@ $card-radius:         0;
       .card_image {
         img {
           width: 100%;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+          border: 1px 1px 0px 0px solid rgba(0, 0, 0, 0.1);
+          border-radius: 5px 5px 0px 0px;
           // background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 80%)
           // border-top-left-radius: ( $card-radius - $card-border-width );
           // border-top-right-radius: ( $card-radius - $card-border-width );
@@ -121,9 +125,11 @@ $card-radius:         0;
         display: flex;
         flex: 1 0 auto;
         flex-direction: column;
-
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         margin-top: 0;
         padding: 1.5em;
+        border-radius: 0px 0px 5px 5px;
 
         h2 {
           font-family: 'Montserrat', sans-serif;
