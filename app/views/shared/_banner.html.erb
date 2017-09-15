@@ -3,10 +3,22 @@
 
 
   <div class="banner-content">
+    <div class="content">
+      <div class="content__container">
+        <p class="content__container__text">
+          Le guide pour
+        </p>
 
+        <ul class="content__container__list">
+          <li class="content__container__list__item"> le Coworking !</li>
+          <li class="content__container__list__item">les bureaux !</li>
+          <li class="content__container__list__item">les startups !</li>
+          <li class="content__container__list__item">le Coworking !</li>
+        </ul>
+      </div>
+    </div>
     <h1>The <br> Real Estate <br> Jungle</h1>
-    <p>Le guide qui vous accompagne dans votre recherche de bureaux</p>
-
+      <br><br>
     <% if user_signed_in? %>
     <%= link_to new_user_demand_path(current_user), method: :get, class: 'form-search' do %>
     <div class="flexbox">
