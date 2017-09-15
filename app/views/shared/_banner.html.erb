@@ -17,8 +17,11 @@
         </ul>
       </div>
     </div>
-    <h1>The <br> Real Estate <br> Jungle</h1>
-      <br><br>
+    <div class="brand-banner">
+      <h1>The <br> Real Estate <br> Jungle</h1>
+    </div>
+    <br>
+    <br>
     <% if user_signed_in? %>
     <%= link_to new_user_demand_path(current_user), method: :get, class: 'form-search' do %>
     <div class="flexbox">
@@ -28,7 +31,7 @@
     <% else %>
     <%= form_tag(new_user_session_path, method: :get, class: 'form-search') do %>
     <div class="flexbox">
-    <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+      <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
     </div>
     <% end %>
     <% end %>
