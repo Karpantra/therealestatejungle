@@ -3,3 +3,10 @@
   margin: 10px;
   background-color: whithe;
 }
+
+.form-control:focus {
+    border-color: #00C29A;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
