@@ -62,9 +62,8 @@
   position: center;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 160px;
+  height: 80px;
   overflow:hidden;
-
   font-family: 'Montserrat', sans-serif;
   font-size: 35px;
   line-height: 50px;
@@ -73,9 +72,9 @@
   &__container {
     font-weight: 600;
     overflow: hidden;
-    height: 40px;
-    width: 420px;
-    padding: 1px 38px;
+    height: 80px;
+    width: 900px;
+    padding: 1px 1px;
     font-size: 31px;
 
     &:before {
@@ -106,9 +105,9 @@
     }
 
     &__text {
-      display: inline-block;
-      float: left;
-      margin: 0;
+      display: inline;
+      float: center;
+
     }
 
     &__list {
@@ -130,6 +129,11 @@
       }
     }
   }
+}
+
+.color-animation {
+  color: #00C29A;
+  font-weight: bold;
 }
 
 @-webkit-keyframes opacity {
@@ -205,3 +209,42 @@
 // x = 12.66 -> Time spent on a line
 
 // You can define a value and calculate the other if you want change speed or the number of lines
+
+// Animation text tagline V2
+
+span:before {
+  content: 'ENTREPRENEURS';
+  animation: animate infinite 10s;
+}
+
+@keyframes animate {
+  0%
+  {
+    content: 'ENTREPRENEURS'
+  }
+  50%
+  {
+    content: 'STARTUPS'
+  }
+  100%
+  {
+    content: 'GRANDS GROUPES'
+  }
+}
+
+em:before {
+  content: "BUREAUX";
+  animation: change infinite 10s;
+
+@keyframes change {
+  0%
+  {
+    content: 'BUREAUX'
+  }
+  100%
+  {
+    content: 'COWORKING'
+  }
+}
+
+}

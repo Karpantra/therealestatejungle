@@ -6,10 +6,11 @@ border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 5px;
 }
 
-.title-features h1 {
+.title-features h2{
   font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
-  color: #373942;
+  font-size: 30px;
+  font-weight: bold;
+  color: #65697A;
 }
 
 .card {
@@ -127,7 +128,7 @@ $card-radius:         0;
         flex-direction: column;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(0, 0, 0, 0.1);
-        margin-top: 0;
+        margin-top: -60px;
         padding: 1.5em;
         border-radius: 0px 0px 5px 5px;
 
