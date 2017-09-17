@@ -8,7 +8,7 @@
   <div class="card">
    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
      <%= image_tag "Download-Computer.svg", alt: "coworking" %>
-     <h2>Renseignez en ligne votre cahier des charges </h2>
+     <h2 class="offer-title">Renseignez en ligne votre cahier des charges </h2>
      <p>Il vous suffit de remplir le formulaire nous décrivant les critères de votre recherche immobilière</p>
    </div>
  </div>
@@ -16,14 +16,14 @@
  <div class="card">
    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
      <%= image_tag "Magician.svg", alt: "coworking" %>
-     <h2>Un guide prend en charge votre demande</h2>
+     <h2 class="offer-title">Un guide prend en charge votre demande</h2>
      <p>Nous analysons en toute confidentialité votre cahier des charges et prenons contact avec vous pour personnaliser le modus operandis</p>
    </div>
  </div>
  <div class="card">
    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
      <%= image_tag "Apartment.svg", alt: "coworking" %>
-     <h2>Nous vous présentons les offres disponibles</h2>
+     <h2 class="offer-title">Nous vous présentons les offres disponibles</h2>
 
      <p>Nous travaillons avec l'ensemble des acteurs du marché donc pas de conflit d'intérêt. Nous recherchons les meilleures solutions (Coworking, baux classiques court ou long terme)</p>
    </div>
@@ -32,7 +32,7 @@
  <div class="card">
   <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
    <%= image_tag "Key.svg", alt: "coworking" %>
-   <h2>Nous gérons avec vous l'ensemble du projet</h2>
+   <h2 class="offer-title">Nous gérons avec vous l'ensemble du projet</h2>
 
    <p>Votre guide vous accompagne tout au long du projet, analyse du marché, visites, négociations et finalisation des accords</p>
  </div>
@@ -54,6 +54,7 @@
 <% end %>
 <% end %>
 
+<div class="home-background-image" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 80%), url('<%= image_path('parisjungle3.jpg')%>');">
 <div class="container">
   <div class="row">
     <ul class="cards">
@@ -62,7 +63,7 @@
         <div class="card-company-type">
 
           <div class="card_image">
-            <%= image_tag "lionbaby.jpg", alt: "startup" %>
+            <%= image_tag "Farmer.svg", alt: "startup" %>
           </div>
 
           <div class="card_content">
@@ -90,7 +91,7 @@
         <div class="card-company-type">
 
           <div class="card_image">
-            <%= image_tag "lionyoung.jpg", alt: "startup" %>
+            <%= image_tag "Hacker.svg", alt: "startup" %>
           </div>
 
           <div class="card_content">
@@ -117,12 +118,12 @@
         <div class="card-company-type">
 
           <div class="card_image">
-            <%= image_tag "lionold.jpg", alt: "startup" %>
+            <%= image_tag "Boss-2.svg", alt: "startup" %>
           </div>
 
           <div class="card_content">
             <h2 class="card_heading"><h3 class="highlight">Grands groupes</h3></h2>
-            <p>La donne change et les grandes entreprises l'ont bien compris. Face à la mutation des modes de travail (<strong>Coworking</strong>, <strong>bureaux partagés</strong>), au besoin d'attirer et de retenir les talents (en prenant en compte les comportements des nouvelles générations) et de stimuler l'innovation des ses collaborateurs, elles font de plus en plus le choix d'installer certaines équipes dans des espaces de <strong>Coworking</strong>.</p>
+            <p>La donne change et les grandes entreprises l'ont bien compris. Face à la mutation des modes de travail (<strong>Coworking</strong>, <strong>bureaux partagés</strong>), au besoin d'attirer et de retenir les talents (en prenant en compte les comportements des nouvelles générations) et de stimuler l'innovation de leurs collaborateurs, elles font de plus en plus le choix d'installer certaines équipes dans des espaces de <strong>Coworking</strong>.</p>
             <% if user_signed_in? %>
             <%= link_to new_user_demand_path(current_user), method: :get, class: 'form-search' do %>
             <div class="flexbox">
@@ -141,4 +142,5 @@
       </li>
     </ul>
   </div>
+</div>
 </div>

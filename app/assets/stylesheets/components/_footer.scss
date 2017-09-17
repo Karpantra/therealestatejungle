@@ -1,21 +1,21 @@
 .footer-links {
-  font-family: 'Montserrat_light', sans-serif;
+  font-family: $body-font;
   font-size: 10px;
-  color: white;
+  color: $my-white;
 }
 #home-footer {
-  background: #373942;
+  background: $my-gray;
   padding: 40px;
 }
 
 #home-footer a {
   font-size: 15px;
-  color: white;
+  color: $my-white;
   padding: 5px;
 }
 
 #home-footer a:hover {
-  color: #00C29A;
+  color: $my-green;
 }
 
 .footer-logo img{

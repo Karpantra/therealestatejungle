@@ -1,12 +1,12 @@
 .container .demand-container {
   padding: 2px;
   margin: 10px;
-  background-color: whithe;
+  background-color: $my-white;
 }
 
 .form-control:focus {
-    border-color: #00C29A;
+    border-color: $my-green;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6);
 }

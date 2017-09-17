@@ -1,5 +1,5 @@
 .banner {
-  color: white;
+  color: $my-white;
   text-align: center;
   height: 100vh;
   background-size: cover;
@@ -7,15 +7,15 @@
   align-items: center;
   justify-content: center;
   background-position: center;
-  // background-attachment: fixed;
+  background-attachment: fixed;
 }
 
 .banner p {
   font-size: 20px;
   font-weight: lighter;
-  color: white;
+  color: $my-white;
   margin-bottom: 30px;
-  font-family: 'Montserrat_light', sans-serif;
+  font-family: $body-font;
 }
 
 .banner-content {
@@ -25,20 +25,20 @@
 }
 
 .btn {
-  background-color: #00C29A;
-  border-color: #00C29A;
+  background-color: $my-green;
+  border-color: $my-green;
   font-size: 12px;
   width: auto;
   padding: 15px 25px;
-  font-family: 'Montserrat_light', sans-serif;
+  font-family: $body-font;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
   opacity: 0.8;
-  background-color: #00C29A;
-  border-color: #00C29A;
+  background-color: $my-green;
+  border-color: $my-green;
 }
 
 .brand-banner h1 {
@@ -55,7 +55,7 @@
 }
 
 .color-animation {
-  color: #00C29A;
+  color: $my-green;
   font-weight: bold;
 }
 .content {
@@ -134,7 +134,7 @@
 //       position: absolute;
 //       top: 0;
 
-//       color: #00C29A;
+//       color: $my-green;
 //       font-size: 45px;
 //       line-height: 40px;
 

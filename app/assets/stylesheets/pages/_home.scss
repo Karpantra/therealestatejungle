@@ -7,11 +7,26 @@ border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 5px;
 }
 
+.home-background-image {
+  color: $my-white;
+  text-align: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .title-features h2{
-  font-family: 'Montserrat', sans-serif;
+  font-family: $headers-font;
   font-size: 30px;
   font-weight: bold;
-  color: #65697A;
+  color: $my-gray;
+}
+
+.offer-title {
+  color: $my-gray;
 }
 
 .card {
@@ -21,32 +36,33 @@ border-radius: 5px;
 }
 
 .card h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: $body-font;
   font-size: 25px;
 }
 
 .card p {
-  font-family: 'Montserrat_light', sans-serif;
+  font-family: $body-font;
   font-size: 15px;
+  text-align: justify;
 }
 
 .btn-recall {
-  background-color: #00C29A;
-  border-color: #00C29A;
+  background-color: $my-green;
+  border-color: $my-green;
   font-size: 12px;
   width: auto;
   padding: 15px 25px;
   margin-bottom: 50px;
   margin-top: 50px;
-  font-family: 'Montserrat_light', sans-serif;
+  font-family: $body-font;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   // border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .btn-recall:hover {
   opacity: 0.8;
-  background-color: #00C29A;
-  border-color: #00C29A;
+  background-color: $my-green;
+  border-color: $my-green;
 }
 
 .form-search {
@@ -58,7 +74,7 @@ border-radius: 5px;
 
 .highlight {
 display: inline-block;
-box-shadow: inset 0px -12px #00C29A;
+box-shadow: inset 0px -12px $my-green;
 font-weight: bold;
 }
 
@@ -66,9 +82,9 @@ font-weight: bold;
 
 /*---------- CARDS LAYOUT ----------*/
 
-$card-background:     #fff;
+$card-background:     transparent;
 $card-border-width:   0;
-$card-border-color:   #eee;
+$card-border-color:   transparent;
 $card-radius:         0;
 
 
@@ -85,8 +101,9 @@ $card-radius:         0;
     display: flex;
     .no-flexbox & { float: left; }
 
-    margin-top: 0;
+    margin-top: 45px;
     padding: 0 1em 2em;
+    // border-radius: 5px 5px 0px 0px;
 
     // > 640px, 2 items/row
     @media screen and (min-width: 42em) and ( max-width: 60em ) {
@@ -113,12 +130,12 @@ $card-radius:         0;
 
       .card_image {
         img {
-          width: 100%;
-          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-          border: 1px 1px 0px 0px solid rgba(0, 0, 0, 0.1);
-          border-radius: 5px 5px 0px 0px;
-          -webkit-filter: brightness(1.5) contrast(1.4) hue-rotate(450deg); /* Safari 6.0 - 9.0 */
-          filter: brightness(1.5) contrast(1.4) hue-rotate(450deg);
+          // width: 100%;
+          // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+          // border: 1px 1px 0px 0px solid rgba(0, 0, 0, 0.1);
+          // border-radius: 5px 5px 0px 0px;
+          // -webkit-filter: brightness(1.5) contrast(1.4) hue-rotate(450deg); /* Safari 6.0 - 9.0 */
+          // filter: brightness(1.5) contrast(1.4) hue-rotate(450deg);
         }
       }
 
@@ -126,20 +143,24 @@ $card-radius:         0;
         display: flex;
         flex: 1 0 auto;
         flex-direction: column;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         border: 0px 1px 1px 1px solid rgba(0, 0, 0, 0.1);
         margin-top: -60px;
         padding: 1.5em;
         border-radius: 0px 0px 5px 5px;
 
-        h2 {
-          font-family: 'Montserrat', sans-serif;
+        h3 {
+          font-family: $body-font;
+          color: $my-white;
+
         }
 
         p {
           flex: 1 0 auto;
-          font-family: 'Montserrat_light', sans-serif;
+          font-family: $body-font;
           font-size: 15px;
+          color: $my-white;
+          text-align: justify;
         }
 
       }
