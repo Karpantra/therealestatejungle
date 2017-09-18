@@ -32,6 +32,7 @@
   border-top: 5px solid $my-green;
   background-color: $my-white;
   letter-spacing: 1px;
+  text-align: justify;
   h2 {
     color: $my-green;
     font-family: $body-font;
@@ -41,4 +42,8 @@
     color: $my-light-gray;
     font-size: 12px;
   }
+}
+
+.btn-concept {
+  margin-bottom: 25px;
 }

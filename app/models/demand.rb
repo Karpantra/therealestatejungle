@@ -8,7 +8,7 @@ class Demand < ApplicationRecord
   validates :surface, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :workstation_number, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :meeting_room_number, presence: true, numericality: { greater_than_or_equal_to: 1 }
-  validates :parking_number, presence: true, numericality: { greater_than_or_equal_to: 1 }
+  # validates :parking_number, presence: false, numericality: { greater_than_or_equal_to: 0 }
   validates :surface_type, presence: true
   validates :move_in_date, presence: true
 

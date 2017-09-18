@@ -18,17 +18,18 @@
         <p>Nous avons décider de lancer The Real Estate Jungle pour 3 raisons :
           <br>
           <br>
-          1. Conseiller les entrepreneurs, les startups et les grands groupes dans le choix de leurs espaces de travail flexibles
+          (1)Conseiller les entrepreneurs, les startups et les grands groupes dans le choix de leurs espaces de travail flexibles
           <br>
-          2. Digitaliser l’approche du marché de l’immobilier d’entreprises avec un outil permettant de comparer les différentes alternatives (Coworking, bureaux classiques, sous-location, etc.)
+          (2)Digitaliser l’approche du marché de l’immobilier d’entreprises avec un outil permettant de comparer les différentes alternatives (Coworking, bureaux classiques, sous-location, etc.)
           <br>
-          3. Permettre aux utilisateurs qui recherchent leurs futurs bureaux de bénéficier d’un accompagnement sur mesure. En effet la démarche se fait en ligne et est ensuite prise en main par des consultants ayant une grande expérience de l’immobilier d’entreprise et des nouveaux de travail comme le coworking.
+          (3)Permettre aux utilisateurs qui recherchent leurs futurs bureaux de bénéficier d’un accompagnement sur mesure. En effet la démarche se fait en ligne et est ensuite prise en main par des consultants ayant une grande expérience de l’immobilier d’entreprise et des nouveaux modes de travail comme le Coworking.
           <br>
           <br>
           Le paysage de l’immobilier de bureaux est en mutation, les travailleurs, qu’ils soient au sein d’une startup, collaborateurs d’une grande entreprise ou encore indépendants, poussent de plus en plus les professionnels de l’immobilier à créer de espaces adaptés avec des engagements flexibles.
-          Ces nouveaux codes nécessitent une compréhension claire des différentes alternatives quant à la prise à bail de locaux. En effet l’immobilier est l’un des premiers coûts d’une entreprise, est stratégique pour le confort des employés et peut être essentiel concernant le développement des affaires.
+          Ces nouveaux codes nécessitent une compréhension claire des différentes alternatives quant à la prise à bail de locaux ou la signature d'un contrat de prestations de services. En effet l’immobilier est l’un des premiers coûts d’une entreprise, est stratégique pour le confort des employés et peut être essentiel concernant le développement des affaires.
           <br>
-          Aujourd’hui il n’existe pas de cabinet de conseil ayant la capacité et la volonté d’accompagner les startups et les grands groupes dans la recherche de la solutions immobilière la plus adaptée à leurs besoins.</p>
+          <br>
+          Aujourd’hui il n’existe pas de cabinet de conseil ayant la capacité et la volonté d’accompagner les startups et les grands groupes dans la recherche de la solution immobilière la plus adaptée à leurs besoins.</p>
           <h2>Quel est le concept de The Real Estate Jungle ?</h2>
           <p>Toutes ces raisons nous ont poussé à développer The Real Estate Jungle afin de proposer un conseil adapté aux startups et grands groupes recherchant, pour l’un des locaux pour la première fois ou en raison d’une forte croissance, pour l’autre recherchant des espaces flexibles bénéficiant des nouveaux codes de l’immobilier d’entreprises.
             <br>
@@ -54,4 +55,25 @@
         </div>
       </div>
     </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <div class="btn-concept">
+          <% if user_signed_in? %>
+          <%= link_to new_user_demand_path(current_user), method: :get, class: 'form-search' do %>
+          <div class="flexbox">
+            <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
+          </div>
+          <% end %>
+          <% else %>
+          <%= form_tag(new_user_session_path, method: :get, class: 'form-search') do %>
+          <div class="flexbox">
+            <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- </div> -->

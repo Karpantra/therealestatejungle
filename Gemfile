@@ -34,6 +34,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-facebook'
 
 group :development, :test do
+  gem 'letter_opener'
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-byebug'

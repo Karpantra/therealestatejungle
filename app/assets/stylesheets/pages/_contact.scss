@@ -1,0 +1,73 @@
+.contact-background-image {
+  color: $my-white;
+  text-align: center;
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+  -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+  filter: blur(2px);
+  }
+}
+
+.brand-contact h1 {
+  color: $my-white;
+  position: relative;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.contact-content {
+  border: 1px solid solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: -5px;
+  margin-bottom: 20px;
+  border-top: 5px solid $my-green;
+  background-color: $my-white;
+  letter-spacing: 1px;
+  text-align: justify;
+  h1 {
+    color: $my-gray;
+    font-family: $body-font;
+    font-size: 30px;
+  }
+  h2 {
+    color: $my-green;
+    font-family: $body-font;
+    font-size: 15px;
+  }
+  p {
+    color: $my-light-gray;
+    font-size: 12px;
+    text-align: justify;
+  }
+  a {
+    font-size: 30px;
+    position: relative;
+    right: 49%;
+  }
+  a:hover {
+    color: $my-green;
+  }
+}
+
+.btn-contact {
+  margin-bottom: 25px;
+}
+
+.contact-picture {
+  width: 100px;
+  border-radius: 50%;
+  // background-color: transparent;
+  border: $my-green 1px solid;
+  // -webkit-filter: grayscale(1); /* Safari 6.0 - 9.0 */
+  // filter: grayscale(1);
+}
+

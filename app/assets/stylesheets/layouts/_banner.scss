@@ -61,17 +61,13 @@
 }
 .content {
   span:before {
-    content: 'ENTREPRENEURS';
-    animation: animate infinite 10s;
+    content: 'STARTUPS';
+    animation: animate infinite 12s;
   }
 }
 
 @keyframes animate {
   0%
-  {
-    content: 'ENTREPRENEURS'
-  }
-  50%
   {
     content: 'STARTUPS'
   }

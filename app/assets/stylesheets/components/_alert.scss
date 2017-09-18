@@ -3,14 +3,9 @@
 * ------------------------------------- */
 
 .alert {
+  margin: 0;
   text-align: center;
   color: white;
-  position: absolute;
-  left: 31%;
-  top: 6%;
-  width: 40%;
-  font-size: 15px;
-  height: 45px;
 }
 .alert-info {
   background: $green;

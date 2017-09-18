@@ -1,0 +1,13 @@
+<p>Bonjour <%= @demand.user.first_name %>,</p>
+<p>Votre cahier des charges est en cours d'analyse par nos équipes.</p>
+<p>Nous vous contacterons très rapidement à l'adresse suivante <b><%= @demand.user.email %></b>.</p>
+<p>Rendez-vous sur la page de votre cahier des charges en suivant le lien suivant:</p>
+<%= link_to "voir ma demande", user_demands_url(@demand.user_id)  %>
+<p>Vous pouvez modifier votre demande en suivant le lien suivant:</p>
+<p>Merci de la confiance que vous nous témoignez :)</p>
+<p>Au plaisir de vous rencontrer bientôt pour faire avancer votre projet immobilier.</p>
+<em>Gautier Weigert</em>
+<br>
+<em>Tél: 06 17 98 75 96</em>
+<br>
+<em>Email: gautier@therealestatejungle.fr</em>
