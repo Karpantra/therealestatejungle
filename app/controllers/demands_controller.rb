@@ -19,6 +19,20 @@ class DemandsController < ApplicationController
     @demand = Demand.all
   end
 
+ def edit
+   @demand = Demand.find(params[:id])
+ end
+
+ def update
+   @demand = Demand.find(params[:id])
+   if @demand.update(demand_params)
+    flash[:notice] = "Votre cahier a bien été modifié"
+     redirect_to user_demands_path(@demand.user_id)
+   else
+     render :edit
+   end
+ end
+
   private
 
   def demand_params

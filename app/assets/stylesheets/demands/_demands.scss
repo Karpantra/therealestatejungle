@@ -1,0 +1,142 @@
+.demands-background-image {
+  color: $my-white;
+  text-align: center;
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+  -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+  filter: blur(2px);
+  }
+}
+
+.brand-demands h1 {
+  color: $my-white;
+  position: relative;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.demands-content {
+  border: 1px solid solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: -5px;
+  margin-bottom: 20px;
+  border-top: 5px solid $my-green;
+  background-color: $my-white;
+  letter-spacing: 1px;
+  text-align: justify;
+  h1 {
+    color: $my-gray;
+    font-family: $body-font;
+    font-size: 30px;
+  }
+  h2 {
+    color: $my-green;
+    font-family: $body-font;
+    font-size: 18px;
+  }
+  p {
+    color: $my-light-gray;
+    font-size: 15px;
+    text-align: justify;
+  }
+  li {
+    font-size: 12px;
+    text-align: justify;
+  }
+  a {
+    font-size: 30px;
+    position: relative;
+    right: 49%;
+  }
+  a:hover {
+    color: $my-green;
+  }
+  strong {
+    font-size: 17px;
+    color: $my-green;
+  }
+  i {
+    font-size: 10px;
+  }
+}
+
+.no-demands-content {
+  border: 1px solid solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: -5px;
+  margin-bottom: 20px;
+  border-top: 5px solid $my-green;
+  background-color: $my-white;
+  text-align: center;
+  h1 {
+    color: $my-gray;
+    font-family: $body-font;
+    font-size: 30px;
+  }
+  h2 {
+    color: $my-green;
+    font-family: $body-font;
+    font-size: 18px;
+  }
+ }
+
+.btn-demands {
+  margin-bottom: 25px;
+}
+
+.btn-no-demand {
+  margin-top: 25px;
+}
+
+.demands-picture {
+  width: 100px;
+  border-radius: 50%;
+  // background-color: transparent;
+  border: $my-green 1px solid;
+  // -webkit-filter: grayscale(1); /* Safari 6.0 - 9.0 */
+  // filter: grayscale(1);
+}
+
+.demand-user-infos {
+  text-align: justify;
+  margin-top: 20px;
+    h2 {
+    color: $my-green;
+    font-family: $body-font;
+    font-size: 20px;
+  }
+  p {
+    color: $my-light-gray;
+    font-size: 15px;
+  }
+}
+
+.form-search-demands {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-recall {
+  background-color: $my-green;
+  border-color: $my-green;
+  font-size: 12px;
+  width: auto;
+  position: relative;
+  left: 90%;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: $body-font;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  // border: 1px solid rgba(0, 0, 0, 0.1);
+}

@@ -1,5 +1,125 @@
+<% if current_user.demands.blank? %>
 <div class="wrapper-pages">
-<% current_user.demands.each do |demand| %>
-  <%= demand.company_name %>
-<%end %>
+  <div class="demands-background-image" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 0%), url('<%= image_path('parisjungle2.jpg')%>');">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+          <div class="brand-demands">
+            <h1>MES <br> RECHERCHES <br> EN COURS</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <div class="no-demands-content">
+          <h1>Vous n'avez pas encore renseigné votre cahier des charges.</h1>
+          <h2>Décrivez-nous votre recherche en cliquant sur le bouton ci-dessous</h2>
+        </div>
+        <div class="btn-no-demand">
+          <% if user_signed_in? %>
+          <%= link_to new_user_demand_path(current_user), method: :get, class: 'form-search' do %>
+          <div class="flexbox">
+            <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
+          </div>
+          <% end %>
+          <% else %>
+          <%= form_tag(new_user_session_path, method: :get, class: 'form-search') do %>
+          <div class="flexbox">
+            <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<% else %>
+<div class="demands-background-image" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 0%), url('<%= image_path('parisjungle2.jpg')%>');">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <div class="brand-demands">
+          <h1>MES <br> RECHERCHES <br> EN COURS</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="demand-user-infos">
+        <%= image_tag current_user.facebook_picture_url, class: "demands-picture" %>
+        <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+        <p><%= current_user.email %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% current_user.demands.each do |demand| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="demands-content">
+        <div>
+          <h1><%= demand.company_name %></h1>
+          <i>Dernière mise à jour: <%= demand.updated_at %></i>
+          <ul>
+            <h2>Type d'occupation</h2>
+            <% if demand.lease == true%>
+            <p>
+              Location avec un budget de <strong><%= demand.lease_budget %> euros HT HC</strong>
+            </p>
+            <% end %>
+            <% if demand.buy == true%>
+            <p>
+              Achat avec un budget de <strong><%= demand.buy_budget %> euros HD</strong>
+            </p>
+            <% end %>
+            <h2>Localisation</h2>
+            <p>Les quartiers qui m'intéressent :
+              <ol>
+                <li><%= demand.location_1 %></li>
+                <% if demand.location_2.blank?%>
+                <% else %>
+                <li><%= demand.location_2 %></li>
+                <% end %>
+                <% if demand.location_3.blank?%>
+                <% else %>
+                <li><%= demand.location_3 %></li>
+                <% end %>
+              </ol>
+              <h2>Critères de recherche</h2>
+              <ul>
+                <p>Surface : <strong><%= demand.surface %></strong> m2 SUBL</p>
+                <p>Nombre de postes de travail : <strong><%= demand.workstation_number %></strong></p>
+                <p>Nombre de salles de réunions : <strong><%= demand.meeting_room_number %></strong></p>
+                <% if demand.parking_number.blank? %>
+                <% else %>
+                <p>Nombre de parkings : <strong><%= demand.parking_number %></strong></p>
+                <% end %>
+                <p>Type de surface : <strong><%= demand.surface_type %></strong></p>
+                <p>Date d'emménagement souhaitée : <strong><%= demand.move_in_date %></strong></p>
+              </ul>
+              <% if demand.other_spec.blank? %>
+              <% else %>
+              <h2>Besoins spécifiques</h2>
+              <p><%= demand.other_spec %></p>
+              <% end %>
+              <%= link_to edit_user_demand_path(demand.user_id, demand), method: :get, class: 'form-search-demands' do %>
+              <div class="flexbox">
+                <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+              </div>
+              <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <%end %>
+    <% end %>
+
