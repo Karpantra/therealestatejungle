@@ -115,18 +115,22 @@
               <div>
               <ul class="list-inline">
               <li>
+              <div>
               <%= link_to edit_user_demand_path(demand.user_id, demand), method: :get, class: 'form-search-demands' do %>
-              <div class="flexbox">
+
                 <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
-              </div>
+
               <% end %>
+              </div>
               </li>
               <li>
-              <%#= link_to user_demand_path(demand.user_id, demand), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-demands' do %>
-              <div class="flexbox">
-                <%#= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+              <div>
+              <%= link_to user_demand_path(demand.user_id, demand), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-demands' do %>
+
+                <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+
+              <% end %>
               </div>
-              <%# end %>
               </li>
               </ul>
               </div>
