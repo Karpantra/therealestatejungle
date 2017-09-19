@@ -26,11 +26,24 @@ class DemandsController < ApplicationController
  def update
    @demand = Demand.find(params[:id])
    if @demand.update(demand_params)
+    DemandMailer.modification_confirmation(@demand).deliver_now
     flash[:notice] = "Votre cahier a bien été modifié"
      redirect_to user_demands_path(@demand.user_id)
    else
      render :edit
    end
+ end
+
+ def destroy
+   @demand = Demand.find(params[:id])
+   if @demand.destroy
+   DemandMailer.destroy_confirmation(@demand).deliver_now
+   flash[:notice] = "Votre cahier des charges a bien été supprimé"
+    redirect_to user_demands_path(@demand.user_id)
+  else
+    flash[:notice] = "Impossible de supprimer le cahier des charges"
+    redirect_to user_demands_path(@demand.user_id)
+  end
  end
 
   private

@@ -53,7 +53,9 @@
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <div class="demand-user-infos">
-        <%= image_tag current_user.facebook_picture_url, class: "demands-picture" %>
+      <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/50x50" %>
+      <%= image_tag avatar_url, class: "demands-picture" %>
+        <%#= image_tag current_user.facebook_picture_url, class: "demands-picture" %>
         <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
         <p><%= current_user.email %></p>
       </div>
@@ -110,11 +112,23 @@
               <h2>Besoins spécifiques</h2>
               <p><%= demand.other_spec %></p>
               <% end %>
+              <ul class="list-inline">
+              <li>
               <%= link_to edit_user_demand_path(demand.user_id, demand), method: :get, class: 'form-search-demands' do %>
               <div class="flexbox">
                 <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
               </div>
               <% end %>
+              </li>
+              <li>
+              <%= link_to user_demand_path(demand.user_id, demand), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-demands' do %>
+              <div class="flexbox">
+                <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+              </div>
+              <% end %>
+                <%#= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure?" } %>
+              </li>
+              </ul>
         </div>
       </div>
     </div>

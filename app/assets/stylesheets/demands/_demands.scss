@@ -99,8 +99,8 @@
 }
 
 .demands-picture {
-  width: 100px;
-  border-radius: 50%;
+  width: 80px;
+  // border-radius: 50%;
   // background-color: transparent;
   border: $my-green 1px solid;
   // -webkit-filter: grayscale(1); /* Safari 6.0 - 9.0 */
@@ -110,7 +110,7 @@
 .demand-user-infos {
   text-align: justify;
   margin-top: 20px;
-    h2 {
+  h2 {
     color: $my-green;
     font-family: $body-font;
     font-size: 20px;
@@ -129,6 +129,21 @@
 .btn-recall-demands {
   background-color: $my-green;
   border-color: $my-green;
+  font-size: 12px;
+  width: auto;
+  position: relative;
+  left: 90%;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: $body-font;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  // border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-recall-demands-delete {
+  background-color: $my-gray;
+  border-color: $my-gray;
   font-size: 12px;
   width: auto;
   position: relative;
