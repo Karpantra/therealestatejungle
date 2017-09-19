@@ -112,6 +112,7 @@
               <h2>Besoins spécifiques</h2>
               <p><%= demand.other_spec %></p>
               <% end %>
+              <div>
               <ul class="list-inline">
               <li>
               <%= link_to edit_user_demand_path(demand.user_id, demand), method: :get, class: 'form-search-demands' do %>
@@ -121,14 +122,14 @@
               <% end %>
               </li>
               <li>
-              <%= link_to user_demand_path(demand.user_id, demand), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-demands' do %>
+              <%#= link_to user_demand_path(demand.user_id, demand), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-demands' do %>
               <div class="flexbox">
-                <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+                <%#= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
               </div>
-              <% end %>
-                <%#= link_to "Delete", flat_path(@flat), method: :delete, data: { confirm: "Are you sure?" } %>
+              <%# end %>
               </li>
               </ul>
+              </div>
         </div>
       </div>
     </div>

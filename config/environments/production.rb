@@ -2,6 +2,10 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "https://therealestatejungle.herokuapp.com" }
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.delivery_method     = :smtp
+  config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
+  config.action_mailer.default_url_options = { host: "therealestatejungle.herokuapp.com" }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -16,8 +20,8 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   # Action mailer config with letter_opener gem
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: "https://therealestatejungle.herokuapp.com" }
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.default_url_options = { host: "https://therealestatejungle.herokuapp.com" }
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.

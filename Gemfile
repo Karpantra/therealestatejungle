@@ -24,6 +24,9 @@ source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
 end
 
+# Post mark
+gem 'postmark-rails'
+
 gem 'jquery-ui-rails'
 gem 'jquery-ui-sass-rails'
 
