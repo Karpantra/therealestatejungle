@@ -30,6 +30,8 @@ gem 'postmark-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-ui-sass-rails'
 
+# Mailchimp
+gem 'gibbon', :git => 'https://github.com/amro/gibbon.git'
 
 # Linkedin & facebook connect
 gem 'omniauth'

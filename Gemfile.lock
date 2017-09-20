@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/amro/gibbon.git
+  revision: bc1fd46e5de91d257308e1524f8eeda6ba87220d
+  specs:
+    gibbon (3.1.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -255,6 +263,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass
+  gibbon!
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
