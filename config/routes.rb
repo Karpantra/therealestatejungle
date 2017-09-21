@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'coworkings/new'
+
+  get 'coworkings/index'
+
+  get 'coworkings/show'
+
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -13,5 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :demands, only: [:create, :update, :destroy]
+
+  resources :coworkings
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

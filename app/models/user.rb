@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :demands, dependent: :destroy
+  has_many :coworkings, dependent: :destroy
   after_create :send_welcome_email
   after_create :subscribe_to_newsletter
   # Include default devise modules. Others available are:

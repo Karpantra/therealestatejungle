@@ -7,7 +7,7 @@ class DemandsController < ApplicationController
     @demand = Demand.new(demand_params)
     @demand.user = current_user
       if @demand.save
-        DemandMailer.creation_confirmation(@demand).deliver_now
+        # DemandMailer.creation_confirmation(@demand).deliver_now
         flash[:notice] = "Votre cahier des charges a bien été enregistré"
         redirect_to root_path
       else
@@ -26,7 +26,7 @@ class DemandsController < ApplicationController
  def update
    @demand = Demand.find(params[:id])
    if @demand.update(demand_params)
-    DemandMailer.modification_confirmation(@demand).deliver_now
+    # DemandMailer.modification_confirmation(@demand).deliver_now
     flash[:notice] = "Votre cahier a bien été modifié"
      redirect_to user_demands_path(@demand.user_id)
    else
@@ -37,7 +37,7 @@ class DemandsController < ApplicationController
  def destroy
    @demand = Demand.find(params[:id])
    if @demand.destroy
-   DemandMailer.destroy_confirmation(@demand).deliver_now
+   # DemandMailer.destroy_confirmation(@demand).deliver_now
    flash[:notice] = "Votre cahier des charges a bien été supprimé"
     redirect_to user_demands_path(@demand.user_id)
   else
