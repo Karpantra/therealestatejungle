@@ -10,10 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914154436) do
+ActiveRecord::Schema.define(version: 20170921152357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coworkings", force: :cascade do |t|
+    t.string   "title"
+    t.string   "name"
+    t.string   "address"
+    t.string   "zip"
+    t.string   "city"
+    t.integer  "surface"
+    t.integer  "workstation_number"
+    t.text     "description"
+    t.string   "special_offer"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.boolean  "tv"
+    t.boolean  "erp_room"
+    t.boolean  "auditorium"
+    t.boolean  "kitchen"
+    t.boolean  "nap_zone"
+    t.boolean  "terrace"
+    t.boolean  "internet"
+    t.boolean  "photocopier"
+    t.boolean  "shower"
+    t.boolean  "locker"
+    t.boolean  "garden"
+    t.boolean  "rj45_socket"
+    t.boolean  "optical_fiber"
+    t.boolean  "storage"
+    t.boolean  "furniture"
+    t.boolean  "ohp"
+    t.boolean  "phone"
+    t.boolean  "cooling_system"
+    t.boolean  "alarm"
+    t.boolean  "board"
+    t.boolean  "computer"
+    t.boolean  "waiting_room"
+    t.boolean  "fax"
+    t.boolean  "disabled_access"
+    t.boolean  "bar"
+    t.boolean  "lift"
+    t.boolean  "common_space"
+    t.boolean  "local_bike"
+    t.boolean  "parking"
+    t.boolean  "discretionnary_coffee"
+    t.boolean  "cleaning_service"
+    t.boolean  "welcome_desk_service"
+    t.boolean  "mail_management_service"
+    t.boolean  "office_supplies"
+    t.index ["user_id"], name: "index_coworkings_on_user_id", using: :btree
+  end
 
   create_table "demands", force: :cascade do |t|
     t.boolean  "lease"
@@ -62,5 +112,6 @@ ActiveRecord::Schema.define(version: 20170914154436) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "coworkings", "users"
   add_foreign_key "demands", "users"
 end
