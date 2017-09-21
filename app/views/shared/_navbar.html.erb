@@ -10,9 +10,10 @@
     <% if user_signed_in? %>
 
     <!-- Links when logged in -->
-    <%= link_to "Mes cahiers des charges", user_demands_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-    <%#= link_to "PROFIL", edit_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Contactez-nous 06 17 98 75 96", pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Proposer un espace", new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking" %>
+    <%= link_to "Mes critères", user_demands_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Mes devis", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Contact", pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
@@ -26,9 +27,14 @@
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
+<!--           <li>
+            <%#= link_to new_coworking_path do %>
+            <i class="fa fa-building"></i>  <%#= t(".profile", default: "Proposer un espace") %>
+            <%# end %>
+          </li> -->
           <li>
-            <%= link_to root_path do %>
-            <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+            <%= link_to pages_contact_path do %>
+            <i class="fa fa-phone"></i>  <%= t(".profile", default: "Contact") %>
             <% end %>
           </li>
           <li>
@@ -42,8 +48,11 @@
     <% else %>
     <!-- Login link (when logged out) -->
     <ul class="list-inline">
-      <li><%= link_to t(".profile", default: "CONTACTEZ-NOUS 06 17 98 75 96"), root_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-      <li><%= link_to t(".sign_in", default: "S'IDENTIFIER"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <li>
+        <%= link_to t("t.profile", default: "Proposer un espace"), new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking" %>
+      </li>
+      <li><%= link_to t(".profile", default: "Contact"), pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+      <li><%= link_to t(".sign_in", default: "S'identifier"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
       </li>
     </ul>
@@ -63,17 +72,29 @@
         </li>
         <li>
           <%= link_to user_demands_path(current_user) do %>
-          <i class="fa fa-home"></i> <%= t(".sign_in", default: "Mes recherches") %>
+          <i class="fa fa-list-alt"></i> <%= t(".sign_in", default: "Mes critères") %>
           <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+          <i class="fa fa-money"></i> <%= t(".sign_in", default: "Mes devis") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_coworking_path do %>
+          <i class="fa fa-building"></i>  <%= t(".sign_out", default: "Proposer un espace") %>
+            <% end %>
+        </li>
+        <li>
+          <%= link_to pages_contact_path do %>
+          <i class="fa fa-phone"></i>  <%= t(".sign_out", default: "Contact") %>
+            <% end %>
+        </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
-          </li>
-          <!-- Old list -->
-        <!-- <li><a href="#">S'identifier</a></li> -->
-        <!-- <li><a href="#">Home</a></li> -->
-        <!-- <li><a href="#">Log out</a></li> -->
+        </li>
       </ul>
       <% else %>
       <div class="navbar-wagon-item hidden-md hidden-lg">
@@ -90,14 +111,15 @@
               <i class="fa fa-home"></i> <%= t(".sign_in", default: "Home") %>
               <% end %>
             <li>
+                <%= link_to new_coworking_path do %>
+                <i class="fa fa-building"></i>  <%= t(".sign_out", default: "Proposer un espace") %>
+                  <% end %>
+            </li>
+            <li>
               <%= link_to pages_contact_path do %>
-              <i class="fa fa-hand-o-right"></i>  <%= t(".sign_out", default: "Contact") %>
+              <i class="fa fa-phone"></i>  <%= t(".sign_out", default: "Contact") %>
                 <% end %>
               </li>
-              <!-- Old list -->
-            <!-- <li><a href="#">S'identifier</a></li> -->
-            <!-- <li><a href="#">Home</a></li> -->
-            <!-- <li><a href="#">Log out</a></li> -->
           </ul>
           <% end %>
     </div>

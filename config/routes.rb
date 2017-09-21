@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  mount Attachinary::Engine => "/attachinary"
+
   get 'coworkings/new'
 
   get 'coworkings/index'

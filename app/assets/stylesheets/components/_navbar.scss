@@ -62,6 +62,27 @@
   text-decoration: none;
 }
 
+/* Special btn for coworking owner */
+
+.navbar-wagon-item-coworking {
+  cursor: pointer;
+  padding: 0 20px;
+  color: $my-green;
+}
+
+/* Navbar link */
+.navbar-wagon-link-coworking {
+  color: $my-white;
+  font-size: 14px;
+  background-color: $my-green;
+  padding: 5px;
+  border-radius: 5px;
+}
+.navbar-wagon-link-coworking:hover {
+  color: $my-gray;
+  text-decoration: none;
+}
+
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;

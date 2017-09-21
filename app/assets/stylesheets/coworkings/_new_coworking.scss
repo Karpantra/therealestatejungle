@@ -42,6 +42,27 @@
   }
 }
 
+.attachinary {
+  input {
+    font-size: 12px;
+  }
+}
+
+.attachinary_container {
+  margin-top: 20px;
+  ul {
+    display: inline-block;
+    list-style: none;
+  }
+  a {
+    font-size: 10px;
+    color: $my-green;
+  }
+  img {
+    margin-bottom: 5px;
+  }
+}
+
 // Checkboxes design
 .category-choices {
   display: flex;

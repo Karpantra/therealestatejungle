@@ -30,6 +30,12 @@ gem 'postmark-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-ui-sass-rails'
 
+# Cloudinary & attachinary
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
 # Mailchimp
 gem 'gibbon', :git => 'https://github.com/amro/gibbon.git'
 
