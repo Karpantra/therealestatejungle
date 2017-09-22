@@ -23,6 +23,7 @@ class CoworkingsController < ApplicationController
   end
 
   def show
+    @coworking = Coworking.find(params[:id])
   end
 
   private

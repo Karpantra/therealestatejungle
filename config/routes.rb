@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   get 'pages/tarifs'
 
   resources :users do
-    resources :demands, only: [:new, :create, :index, :edit, :update, :destroy]
+    resources :demands, only: [:index, :edit, :update, :destroy]
   end
 
-  resources :demands, only: [:create, :update, :destroy]
+  resources :demands, only: [:index, :new, :create, :update, :destroy]
 
   resources :coworkings
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,2 +1,210 @@
-<h1>Coworkings#show</h1>
-<p>Find me in app/views/coworkings/show.html.erb</p>
+<!-- Carousel image up to 6 add condition if more images -->
+  <div id="carousel-example-generic" class="carousel slide carousel-top-link center-block" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="0" class="active"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="1"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="2"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="3"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="4"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="5"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= cl_image_tag @coworking.photos[0].path, aspect_ratio: 4, crop: :crop, class: "img-responsive center-block" %>
+      </div>
+      <div class="item">
+        <%= cl_image_tag @coworking.photos[1].path, aspect_ratio: 4, crop: :crop, class: "img-responsive center-block" %>
+      </div>
+      <% if @coworking.photos.count > 2 %>
+      <div class="item">
+        <%= cl_image_tag @coworking.photos[2].path, aspect_ratio: 4, crop: :crop, class: "img-responsive center-block" %>
+      </div>
+      <% end %>
+      <% if @coworking.photos.count > 3 %>
+      <div class="item">
+        <%= cl_image_tag @coworking.photos[3].path, aspect_ratio: 4, crop: :crop, class: "img-responsive center-block" %>
+      </div>
+      <% end %>
+      <% if @coworking.photos.count > 4 %>
+      <div class="item">
+        <%= cl_image_tag @coworking.photos[4].path, aspect_ratio: 4, crop: :crop, class: "img-responsive center-block" %>
+      </div>
+      <% end %>
+      <% if @coworking.photos.count > 5 %>
+      <div class="item">
+        <%= cl_image_tag @coworking.photos[5].path, aspect_ratio: 4, crop: :crop, class: "img-responsive center-block" %>
+      </div>
+      <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+<!-- Content of the offer -->
+
+<div class="container-general-infos">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="box-infos">
+        <h2>350€ /mois</h2>
+        <h2>100€ /semaine</h2>
+        <h2>25€ /jour</h2>
+        <%= form_tag(new_user_session_path, method: :get, class: 'form-search-coworking-show') do %>
+        <div class="flexbox">
+          <%= submit_tag "Demander un devis", class: "btn btn-primary btn-devis", style:"text-decoration:none" %>
+        </div>
+        <% end %>
+        <i>Dernière mise à jour <%= @coworking.updated_at %></i>
+          <h4><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Offre spéciale</h4>
+          <% if  @coworking.special_offer == ""%>
+          <p>Il n'y a pas d'offres en ce moment mais vous pouvez créer un compte pour être informé de toutes les offres à venir</p>
+          <% else %>
+          <p><%= @coworking.special_offer %></p>
+          <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-9">
+      <div class="box-infos">
+        <h1 class="highlight-coworking-show"><%= @coworking.title %></h1>
+        <h3>Description</h3>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @coworking.address %> - <%= @coworking.city %> - <%= @coworking.zip %></p>
+        <p><i class="fa fa-building" aria-hidden="true"></i> <%= @coworking.surface %> m2</p>
+        <p><i class="fa fa-desktop" aria-hidden="true"></i> <%= @coworking.workstation_number %> postes de travail</p>
+        <p><%= @coworking.description %></p>
+        <h3>Equipements</h3>
+        <!-- <div class="equip-service-list"> -->
+        <div class="row">
+          <div class="col-xs-12">
+          <ul class="list-inline equip-service-list">
+            <li class="col-md-6">
+              <%= @coworking.tv ? "Télévision" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.erp_room ? "Salle ERP" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.auditorium ? "Auditorium" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.kitchen ? "Cuisine" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.nap_zone ? "Salle de repos" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.terrace ? "terrasse" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.internet ? "Internet" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.photocopier ? "Photocopieurs" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.shower ? "Douches" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.locker ? "Vestiaires" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.garden ? "Jardin" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.rj45_socket ? "Prises RJ45" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.optical_fiber ? "Fibre optique" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.storage ? "Zone de stockage" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.furniture ? "Mobilier" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.ohp ? "Rétro projecteur" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.phone ? "Téléphone" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.cooling_system ? "Climatisation" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.alarm ? "Alarme" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.board ? "Paper board" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.computer ? "Ordinateur" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.waiting_room ? "Salle d'attente" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.fax ? "Fax" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.disabled_access ? "Accès handicapés" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.bar ? "Bar" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.lift ? "Ascenseurs" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.common_space ? "Espaces communs" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.local_bike ? "Local vélos" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.parking ? "Parkings" : "" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+        <h3>Services</h3>
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="list-inline equip-service-list">
+              <li>
+                <%= @coworking.discretionnary_coffee ? "Café à volonté" : "" %>
+              </li>
+              <li>
+              <%= @coworking.cleaning_service ? "Service de nettoyage" : "" %>
+              </li>
+              <li>
+              <%= @coworking.welcome_desk_service ? "Service de réception" : "" %>
+              </li>
+              <li>
+              <%= @coworking.mail_management_service ? "Service de gestion du courrier" : "" %>
+              </li>
+              <li>
+              <%= @coworking.office_supplies ? "Fournitures de bureaux" : "" %>
+              </li>
+              </div>
+            </ul>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+

@@ -1,4 +1,6 @@
 class DemandsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:create]
   def new
     @demand = Demand.new
   end

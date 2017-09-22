@@ -3,7 +3,7 @@ class Demand < ApplicationRecord
 
   validates :company_name, presence: true
   validates :lease_budget, presence: true
-  validates :buy_budget, presence: true
+  # validates :buy_budget, presence: true
   validates :location_1, presence: true
   validates :surface, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :workstation_number, presence: true, numericality: { greater_than_or_equal_to: 1 }

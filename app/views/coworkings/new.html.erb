@@ -7,29 +7,30 @@
         <%= simple_form_for(@coworking) do |f| %>
         <div class="row">
           <div class="col-xs-6">
-            <%= f.input :title, label: "Titre de l'annonce", placeholder: "Titre de votre annonce", hint: "Nous vous recommandons un titre court décrivant au mieux votre espace" %>
+            <%= f.input :title, label: "Titre de l'annonce", placeholder: "Coworking Paris 75003", hint: "Nous vous recommandons un titre court décrivant au mieux votre espace" %>
           </div>
           <div class="col-xs-6">
-            <%= f.input :name, label: "Nom de l'espace", placeholder: "Votre marque", hint: "Pour le respect de vos informations, votre marque ne sera visible qu'aux utilisateurs inscrits et confirmés" %>
+            <%= f.input :name, label: "Nom de l'espace", placeholder: "Votre marque" %>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <%= f.input :address, label: "Adresse", placeholder: "Votre adresse complète", hint: "Pour le respect de vos informations, votre adresse ne sera visible qu'aux utilisateurs inscrits et confirmés" %>
+            <%= f.input :address, label: "Adresse", placeholder: "31 rue Sentier 75002 Paris" %>
           </div>
           <div class="col-xs-3">
-            <%= f.input :city, label: "Ville", placeholder: "La ville où est situé l'espace", hint: "Pour le respect de vos informations, votre marque ne sera visible qu'aux utilisateurs inscrits et confirmés" %>
+            <%= f.input :city, label: "Ville", placeholder: "Paris" %>
           </div>
           <div class="col-xs-3">
-            <%= f.input :zip, label: "Zip", placeholder: "Code postale", hint: "Pour le respect de vos informations, votre marque ne sera visible qu'aux utilisateurs inscrits et confirmés" %>
+            <%= f.input :zip, label: "Zip", placeholder: "75002" %>
           </div>
+          <%= f.hint "Pour le respect de vos informations, certaines données ne seront visibles qu'aux utilisateurs inscrits et confirmés " %>
         </div>
         <div class="row">
         <div class="col-xs-6">
           <%= f.input :surface, label: "Surface", placeholder: "2000", hint: "Nous vous recommandons d'indiquer la surface totale de votre espace" %>
         </div>
         <div class="col-xs-6">
-          <%= f.input :workstation_number, label: "Nb de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquerle nombre total de postes de travail installés" %>
+          <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquerle nombre total de postes de travail installés" %>
         </div>
         </div>
         <h2>Equipements</h2>
