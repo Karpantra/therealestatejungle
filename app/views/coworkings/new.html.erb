@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <div class="form-coworking-new">
-        <h1>Créer votre espace de Coworking</h1>
+        <h1>Créez votre espace de travail</h1>
         <h2>Informations générales</h2>
         <%= simple_form_for(@coworking) do |f| %>
         <div class="row">
@@ -21,7 +21,7 @@
             <%= f.input :city, label: "Ville", placeholder: "Paris" %>
           </div>
           <div class="col-xs-3">
-            <%= f.input :zip, label: "Zip", placeholder: "75002" %>
+            <%= f.input :zip_code, label: "Zip", placeholder: "75002" %>
           </div>
           <%= f.hint "Pour le respect de vos informations, certaines données ne seront visibles qu'aux utilisateurs inscrits et confirmés " %>
         </div>
@@ -30,7 +30,7 @@
           <%= f.input :surface, label: "Surface", placeholder: "2000", hint: "Nous vous recommandons d'indiquer la surface totale de votre espace" %>
         </div>
         <div class="col-xs-6">
-          <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquerle nombre total de postes de travail installés" %>
+          <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquer le nombre total de postes de travail installés" %>
         </div>
         </div>
         <h2>Equipements et services</h2>
@@ -191,3 +191,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+

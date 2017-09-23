@@ -16,6 +16,15 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem "coffee-rails"
+
+# Google map
+gem "geocoder"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 # Datepicker
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
@@ -34,7 +43,6 @@ gem 'jquery-ui-sass-rails'
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
-gem 'coffee-rails'
 
 # Mailchimp
 gem 'gibbon', :git => 'https://github.com/amro/gibbon.git'

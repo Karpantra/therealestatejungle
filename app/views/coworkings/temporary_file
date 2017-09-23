@@ -253,6 +253,8 @@
           </div>
         </div>
       </div>
+
+
 form with js
           <div class="form-group">
             <label class="control-label check_boxes optional">Categories</label>
