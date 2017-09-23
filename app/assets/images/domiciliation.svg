@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" style="width: 100%; height: 100%;"><desc>Made with illustrio</desc>
+  
+<g class="content"><circle cx="50%" cy="50%" r="27px" class="main-fill"></circle><g class="base"><g fill="none" fill-rule="evenodd" stroke="none" class="secondary-fill">
+    
+    
+  </g><g fill="none" transform="translate(18.455 19.727)" stroke="none" class="secondary-fill">
+      <rect width="6.364" height="8.909" x="12.727" y="20.364" fill="none" stroke="none" class="secondary-fill"></rect>
+      <path d="M31.5897273,12.8749091 L24.1818182,6.70218182 L24.1818182,1.90909091 C24.1818182,1.55781818 23.8973636,1.27272727 23.5454545,1.27272727 C23.1935455,1.27272727 22.9090909,1.55781818 22.9090909,1.90909091 L22.9090909,5.64136364 L16.3163636,0.147636364 C16.0802727,-0.0496363636 15.7379091,-0.0496363636 15.5018182,0.147636364 L0.229090909,12.8749091 C-0.0407272727,13.1001818 -0.077,13.5010909 0.147636364,13.7709091 C0.372272727,14.0407273 0.773181818,14.077 1.04363636,13.8523636 L3.81818182,11.5404545 L3.81818182,28.6363636 C3.81818182,28.9882727 4.10327273,29.2727273 4.45454545,29.2727273 L11.4545455,29.2727273 L11.4545455,19.7272727 C11.4545455,19.3753636 11.7396364,19.0909091 12.0909091,19.0909091 L19.7272727,19.0909091 C20.0791818,19.0909091 20.3636364,19.3753636 20.3636364,19.7272727 L20.3636364,29.2727273 L27.3636364,29.2727273 C27.7155455,29.2727273 28,28.9882727 28,28.6363636 L28,11.5404545 L30.7739091,13.8523636 C30.8935455,13.9516364 31.0373636,14 31.1811818,14 C31.3638182,14 31.5445455,13.9217273 31.6711818,13.7709091 C31.8958182,13.5010909 31.8589091,13.0995455 31.5897273,12.8749091 L31.5897273,12.8749091 Z" fill="none" stroke="none" class="secondary-fill"></path>
+    </g></g></g><style>
+          .main-fill {fill: #313A3D;}
+          .main-stroke {stroke: #313A3D;}
+          .secondary-fill {fill: #29AB87;}
+          .secondary-stroke {stroke: #29AB87;}
+
+          .main-fill--darken {fill: #0f1213;}
+          .main-stroke--darken {stroke: #0f1213;}
+          .secondary-fill--darken {fill: #1a6d56;}
+          .secondary-stroke--darken {stroke: #1a6d56;}
+
+          .main-fill--darkener {fill: #000000;}
+          .main-stroke--darkener {stroke: #000000;}
+          .secondary-fill--darkener {fill: #104436;}
+          .secondary-stroke--darkener {stroke: #104436;}
+        </style></svg>

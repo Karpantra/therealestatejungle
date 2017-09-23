@@ -1,0 +1,270 @@
+        <div class="row">
+          <div class="checkbox-new-coworking">
+            <div class="col-xs-3">
+              <%= f.input :tv, label: "Télevision", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+            <%= f.input :erp_room, label: "Salle ERP", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :auditorium, label: "Auditorium", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :kitchen, label: "Cuisine", as: :boolean %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="checkbox-new-coworking">
+            <div class="col-xs-3">
+              <%= f.input :nap_zone, label: "Espace repos", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :terrace, label: "Terrasse", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :internet, label: "Internet", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+            <%= f.input :photocopier, label: "Copieurs", as: :boolean %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="checkbox-new-coworking">
+            <div class="col-xs-3">
+              <%= f.input :shower, label: "Douches", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :locker, label: "Vestiaires", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :garden, label: "Jardin", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :rj45_socket, label: "Prise RJ45", as: :boolean %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="checkbox-new-coworking">
+            <div class="col-xs-3">
+              <%= f.input :optical_fiber, label: "Fibre optique", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+            <%= f.input :storage, label: "Stockage", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :furniture, label: "Mobilier", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :ohp, label: "rétro projecteur", as: :boolean %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="checkbox-new-coworking">
+            <div class="col-xs-3">
+              <%= f.input :phone, label: "Téléphones", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :cooling_system, label: "Air condtionné", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :alarm, label: "Alarme", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+            <%= f.input :computer, label: "Ordinateurs", as: :boolean %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="checkbox-new-coworking">
+            <div class="col-xs-3">
+              <%= f.input :waiting_room, label: "Salle d'attente", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :fax, label: "Fax", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :disabled_access, label: "Accés handicapé", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :bar, label: "Bar", as: :boolean %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="checkbox-new-coworking">
+            <div class="col-xs-3">
+              <%= f.input :lift, label: "Ascenseurs", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+            <%= f.input :common_space, label: "Espaces communs", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :local_bike, label: "Local vélos", as: :boolean %>
+            </div>
+            <div class="col-xs-3">
+              <%= f.input :parking, label: "Parkings", as: :boolean %>
+            </div>
+          </div>
+        </div>
+          <h2>Services</h2>
+            <div class="row">
+              <div class="checkbox-new-coworking">
+                <div class="col-xs-3">
+                  <%= f.input :discretionnary_coffee, label: "Café à volonté", as: :boolean %>
+                </div>
+                <div class="col-xs-3">
+                <%= f.input :cleaning_service, label: "Service nettoyage", as: :boolean %>
+                </div>
+                <div class="col-xs-3">
+                  <%= f.input :welcome_desk_service, label: "Réception / accueil", as: :boolean %>
+                </div>
+                <div class="col-xs-3">
+                  <%= f.input :mail_management_service, label: "Gestion du courrier", as: :boolean %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="checkbox-new-coworking">
+                <div class="col-xs-3">
+                  <%= f.input :office_supplies, label: "Fournitures", as: :boolean %>
+                </div>
+              </div>
+            </div>
+
+                    <!-- <div class="equip-service-list"> -->
+        <div class="row">
+          <div class="col-xs-12">
+          <ul class="list-inline equip-service-list">
+            <li class="col-md-6">
+              <%= @coworking.tv ? "Télévision" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.erp_room ? "Salle ERP" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.auditorium ? "Auditorium" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.kitchen ? "Cuisine" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.nap_zone ? "Salle de repos" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.terrace ? "terrasse" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.internet ? "Internet" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.photocopier ? "Photocopieurs" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.shower ? "Douches" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.locker ? "Vestiaires" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.garden ? "Jardin" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.rj45_socket ? "Prises RJ45" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.optical_fiber ? "Fibre optique" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.storage ? "Zone de stockage" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.furniture ? "Mobilier" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.ohp ? "Rétro projecteur" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.phone ? "Téléphone" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.cooling_system ? "Climatisation" : "" %>
+            </li>
+            <li class="col-md-6">
+              <%= @coworking.alarm ? "Alarme" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.board ? "Paper board" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.computer ? "Ordinateur" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.waiting_room ? "Salle d'attente" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.fax ? "Fax" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.disabled_access ? "Accès handicapés" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.bar ? "Bar" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.lift ? "Ascenseurs" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.common_space ? "Espaces communs" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.local_bike ? "Local vélos" : "" %>
+            </li>
+             <li class="col-md-6">
+              <%= @coworking.parking ? "Parkings" : "" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+        <h3>Services</h3>
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="list-inline equip-service-list">
+              <li>
+                <%= @coworking.discretionnary_coffee ? "Café à volonté" : "" %>
+              </li>
+              <li>
+              <%= @coworking.cleaning_service ? "Service de nettoyage" : "" %>
+              </li>
+              <li>
+              <%= @coworking.welcome_desk_service ? "Service de réception" : "" %>
+              </li>
+              <li>
+              <%= @coworking.mail_management_service ? "Service de gestion du courrier" : "" %>
+              </li>
+              <li>
+              <%= @coworking.office_supplies ? "Fournitures de bureaux" : "" %>
+              </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+form with js
+          <div class="form-group">
+            <label class="control-label check_boxes optional">Categories</label>
+            <input type="hidden" name="coworking[equipment_ids][]" value="">
+            <div class="equipment-choices">
+              <% Equipment.all.each do |equipment| %>
+                <input type="checkbox" class="hidden" value="<%= equipment.id %>" name="coworking[equipment_ids][]" id="coworking_equipment_ids_<%= equipment.id %>">
+
+                <label class="equipment-choice" for="coworking_equipment_ids_<%= equipment.id %>">
+                  <%= equipment.name %>
+                </label>
+              <% end %>
+             </div>
+          </div>
+

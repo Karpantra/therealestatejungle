@@ -29,6 +29,6 @@ class CoworkingsController < ApplicationController
   private
 
   def coworking_params
-    params.require(:coworking).permit(:title, :name, :address, :zip, :city, :surface, :workstation_number, :description, :special_offer, :user_id, :tv, :erp_room, :auditorium, :kitchen, :nap_zone, :terrace, :internet, :photocopier, :shower, :locker, :garden, :rj45_socket, :optical_fiber, :storage, :furniture, :ohp, :phone, :cooling_system, :alarm, :board, :computer, :waiting_room, :fax, :disabled_access, :bar, :lift, :common_space, :local_bike, :parking, :discretionnary_coffee, :cleaning_service, :welcome_desk_service, :mail_management_service, :office_supplies, photos: [])
+    params.require(:coworking).permit(:title, :name, :address, :zip, :city, :surface, :workstation_number, :description, :special_offer, :user_id, :equipment_ids, photos: [])
   end
 end

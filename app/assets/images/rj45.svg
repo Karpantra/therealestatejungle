@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" style="width: 100%; height: 100%;"><desc>Made with illustrio</desc>
+  
+<g class="content"><circle cx="50%" cy="50%" r="27px" class="main-fill"></circle><g class="base"><g fill="none" fill-rule="evenodd" stroke="none" class="secondary-fill">
+    
+    
+  </g><g fill="none" transform="translate(20 20)" stroke="none" class="secondary-fill">
+      <path d="M0.8,0.9 L0.8,29.1 C0.8,29.6 1.2,30 1.7,30 L28.3,30 C28.8,30 29.2,29.6 29.2,29.1 L29.2,0.9 C29.2,0.4 28.8,-1.11022302e-16 28.3,-1.11022302e-16 L1.7,-1.11022302e-16 C1.2,0 0.8,0.4 0.8,0.9 L0.8,0.9 Z M5.5,17.6 L5.5,9.6 L5.5,8.7 C5.5,8.2 5.5,7.9 6,7.9 L23.9,7.9 C24.4,7.9 24.5,8.2 24.5,8.7 L24.5,18.9 L23,18.9 L22.1,18.9 L20.3,18.9 L18.7,18.9 L18.7,23.1 C18.7,23.6 18.6,23.6 18.1,23.6 L17.6,23.6 L12.3,23.6 C11.8,23.6 11.8,23.6 11.8,23.1 L11.8,18.9 L7,18.9 L5.5,18.9 L5.5,17.6 L5.5,17.6 Z" fill="none" stroke="none" class="secondary-fill"></path>
+      <path d="M11.1 15.8C11.6 15.8 11.9 15.4 11.9 14.9L11.9 11.3C11.9 10.8 11.6 10.4 11.1 10.4 10.6 10.4 10.3 10.8 10.3 11.3L10.3 14.9C10.3 15.4 10.6 15.8 11.1 15.8L11.1 15.8zM18.9 15.8C19.4 15.8 19.7 15.4 19.7 14.9L19.7 11.3C19.7 10.8 19.4 10.4 18.9 10.4 18.4 10.4 18.1 10.8 18.1 11.3L18.1 14.9C18.2 15.4 18.5 15.8 18.9 15.8L18.9 15.8z" fill="none" stroke="none" class="secondary-fill"></path>
+    </g></g></g><style>
+          .main-fill {fill: #313A3D;}
+          .main-stroke {stroke: #313A3D;}
+          .secondary-fill {fill: #29AB87;}
+          .secondary-stroke {stroke: #29AB87;}
+
+          .main-fill--darken {fill: #0f1213;}
+          .main-stroke--darken {stroke: #0f1213;}
+          .secondary-fill--darken {fill: #1a6d56;}
+          .secondary-stroke--darken {stroke: #1a6d56;}
+
+          .main-fill--darkener {fill: #000000;}
+          .main-stroke--darkener {stroke: #000000;}
+          .secondary-fill--darkener {fill: #104436;}
+          .secondary-stroke--darkener {stroke: #104436;}
+        </style></svg>

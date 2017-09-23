@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" style="width: 100%; height: 100%;"><desc>Made with illustrio</desc>
+  
+<g class="content"><circle cx="50%" cy="50%" r="27px" class="main-fill"></circle><g class="base"><g fill="none" fill-rule="evenodd" stroke="none" class="secondary-fill">
+    
+    
+  </g><g fill="none" transform="translate(19 23)" stroke="none" class="secondary-fill">
+      <path d="M6.5,23.1 C6.9,23.1 7.3,23 7.5,22.7 C8.1,22.1 8.1,21.2 7.5,20.6 C2.8,15.9 2.8,8.2 7.5,3.4 C8.1,2.8 8.1,1.9 7.5,1.3 C6.9,0.7 6,0.7 5.4,1.3 C-0.5,7.2 -0.5,16.8 5.4,22.7 C5.7,23 6.1,23.1 6.5,23.1 L6.5,23.1 Z" fill="none" stroke="none" class="secondary-fill"></path>
+      <path d="M12.1 4.4C11.5 3.8 10.6 3.8 10 4.4 5.8 8.6 5.8 15.5 10 19.7 10.3 20 10.7 20.1 11 20.1 11.3 20.1 11.8 20 12 19.7 12.6 19.1 12.6 18.2 12 17.6 8.9 14.5 8.9 9.6 12 6.5 12.6 5.9 12.6 4.9 12.1 4.4L12.1 4.4zM24.5 1.3C23.9 1.9 23.9 2.8 24.5 3.4 29.2 8.1 29.2 15.8 24.5 20.6 23.9 21.2 23.9 22.1 24.5 22.7 24.8 23 25.2 23.1 25.5 23.1 25.8 23.1 26.3 23 26.5 22.7 32.4 16.8 32.4 7.2 26.5 1.3 26 .7 25.1.7 24.5 1.3L24.5 1.3z" fill="none" stroke="none" class="secondary-fill"></path>
+      <path d="M21,20.1 C21.4,20.1 21.8,20 22,19.7 C26.2,15.5 26.2,8.6 22,4.4 C21.4,3.8 20.5,3.8 19.9,4.4 C19.3,5 19.3,5.9 19.9,6.5 C23,9.6 23,14.5 19.9,17.6 C19.3,18.2 19.3,19.1 19.9,19.7 C20.2,19.9 20.6,20.1 21,20.1 L21,20.1 Z" fill="none" stroke="none" class="secondary-fill"></path>
+      <path d="M16.1,15.7 C18.1,15.7 19.8,14 19.8,12 C19.8,10 18.1,8.3 16.1,8.3 C14.1,8.3 12.4,10 12.4,12 C12.4,14 14,15.7 16.1,15.7 L16.1,15.7 Z" fill="none" stroke="none" class="secondary-fill"></path>
+    </g></g></g><style>
+          .main-fill {fill: #313A3D;}
+          .main-stroke {stroke: #313A3D;}
+          .secondary-fill {fill: #29AB87;}
+          .secondary-stroke {stroke: #29AB87;}
+
+          .main-fill--darken {fill: #0f1213;}
+          .main-stroke--darken {stroke: #0f1213;}
+          .secondary-fill--darken {fill: #1a6d56;}
+          .secondary-stroke--darken {stroke: #1a6d56;}
+
+          .main-fill--darkener {fill: #000000;}
+          .main-stroke--darkener {stroke: #000000;}
+          .secondary-fill--darkener {fill: #104436;}
+          .secondary-stroke--darkener {stroke: #104436;}
+        </style></svg>

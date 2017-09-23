@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921182633) do
+ActiveRecord::Schema.define(version: 20170923002115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20170921182633) do
     t.text     "description"
     t.string   "special_offer"
     t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.boolean  "tv"
     t.boolean  "erp_room"
     t.boolean  "auditorium"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170921182633) do
     t.boolean  "welcome_desk_service"
     t.boolean  "mail_management_service"
     t.boolean  "office_supplies"
+    t.string   "equipment_ids",           default: [],              array: true
     t.index ["user_id"], name: "index_coworkings_on_user_id", using: :btree
   end
 

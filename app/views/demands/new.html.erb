@@ -26,7 +26,7 @@
         <h2>Où souhaitez-vous vous implanter ?</h2>
         <div class="row">
           <div class="col-xs-4">
-            <%= f.input :location_1, label: "Choix n°1", collection: Demand::ZONE, error: "Merci de remplir ce champs pour valider le formulaire" %>
+            <%= f.input :location_1, label: "Choix n°1", prompt: "Où ?", collection: Demand::ZONE, error: "Merci de remplir ce champs pour valider le formulaire" %>
           </div>
           <div class="col-xs-4">
             <%= f.input :location_2, label: "Choix n°2", collection: Demand::ZONE %>
