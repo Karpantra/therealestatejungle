@@ -18,6 +18,12 @@ gem 'simple_form'
 gem 'uglifier'
 gem "coffee-rails"
 
+# Pundit
+gem "pundit"
+
+# Stripe
+gem 'money-rails'
+
 # Google map
 gem "geocoder"
 gem "gmaps4rails"

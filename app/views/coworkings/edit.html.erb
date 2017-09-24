@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <div class="form-coworking-new">
-        <h1>Créez votre espace de travail</h1>
+        <h1>Modifiez votre annonce</h1>
         <h2>Informations générales</h2>
         <%= simple_form_for(@coworking) do |f| %>
         <div class="row">
@@ -197,7 +197,7 @@
             <%= f.input :photos, label: "Téléchargez jusqu'à 6 photos", as: :attachinary %>
             </div>
           </div>
-          <%= f.submit "Créer et publier mon espace", class: "btn btn-primary"  %>
+          <%= f.submit "Mettre à jour et publier mon espace", class: "btn btn-primary"  %>
         <% end %>
       </div>
     </div>

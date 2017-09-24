@@ -1,11 +1,15 @@
 .container-general-infos {
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   h1 {
     font-size: 30px;
     color: $my-gray;
   }
   h2 {
-    font-size: 15px;
-    color: $my-green;
+    font-size: 30px;
+    color: $my-gray;
   }
   h3 {
     font-size: 15px;

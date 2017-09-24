@@ -1,8 +1,14 @@
 class DemandsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new]
   before_action :authenticate_user!, only: [:create]
+
+  def index
+    @demand = policy_scope(Coworking)
+  end
+
   def new
     @demand = Demand.new
+    authorize @demand
   end
 
   def create
@@ -15,10 +21,6 @@ class DemandsController < ApplicationController
       else
       render :new
     end
-  end
-
-  def index
-    @demand = Demand.all
   end
 
  def edit

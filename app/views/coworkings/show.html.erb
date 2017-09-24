@@ -57,9 +57,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3">
       <div class="box-infos">
-        <h2>350€ /mois</h2>
-        <h2>100€ /semaine</h2>
-        <h2>25€ /jour</h2>
+        <h2 class="highlight"><%= humanized_money_with_symbol(@coworking.price*100) %> /mois</h2>
+<!--         <h2>100€ /semaine</h2>
+        <h2>25€ /jour</h2> -->
         <%= form_tag(new_user_session_path, method: :get, class: 'form-search-coworking-show') do %>
         <div class="flexbox">
           <%= submit_tag "Demander un devis", class: "btn btn-primary btn-devis", style:"text-decoration:none" %>
@@ -78,8 +78,8 @@
       <div class="box-infos">
         <h1 class="highlight-coworking-show"><%= @coworking.title %></h1>
         <h3>Description</h3>
-        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @coworking.address %> - <%= @coworking.city %> - <%= @coworking.zip_code %></p>
-        <p><i class="fa fa-building" aria-hidden="true"></i> <%= @coworking.surface %> m2</p>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @coworking.address %> - <%= @coworking.zip_code %></p>
+        <p><i class="fa fa-building" aria-hidden="true"></i> <%= @coworking.surface %> m²</p>
         <p><i class="fa fa-desktop" aria-hidden="true"></i> <%= @coworking.workstation_number %> postes de travail</p>
         <p><%= @coworking.description %></p>
         <h3>Equipements</h3>
@@ -199,17 +199,42 @@
            </div>
          </ul>
        </div>
+         <h3>Localisation</h3>
+<div id="map" style="width: 100%; height: 300px;"></div>
+<div>
+  <ul class="list-inline">
+    <li>
+      <div>
+      <% if policy(@coworking).edit? %>
+          <%= link_to edit_coworking_path(@coworking), method: :get, class: 'form-search-demands' do %>
+          <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
+          <% end %>
+      <% end %>
+      </div>
+    </li>
+    <li>
+      <div>
+    <% if policy(@coworking).destroy? %>
+      <%= link_to coworking_path(@coworking), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre annonce ?"}, class: 'form-search-demands' do %>
+
+        <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+
+        <% end %>
+    <% end %>
+      </div>
+    </li>
+  </ul>
+</div>
      </div>
    </div>
  </div>
 </div>
 </div>
 
-<div id="map" style="width: 400px; height: 200px;"></div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9zt6yDNWNCEE0d6P4c-Q4YpNYDwuPVI0&callback=initMap" type="text/javascript"></script>
+
 
 <% content_for(:after_js) do %>
-  <script type="text/javascript">
+  <script>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -222,15 +247,6 @@
           handler.getMap().setZoom(14);
         }
       });
-    });
-  </script>
-<% end %>
-
-<% content_for(:after_js) do %>
-  <script>
-    $(document).ready(function() {
-      var coord = <%= raw @coworking_coordinates.to_json %>;
-      alert('Coworking coordinates are ' + coord.lat + ', ' + coord.lng);
     });
   </script>
 <% end %>

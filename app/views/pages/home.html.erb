@@ -38,25 +38,25 @@
  </div>
 </div>
 </div>
-
-
-<% if user_signed_in? %>
-<%= link_to new_demand_path, method: :get, class: 'form-search' do %>
+<%= link_to coworkings_path, method: :get, class: 'form-search' do %>
 <div class="flexbox">
-  <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+  <%= submit_tag "RECHERCHER LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
 </div>
 <% end %>
-<% else %>
-<%= link_to new_user_session_path, method: :get, class: 'form-search' do %>
-<div class="flexbox">
-  <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
-</div>
-<% end %>
-<% end %>
+
 
 <div class="home-background-image" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 80%), url('<%= image_path('parisjungle3.jpg')%>');">
 <div class="container">
   <div class="row">
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-6"></div>
+      <h2 class="highlight">Nous pouvons vous conseiller</h2>
+      <p>Remplissez votre cahier des charges et nous vous accompagnerons dans votre recherche et vos analyses de scénarios</p>
+  </div>
+</div>
     <ul class="cards">
 
       <li class="cards_item">
@@ -69,19 +69,10 @@
           <div class="card_content">
             <h2 class="card_heading"><h3 class="highlight">Jeunes pousses</h3></h2>
             <p>Les entrepreneurs, seuls ou avec une petite équipe, font souvent face à la contrainte de la solitude. Louer des bureaux représente un budget conséquent et avoir une compréhension claire du marché de l'<strong>immobilier d'entreprise</strong> n'est pas chose facile. Il existe beaucoup de solutions permettant de limiter les investissements (<strong>Coworking</strong> ou <strong>sous-location</strong> par exemple) et de bénéficier de services inclus.</p>
-
-            <% if user_signed_in? %>
             <%= link_to new_demand_path, method: :get, class: 'form-search' do %>
             <div class="flexbox">
               <%= submit_tag "TROUVER MES PREMIERS BUREAUX", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
             </div>
-            <% end %>
-            <% else %>
-            <%= link_to new_user_session_path, method: :get, class: 'form-search' do %>
-            <div class="flexbox">
-              <%= submit_tag "TROUVER MES PREMIERS BUREAUX", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
-            </div>
-            <% end %>
             <% end %>
           </div>
         </div>
@@ -97,18 +88,10 @@
           <div class="card_content">
             <h2 class="card_heading"><h3 class="highlight">Startups</h3></h2>
             <p>Les startups connaissant une croissance forte font face à différents challenges comme les recrutements, le développement du business et toutes les autres tâches opérationnelles du quotidien. L'analyse de leurs besoins en immobilier ainsi que la recherche des espaces de travail idoines ajoutent à cette charge de travail. Prendre une décision quant à s'installer dans un espace de <strong>Coworking</strong> ou prendre un bail classique est très stratégique et peut avoir des conséquences financières et logistiques lourdes.</p>
-            <% if user_signed_in? %>
             <%= link_to new_demand_path, method: :get, class: 'form-search' do %>
             <div class="flexbox">
               <%= submit_tag "TROUVER UN ESPACE FLEXIBLE", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
             </div>
-            <% end %>
-            <% else %>
-            <%= form_tag(new_user_session_path, method: :get, class: 'form-search') do %>
-            <div class="flexbox">
-              <%= submit_tag "TROUVER UN ESPACE FLEXIBLE", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
-            </div>
-            <% end %>
             <% end %>
           </div>
         </div>
@@ -124,18 +107,10 @@
           <div class="card_content">
             <h2 class="card_heading"><h3 class="highlight">Grands groupes</h3></h2>
             <p>La donne change et les grandes entreprises l'ont bien compris. Face à la mutation des modes de travail (<strong>Coworking</strong>, <strong>bureaux partagés</strong>), au besoin d'attirer et de retenir les talents (en prenant en compte les comportements des nouvelles générations) et de stimuler l'innovation de leurs collaborateurs, elles font de plus en plus le choix d'installer certaines équipes dans des espaces de <strong>Coworking</strong>.</p>
-            <% if user_signed_in? %>
             <%= link_to new_demand_path, method: :get, class: 'form-search' do %>
             <div class="flexbox">
               <%= submit_tag "TROUVER UN ESPACE STIMULANT", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
             </div>
-            <% end %>
-            <% else %>
-            <%= form_tag(new_user_session_path, method: :get, class: 'form-search') do %>
-            <div class="flexbox">
-              <%= submit_tag "TROUVER UN ESPACE STIMULANT", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
-            </div>
-            <% end %>
             <% end %>
           </div>
         </div>
