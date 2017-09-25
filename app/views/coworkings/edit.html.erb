@@ -26,178 +26,93 @@
           <%= f.hint "Pour le respect de vos informations, certaines données ne seront visibles qu'aux utilisateurs inscrits et confirmés " %>
         </div>
         <div class="row">
-          <div class="col-xs-12">
-            <%= f.input :price_cents, label: "Prix au mois", placeholder: "5000" %>
+          <div class="col-xs-3">
+            <%= f.input :price_per_month, label: "Prix au mois", placeholder: "5000€" %>
           </div>
-<!--           <div class="col-xs-4">
-            <%#= f.input :city, label: "Ville", placeholder: "Paris" %>
+          <div class="col-xs-3">
+            <%= f.input :price_per_workstation_per_month, label: "Prix/poste/mois", placeholder: "300€" %>
           </div>
-          <div class="col-xs-4">
-            <%#= f.input :zip_code, label: "Zip", placeholder: "75002" %>
-          </div> -->
+          <div class="col-xs-3">
+            <%= f.input :price_per_workstation_per_day, label: "Prix/poste/jour", placeholder: "25€" %>
+          </div>
+          <div class="col-xs-3">
+            <%= f.input :price_per_workstation_per_hour, label: "Prix/poste/heure", placeholder: "5€" %>
+          </div>
           <%= f.hint "Les prix seront affichés selon la prestation choisie par le locataire" %>
         </div>
         <div class="row">
-        <div class="col-xs-6">
-          <%= f.input :surface, label: "Surface", placeholder: "2000", hint: "Nous vous recommandons d'indiquer la surface totale de votre espace" %>
+          <div class="col-xs-6">
+            <%= f.input :surface, label: "Surface", placeholder: "2000", hint: "Nous vous recommandons d'indiquer la surface totale de votre espace" %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquer le nombre total de postes de travail installés" %>
+          </div>
         </div>
-        <div class="col-xs-6">
-          <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquer le nombre total de postes de travail installés" %>
-        </div>
-        </div>
-        <h2>Equipements et services</h2>
-            <div class="row">
-              <div class="checkbox-new-coworking">
-                <div class="col-xs-3">
-                  <%= f.input :tv, label: "Télevision", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                <%= f.input :erp_room, label: "Salle ERP", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :auditorium, label: "Auditorium", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :kitchen, label: "Cuisine", as: :boolean %>
-                </div>
-              </div>
+        <h2>Vous êtes <em>(choix multiples)</em></h2>
+            <div class="form-group">
+              <input type="hidden" name="coworking[landlord_ids][]" value="">
+              <div class="checkbox-choices">
+                <% Landlord.all.each do |landlord| %>
+                  <input type="checkbox" class="hidden" value="<%= landlord.id %>" name="coworking[landlord_ids][]" id="coworking_landlord_ids_<%= landlord.id %>">
+                  <label class="checkbox-choice" for="coworking_landlord_ids_<%= landlord.id %>">
+                    <%= landlord.name %>
+                  </label>
+                <% end %>
+               </div>
             </div>
-            <div class="row">
-              <div class="checkbox-new-coworking">
-                <div class="col-xs-3">
-                  <%= f.input :nap_zone, label: "Espace repos", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :terrace, label: "Terrasse", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :internet, label: "Internet", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                <%= f.input :photocopier, label: "Copieurs", as: :boolean %>
-                </div>
-              </div>
+        <h2>Type d'espace <em>(choix multiples)</em></h2>
+            <div class="form-group">
+              <input type="hidden" name="coworking[type_ids][]" value="">
+              <div class="checkbox-choices">
+                <% Type.all.each do |type| %>
+                  <input type="checkbox" class="hidden" value="<%= type.id %>" name="coworking[type_ids][]" id="coworking_type_ids_<%= type.id %>">
+                  <label class="checkbox-choice" for="coworking_type_ids_<%= type.id %>">
+                    <%= type.name %>
+                  </label>
+                <% end %>
+               </div>
             </div>
-            <div class="row">
-              <div class="checkbox-new-coworking">
-                <div class="col-xs-3">
-                  <%= f.input :shower, label: "Douches", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :locker, label: "Vestiaires", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :garden, label: "Jardin", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :rj45_socket, label: "Prise RJ45", as: :boolean %>
-                </div>
-              </div>
+        <h2>Type de contrats <em>(choix multiples)</em></h2>
+            <div class="form-group">
+              <input type="hidden" name="coworking[contract_ids][]" value="">
+              <div class="checkbox-choices">
+                <% Contract.all.each do |contract| %>
+                  <input type="checkbox" class="hidden" value="<%= contract.id %>" name="coworking[contract_ids][]" id="coworking_contract_ids_<%= contract.id %>">
+                  <label class="checkbox-choice" for="coworking_contract_ids_<%= contract.id %>">
+                    <%= contract.name %>
+                  </label>
+                <% end %>
+               </div>
             </div>
-            <div class="row">
-              <div class="checkbox-new-coworking">
-                <div class="col-xs-3">
-                  <%= f.input :optical_fiber, label: "Fibre optique", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                <%= f.input :storage, label: "Stockage", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :furniture, label: "Mobilier", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :ohp, label: "rétro projecteur", as: :boolean %>
-                </div>
-              </div>
+        <h2>Equipements et services <em>(choix multiples)</em></h2>
+            <div class="form-group">
+              <input type="hidden" name="coworking[category_ids][]" value="">
+              <div class="checkbox-choices">
+                <% Category.all.each do |category| %>
+                  <input type="checkbox" class="hidden" value="<%= category.id %>" name="coworking[category_ids][]" id="coworking_category_ids_<%= category.id %>">
+
+                  <label class="checkbox-choice" for="coworking_category_ids_<%= category.id %>">
+                    <%= category.name %>
+                  </label>
+                <% end %>
+               </div>
             </div>
-            <div class="row">
-              <div class="checkbox-new-coworking">
-                <div class="col-xs-3">
-                  <%= f.input :phone, label: "Téléphones", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :cooling_system, label: "Air condtionné", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :alarm, label: "Alarme", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                <%= f.input :computer, label: "Ordinateurs", as: :boolean %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="checkbox-new-coworking">
-                <div class="col-xs-3">
-                  <%= f.input :waiting_room, label: "Salle d'attente", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :fax, label: "Fax", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :disabled_access, label: "Accés handicapé", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :bar, label: "Bar", as: :boolean %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="checkbox-new-coworking">
-                <div class="col-xs-3">
-                  <%= f.input :lift, label: "Ascenseurs", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                <%= f.input :common_space, label: "Espaces communs", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :local_bike, label: "Local vélos", as: :boolean %>
-                </div>
-                <div class="col-xs-3">
-                  <%= f.input :parking, label: "Parkings", as: :boolean %>
-                </div>
-              </div>
-            </div>
-              <h2>Services</h2>
-                <div class="row">
-                  <div class="checkbox-new-coworking">
-                    <div class="col-xs-3">
-                      <%= f.input :discretionnary_coffee, label: "Café à volonté", as: :boolean %>
-                    </div>
-                    <div class="col-xs-3">
-                    <%= f.input :cleaning_service, label: "Service nettoyage", as: :boolean %>
-                    </div>
-                    <div class="col-xs-3">
-                      <%= f.input :welcome_desk_service, label: "Réception / accueil", as: :boolean %>
-                    </div>
-                    <div class="col-xs-3">
-                      <%= f.input :mail_management_service, label: "Gestion du courrier", as: :boolean %>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="checkbox-new-coworking">
-                    <div class="col-xs-3">
-                      <%= f.input :office_supplies, label: "Fournitures", as: :boolean %>
-                    </div>
-                  </div>
-                </div>
         <h2>Description de l'espace</h2>
-          <!-- Inject categories here -->
-          <%= f.input :description, label: "Détails", placeholder: "Entièrement rénové avec une belle hauteur sous plafond...", hint: "Vous pouvez préciser d'autres services s'ils ne figurent pas dans les choix proposés. Nous vous conseillons de prendre le temps de décrire vos services. Vous pouvez faire la différence :)" %>
-          <h2>Offres spéciales</h2>
-          <div class="row">
-              <div class="col-xs-12">
-              <%= f.input :special_offer, label: "Détails", placeholder: "1 mois offert pour toute réservation de plus de 6 mois...", hint: "Une offre spéciale peut être une réduction sur une durée particulière. Cette ligne permet d'augmenter votre taux d'acquisition de nouveaux clients. Il vous sera possible de modifier cette offre en répondant à la demande de devis" %>
-            </div>
+        <!-- Inject categories here -->
+        <%= f.input :description, label: "Détails", placeholder: "Entièrement rénové avec une belle hauteur sous plafond...", hint: "Vous pouvez préciser d'autres services s'ils ne figurent pas dans les choix proposés. Nous vous conseillons de prendre le temps de décrire vos services. Vous pouvez faire la différence :)" %>
+        <h2>Offres spéciales</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.input :special_offer, label: "Détails", placeholder: "1 mois offert pour toute réservation de plus de 6 mois...", hint: "Une offre spéciale peut être une réduction sur une durée particulière. Cette ligne permet d'augmenter votre taux d'acquisition de nouveaux clients. Il vous sera possible de modifier cette offre en répondant à la demande de devis" %>
           </div>
-          <h2>Photos</h2>
-          <div class="row">
-            <div class="col-xs-12">
+        </div>
+        <h2>Photos</h2>
+        <div class="row">
+          <div class="col-xs-12">
             <%= f.input :photos, label: "Téléchargez jusqu'à 6 photos", as: :attachinary %>
-            </div>
           </div>
-          <%= f.submit "Mettre à jour et publier mon espace", class: "btn btn-primary"  %>
+        </div>
+        <%= f.submit "Mettre à jour et publier mon espace", class: "btn btn-primary"  %>
         <% end %>
       </div>
     </div>

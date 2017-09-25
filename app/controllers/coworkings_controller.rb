@@ -63,7 +63,7 @@ class CoworkingsController < ApplicationController
     if @coworking.destroy
     # coworkingMailer.destroy_confirmation(@coworking).deliver_now
     flash[:notice] = "Votre annonce a bien été supprimée"
-     redirect_to coworking_path(@coworking)
+     redirect_to coworkings_path
    else
      flash[:notice] = "Impossible de supprimer votre annonce"
      redirect_to coworking_path(@coworking)
@@ -73,9 +73,13 @@ class CoworkingsController < ApplicationController
   private
 
   def coworking_params
-    params.require(:coworking).permit(:title, :name, :address, :zip_code, :city, :surface, :workstation_number, :description, :special_offer, :user_id, :tv, :erp_room, :auditorium, :kitchen, :nap_zone, :terrace, :internet, :photocopier, :shower, :locker, :garden, :rj45_socket, :optical_fiber, :storage, :furniture, :ohp, :phone, :cooling_system, :alarm, :board, :computer, :waiting_room, :fax, :disabled_access, :bar, :lift, :common_space, :local_bike, :parking, :discretionnary_coffee, :cleaning_service, :welcome_desk_service, :mail_management_service, :office_supplies, :latitude, :longitude, :price_cents, photos: [])
+      params.require(:coworking).permit(:user_id, :title, :name, :address, :city, :zip_code, :surface, :workstation_number, :price_per_month, :price_per_workstation_per_month, :price_per_workstation_per_day, :price_per_workstation_per_hour, :description, :special_offer, photos: [], category_ids:[], contract_ids:[], type_ids:[], landlord_ids:[])
   end
 end
+#   def coworking_params
+#     params.require(:coworking).permit(:title, :name, :address, :zip_code, :city, :surface, :workstation_number, :description, :special_offer, :user_id, :tv, :erp_room, :auditorium, :kitchen, :nap_zone, :terrace, :internet, :photocopier, :shower, :locker, :garden, :rj45_socket, :optical_fiber, :storage, :furniture, :ohp, :phone, :cooling_system, :alarm, :board, :computer, :waiting_room, :fax, :disabled_access, :bar, :lift, :common_space, :local_bike, :parking, :discretionnary_coffee, :cleaning_service, :welcome_desk_service, :mail_management_service, :office_supplies, :latitude, :longitude, :price_cents, photos: [])
+#   end
+# end
 
 # Controller for simple form with js choice for equipment
 

@@ -48,57 +48,11 @@
           <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquer le nombre total de postes de travail installés" %>
         </div>
         </div>
-        <h2>Vous êtes <em>(choix multiples)</em></h2>
-            <div class="form-group">
-              <input type="hidden" name="coworking[landlord_ids][]" value="">
-              <div class="checkbox-choices">
-                <% Landlord.all.each do |landlord| %>
-                  <input type="checkbox" class="hidden" value="<%= landlord.id %>" name="coworking[landlord_ids][]" id="coworking_landlord_ids_<%= landlord.id %>">
-                  <label class="checkbox-choice" for="coworking_landlord_ids_<%= landlord.id %>">
-                    <%= landlord.name %>
-                  </label>
-                <% end %>
-               </div>
-            </div>
-        <h2>Type d'espace <em>(choix multiples)</em></h2>
-            <div class="form-group">
-              <input type="hidden" name="coworking[type_ids][]" value="">
-              <div class="checkbox-choices">
-                <% Type.all.each do |type| %>
-                  <input type="checkbox" class="hidden" value="<%= type.id %>" name="coworking[type_ids][]" id="coworking_type_ids_<%= type.id %>">
-                  <label class="checkbox-choice" for="coworking_type_ids_<%= type.id %>">
-                    <%= type.name %>
-                  </label>
-                <% end %>
-               </div>
-            </div>
-        <h2>Type de contrats <em>(choix multiples)</em></h2>
-            <div class="form-group">
-              <input type="hidden" name="coworking[contract_ids][]" value="">
-              <div class="checkbox-choices">
-                <% Contract.all.each do |contract| %>
-                  <input type="checkbox" class="hidden" value="<%= contract.id %>" name="coworking[contract_ids][]" id="coworking_contract_ids_<%= contract.id %>">
-                  <label class="checkbox-choice" for="coworking_contract_ids_<%= contract.id %>">
-                    <%= contract.name %>
-                  </label>
-                <% end %>
-               </div>
-            </div>
-        <h2>Equipements et services <em>(choix multiples)</em></h2>
-            <div class="form-group">
-              <input type="hidden" name="coworking[category_ids][]" value="">
-              <div class="checkbox-choices">
-                <% Category.all.each do |category| %>
-                  <input type="checkbox" class="hidden" value="<%= category.id %>" name="coworking[category_ids][]" id="coworking_category_ids_<%= category.id %>">
+        <h2>Equipements et services</h2>
 
-                  <label class="checkbox-choice" for="coworking_category_ids_<%= category.id %>">
-                    <%= category.name %>
-                  </label>
-                <% end %>
-               </div>
-            </div>
+        <%= f.association :categories, as: :check_boxes %>
+
         <h2>Description de l'espace</h2>
-          <!-- Inject categories here -->
           <%= f.input :description, label: "Détails", placeholder: "Entièrement rénové avec une belle hauteur sous plafond...", hint: "Vous pouvez préciser d'autres services s'ils ne figurent pas dans les choix proposés. Nous vous conseillons de prendre le temps de décrire vos services. Vous pouvez faire la différence :)" %>
           <h2>Offres spéciales</h2>
           <div class="row">

@@ -14,6 +14,7 @@ class DemandsController < ApplicationController
   def create
     @demand = Demand.new(demand_params)
     @demand.user = current_user
+    authorize @demand
       if @demand.save
         # DemandMailer.creation_confirmation(@demand).deliver_now
         flash[:notice] = "Votre cahier des charges a bien été enregistré"
@@ -25,10 +26,12 @@ class DemandsController < ApplicationController
 
  def edit
    @demand = Demand.find(params[:id])
+   authorize @demand
  end
 
  def update
    @demand = Demand.find(params[:id])
+   authorize @demand
    if @demand.update(demand_params)
     # DemandMailer.modification_confirmation(@demand).deliver_now
     flash[:notice] = "Votre cahier a bien été modifié"
@@ -40,6 +43,7 @@ class DemandsController < ApplicationController
 
  def destroy
    @demand = Demand.find(params[:id])
+   authorize @demand
    if @demand.destroy
    # DemandMailer.destroy_confirmation(@demand).deliver_now
    flash[:notice] = "Votre cahier des charges a bien été supprimé"

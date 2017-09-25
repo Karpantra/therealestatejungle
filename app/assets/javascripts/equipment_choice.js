@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".equipment-choice").click(function(){
+  $(".checkbox-choice").click(function(){
     $(this).toggleClass("active");
   });
 });

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924012805) do
+ActiveRecord::Schema.define(version: 20170925160158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,29 @@ ActiveRecord::Schema.define(version: 20170924012805) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_coworkings", id: false, force: :cascade do |t|
+    t.integer "category_id",  null: false
+    t.integer "coworking_id", null: false
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contracts_coworkings", id: false, force: :cascade do |t|
+    t.integer "contract_id",  null: false
+    t.integer "coworking_id", null: false
+  end
+
   create_table "coworkings", force: :cascade do |t|
     t.string   "title"
     t.string   "name"
@@ -41,47 +64,26 @@ ActiveRecord::Schema.define(version: 20170924012805) do
     t.text     "description"
     t.string   "special_offer"
     t.integer  "user_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.boolean  "tv"
-    t.boolean  "erp_room"
-    t.boolean  "auditorium"
-    t.boolean  "kitchen"
-    t.boolean  "nap_zone"
-    t.boolean  "terrace"
-    t.boolean  "internet"
-    t.boolean  "photocopier"
-    t.boolean  "shower"
-    t.boolean  "locker"
-    t.boolean  "garden"
-    t.boolean  "rj45_socket"
-    t.boolean  "optical_fiber"
-    t.boolean  "storage"
-    t.boolean  "furniture"
-    t.boolean  "ohp"
-    t.boolean  "phone"
-    t.boolean  "cooling_system"
-    t.boolean  "alarm"
-    t.boolean  "board"
-    t.boolean  "computer"
-    t.boolean  "waiting_room"
-    t.boolean  "fax"
-    t.boolean  "disabled_access"
-    t.boolean  "bar"
-    t.boolean  "lift"
-    t.boolean  "common_space"
-    t.boolean  "local_bike"
-    t.boolean  "parking"
-    t.boolean  "discretionnary_coffee"
-    t.boolean  "cleaning_service"
-    t.boolean  "welcome_desk_service"
-    t.boolean  "mail_management_service"
-    t.boolean  "office_supplies"
-    t.string   "equipment_ids",           default: [],              array: true
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "price_cents",             default: 0,  null: false
+    t.integer  "price_per_month",                 null: false
+    t.integer  "price_per_workstation_per_month"
+    t.integer  "price_per_workstation_per_week"
+    t.integer  "price_per_workstation_per_day"
+    t.integer  "price_per_workstation_per_hour"
     t.index ["user_id"], name: "index_coworkings_on_user_id", using: :btree
+  end
+
+  create_table "coworkings_landlords", id: false, force: :cascade do |t|
+    t.integer "landlord_id",  null: false
+    t.integer "coworking_id", null: false
+  end
+
+  create_table "coworkings_types", id: false, force: :cascade do |t|
+    t.integer "type_id",      null: false
+    t.integer "coworking_id", null: false
   end
 
   create_table "demands", force: :cascade do |t|
@@ -104,6 +106,25 @@ ActiveRecord::Schema.define(version: 20170924012805) do
     t.string   "location_2"
     t.string   "location_3"
     t.index ["user_id"], name: "index_demands_on_user_id", using: :btree
+  end
+
+  create_table "equipments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "landlords", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

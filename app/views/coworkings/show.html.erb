@@ -56,199 +56,138 @@
 <div class="container-general-infos">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="box-infos">
-        <h2 class="highlight"><%= humanized_money_with_symbol(@coworking.price*100) %> /mois</h2>
-<!--         <h2>100€ /semaine</h2>
-        <h2>25€ /jour</h2> -->
-        <%= form_tag(new_user_session_path, method: :get, class: 'form-search-coworking-show') do %>
-        <div class="flexbox">
-          <%= submit_tag "Demander un devis", class: "btn btn-primary btn-devis", style:"text-decoration:none" %>
-        </div>
-        <% end %>
-        <i>Dernière mise à jour <%= @coworking.updated_at %></i>
-        <h4><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Offre spéciale</h4>
-        <% if  @coworking.special_offer == ""%>
-        <p>Il n'y a pas d'offres en ce moment mais vous pouvez créer un compte pour être informé de toutes les offres à venir</p>
-        <% else %>
-        <p><%= @coworking.special_offer %></p>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-8 col-md-9">
-      <div class="box-infos">
-        <h1 class="highlight-coworking-show"><%= @coworking.title %></h1>
-        <h3>Description</h3>
-        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @coworking.address %> - <%= @coworking.zip_code %></p>
-        <p><i class="fa fa-building" aria-hidden="true"></i> <%= @coworking.surface %> m²</p>
-        <p><i class="fa fa-desktop" aria-hidden="true"></i> <%= @coworking.workstation_number %> postes de travail</p>
-        <p><%= @coworking.description %></p>
-        <h3>Equipements</h3>
-        <!-- <div class="equip-service-list"> -->
-        <div class="row">
-         <div class="col-xs-12">
-           <ul class="list-inline equip-service-list">
-             <li class="col-md-6">
-               <%= @coworking.tv ? "Télévision" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.erp_room ? "Salle ERP" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.auditorium ? "Auditorium" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.kitchen ? "Cuisine" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.nap_zone ? "Salle de repos" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.terrace ? "terrasse" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.internet ? "Internet" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.photocopier ? "Photocopieurs" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.shower ? "Douches" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.locker ? "Vestiaires" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.garden ? "Jardin" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.rj45_socket ? "Prises RJ45" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.optical_fiber ? "Fibre optique" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.storage ? "Zone de stockage" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.furniture ? "Mobilier" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.ohp ? "Rétro projecteur" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.phone ? "Téléphone" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.cooling_system ? "Climatisation" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.alarm ? "Alarme" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.board ? "Paper board" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.computer ? "Ordinateur" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.waiting_room ? "Salle d'attente" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.fax ? "Fax" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.disabled_access ? "Accès handicapés" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.bar ? "Bar" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.lift ? "Ascenseurs" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.common_space ? "Espaces communs" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.local_bike ? "Local vélos" : "" %>
-             </li>
-             <li class="col-md-6">
-               <%= @coworking.parking ? "Parkings" : "" %>
-             </li>
-           </ul>
-         </div>
-       </div>
-       <h3>Services</h3>
-       <div class="row">
-         <div class="col-xs-12">
-           <ul class="list-inline equip-service-list">
-             <li>
-               <%= @coworking.discretionnary_coffee ? "Café à volonté" : "" %>
-             </li>
-             <li>
-               <%= @coworking.cleaning_service ? "Service de nettoyage" : "" %>
-             </li>
-             <li>
-               <%= @coworking.welcome_desk_service ? "Service de réception" : "" %>
-             </li>
-             <li>
-               <%= @coworking.mail_management_service ? "Service de gestion du courrier" : "" %>
-             </li>
-             <li>
-               <%= @coworking.office_supplies ? "Fournitures de bureaux" : "" %>
-             </li>
-           </div>
-         </ul>
-       </div>
-         <h3>Localisation</h3>
-<div id="map" style="width: 100%; height: 300px;"></div>
-<div>
-  <ul class="list-inline">
-    <li>
-      <div>
-      <% if policy(@coworking).edit? %>
-          <%= link_to edit_coworking_path(@coworking), method: :get, class: 'form-search-demands' do %>
-          <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
-          <% end %>
+      <div class="box-infos-price">
+        <h2 class="highlight"><%= humanized_money_with_symbol(@coworking.price_per_month) %> /mois</h2>
+  <%= form_tag(new_user_session_path, method: :get, class: 'form-search-coworking-show') do %>
+  <div class="flexbox">
+    <%= submit_tag "Demander un devis", class: "btn btn-primary btn-devis", style:"text-decoration:none" %>
+  </div>
+  <% end %>
+  <i>Dernière mise à jour <%= @coworking.updated_at %></i>
+  <h4><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Offre spéciale</h4>
+  <% if  @coworking.special_offer == ""%>
+  <p>Il n'y a pas d'offres en ce moment mais vous pouvez créer un compte pour être informé de toutes les offres à venir</p>
+  <% else %>
+  <p><%= @coworking.special_offer %></p>
+  <% end %>
+</div>
+</div>
+<div class="col-xs-12 col-sm-8 col-md-9">
+  <div class="box-infos">
+    <h1 class="highlight-coworking-show"><%= @coworking.title %></h1>
+    <ul class="list-inline">
+      <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @coworking.address %> - <%= @coworking.zip_code %></li>
+      <li><i class="fa fa-building" aria-hidden="true"></i> <%= @coworking.surface %> m²</li>
+      <li><i class="fa fa-desktop" aria-hidden="true"></i> <%= @coworking.workstation_number %> postes de travail</li>
+    </ul>
+    <h3>Description</h3>
+    <p><%= @coworking.description %></p>
+      <h3>Le lieu qui vous accueille</h3>
+    <div class="box-infos-contracts">
+      <div class="row">
+      <% @coworking.landlords.each do |landlord| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <ul>
+              <li>
+                <%= landlord.name %>
+              </li>
+            </ul>
+          </div>
       <% end %>
+        </div>
       </div>
-    </li>
-    <li>
-      <div>
-    <% if policy(@coworking).destroy? %>
-      <%= link_to coworking_path(@coworking), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre annonce ?"}, class: 'form-search-demands' do %>
-
-        <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
-
-        <% end %>
+      <h3>Type d'espace</h3>
+    <div class="box-infos-contracts">
+      <div class="row">
+      <% @coworking.types.each do |type| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <ul>
+              <li>
+                <%= type.name %>
+              </li>
+            </ul>
+          </div>
+      <% end %>
+        </div>
+      </div>
+      <h3>Conditions de location proposées</h3>
+    <div class="box-infos-contracts">
+      <div class="row">
+      <% @coworking.contracts.each do |contract| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <ul>
+              <li>
+                <%= contract.name %>
+              </li>
+            </ul>
+          </div>
+      <% end %>
+        </div>
+      </div>
+    <h3>Equipements et Services</h3>
+  <div class="box-infos-equipements">
+    <div class="row">
+    <% @coworking.categories.each do |category| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <ul>
+            <li>
+              <%= image_tag(category.icon, size: "30x30") %> <%= category.name %>
+            </li>
+          </ul>
+        </div>
     <% end %>
       </div>
-    </li>
-  </ul>
+    </div>
+    <h3>Localisation</h3>
+    <div id="map" style="width: 100%; height: 300px;"></div>
+    <div>
+      <ul class="list-inline">
+        <li>
+          <div>
+            <% if policy(@coworking).edit? %>
+            <%= link_to edit_coworking_path(@coworking), method: :get, class: 'form-search-demands' do %>
+            <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
+            <% end %>
+            <% end %>
+          </div>
+        </li>
+        <li>
+          <div>
+            <% if policy(@coworking).destroy? %>
+            <%= link_to coworking_path(@coworking), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre annonce ?"}, class: 'form-search-demands' do %>
+
+            <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+
+            <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
-     </div>
-   </div>
- </div>
+</div>
 </div>
 </div>
 
 
 
 <% content_for(:after_js) do %>
-  <script>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
+<script>
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
     });
-  </script>
+  });
+</script>
 <% end %>
 
 

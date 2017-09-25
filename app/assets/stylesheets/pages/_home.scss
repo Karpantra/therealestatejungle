@@ -43,8 +43,8 @@ border-radius: 5px;
 .card p {
   font-family: $body-font;
   font-size: 15px;
-  text-align: justify;
-  letter-spacing: 1px;
+  text-align: center;
+  // letter-spacing: 1px;
 }
 
 .btn-recall {
@@ -59,6 +59,10 @@ border-radius: 5px;
   font-family: $body-font;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   // border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-concept-link {
+  background-color: $my-gray;
 }
 
 .btn-recall:hover {

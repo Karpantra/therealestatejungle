@@ -3,40 +3,43 @@
 
 <div class="container text-center home-container">
   <div class="text-center title-features">
-    <h1><h2 class="highlight">COWORKING</h2> ou <h2 class="highlight">BUREAUX CLASSIQUES</h2></h1>
+    <h1><h2 class="highlight">COWORKING</h2> ou <h2 class="highlight">BUREAUX</h2></h1>
   </div>
   <div class="card">
    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
      <%= image_tag "Download-Computer.svg", alt: "coworking" %>
-     <h2 class="offer-title">Renseignez en ligne votre cahier des charges </h2>
-     <p>Il vous suffit de remplir le formulaire nous décrivant les critères de votre recherche immobilière</p>
+     <h2 class="offer-title">Recherchez en ligne </h2>
+     <p>Consultez les annonces qui correspondent le mieux à vos besoins ! espaces de coworking, bureaux privatisés ou salles de réunions</p>
    </div>
  </div>
 
  <div class="card">
    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
-     <%= image_tag "Magician.svg", alt: "coworking" %>
-     <h2 class="offer-title">Un guide prend en charge votre demande</h2>
-     <p>Nous analysons en toute confidentialité votre cahier des charges et prenons contact avec vous pour personnaliser le modus operandis</p>
+     <%= image_tag "Paper-Plane.svg", alt: "coworking" %>
+     <h2 class="offer-title">Demandez un devis</h2>
+     <p>Remplissez votre cahier des charges et envoyez le directement aux propriétaires des espaces sélectionnés. </p>
    </div>
  </div>
  <div class="card">
    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
-     <%= image_tag "Apartment.svg", alt: "coworking" %>
-     <h2 class="offer-title">Nous vous présentons les offres disponibles</h2>
-
-     <p>Nous travaillons avec l'ensemble des acteurs du marché donc pas de conflit d'intérêt. Nous recherchons les meilleures solutions (Coworking, baux classiques court ou long terme)</p>
+     <%= image_tag "Checklist.svg", alt: "coworking" %>
+     <h2 class="offer-title">Comparez</h2>
+     <p>Une proposition vous convient ? Nous organisons une visite et vous accompagnons dans la finalisation des accords </p>
    </div>
  </div>
 
  <div class="card">
   <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
-   <%= image_tag "Key.svg", alt: "coworking" %>
-   <h2 class="offer-title">Nous gérons avec vous l'ensemble du projet</h2>
-
-   <p>Votre guide vous accompagne tout au long du projet, analyse du marché, visites, négociations et finalisation des accords</p>
+   <%= image_tag "Dna.svg", alt: "coworking" %>
+   <h2 class="offer-title">Sur mesure</h2>
+   <p>Nous vous accompagnons gratuitement tout au long du projet pour que vous trouviez l'espace de travail et les conditions qui correspondent à votre ADN</p>
  </div>
 </div>
+<%= link_to pages_concept_path, method: :get, class: 'form-search' do %>
+<div class="flexbox">
+  <%= submit_tag "Plus de détails sur notre approche", class: "btn btn-primary btn-concept-link", style:"text-decoration:none" %>
+</div>
+<% end %>
 </div>
 <%= link_to coworkings_path, method: :get, class: 'form-search' do %>
 <div class="flexbox">
@@ -53,8 +56,8 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-6"></div>
-      <h2 class="highlight">Nous pouvons vous conseiller</h2>
-      <p>Remplissez votre cahier des charges et nous vous accompagnerons dans votre recherche et vos analyses de scénarios</p>
+      <h2 class="highlight">Besoin d'espaces sur mesure</h2>
+      <p>Choisissez votre profil et recherchez les espaces de travail proposant d'adapter leurs locaux à vos besoins</p>
   </div>
 </div>
     <ul class="cards">

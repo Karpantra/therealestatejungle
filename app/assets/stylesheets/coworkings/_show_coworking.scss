@@ -17,17 +17,9 @@
     text-align: left;
     font-weight: bold;
   }
-  h4 {
-    font-size: 20px;
-    color: #EC5123;
-    i {
-      font-size: 20px;
-    }
-  }
   p {
     font-family: "Montserrat-light", sans-serif;
-    font-size: 12px;
-    text-align: justify;
+    font-size: 17px;
     i {
       font-size: 15px;
       color: $my-green;
@@ -38,15 +30,89 @@
   }
 }
 
-.box-infos {
+.box-infos-price {
   background: white;
-  padding: 1px 20px;
-  margin-top: 15px;
+  padding: 20px 40px;
+  margin-top: 45px;
   margin-bottom: 5px;
   margin-left: 5px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   text-align: center;
+  h4 {
+    font-size: 20px;
+    color: #EC5123;
+    margin-top: 30px;
+    i {
+      font-size: 20px;
+    }
+  }
+  p {
+    font-family: "Montserrat-light", sans-serif;
+    font-size: 12px;
+  }
+}
+
+.box-infos {
+  border-bottom: 1px #e4e4e6 solid;
+  padding: 1px 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  h3 {
+   font-size: 20px;
+   color: $my-gray;
+   text-align: left;
+   font-weight: bold;
+  }
+  li {
+    font-family: "Montserrat-light", sans-serif;
+    font-size: 15px;
+    justify-content: space-between;
+    i {
+      font-size: 18px;
+      color: $my-green;
+    }
+  }
+}
+
+.box-infos-equipements {
+  border-bottom: 1px #e4e4e6 solid;
+  h3 {
+   font-size: 20px;
+   color: $my-green;
+   text-align: left;
+   font-weight: bold;
+  }
+  li {
+    font-family: "Montserrat-light", sans-serif;
+    font-size: 15px;
+    list-style: none;
+    text-align: left;
+    i {
+      font-size: 18px;
+      color: $my-green;
+    }
+  }
+}
+
+.box-infos-contracts {
+  border-bottom: 1px #e4e4e6 solid;
+  h3 {
+   font-size: 20px;
+   color: $my-green;
+   font-weight: bold;
+  }
+  li {
+    font-family: "Montserrat-light", sans-serif;
+    font-size: 15px;
+    list-style: none;
+    background-color: $my-green;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 20px;
+  }
 }
 
 .form-search-coworking-show {
@@ -55,9 +121,9 @@
   border-color: #29AB87;
   font-size: 12px;
   width: auto;
-  padding: 8px 25px;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   font-family: "Montserrat", "sans-serif";
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -71,7 +137,4 @@
   text-align: left;
 }
 
-.equip-service-list {
-    font-size: 12px;
-    text-align: left;
-}
+
