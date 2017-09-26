@@ -17,5 +17,5 @@ class Coworking < ApplicationRecord
   validates :workstation_number, presence: true
   validates :photos, presence: true
 
-  has_attachments :photos, maximum: 6
+  has_attachments :photos, maximum: 10
 end
