@@ -3,15 +3,23 @@
   font-size: 10px;
   color: $my-white;
 }
+
+ul {
+list-style: none;
+}
+
 #home-footer {
   background: $my-gray;
-  padding: 40px;
+  padding-top: 20px;
+  p {
+    font-size: 10px;
+    color: $my-white;
+  }
 }
 
 #home-footer a {
   font-size: 15px;
   color: $my-white;
-  padding: 5px;
 }
 
 #home-footer a:hover {
