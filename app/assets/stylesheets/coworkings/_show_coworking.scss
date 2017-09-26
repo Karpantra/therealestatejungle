@@ -60,6 +60,23 @@
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   text-align: center;
+  h3 {
+    font-size: 25px;
+    color: $my-gray;
+    text-align: center;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 20px;
+    color: $my-gray;
+  }
+  em {
+    font-size: 15px;
+  }
+  .highlight-price {
+    display: inline-block;
+    box-shadow: inset 0px -12px $my-green;
+  }
 }
 
 .box-infos {

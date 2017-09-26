@@ -86,11 +86,24 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-3">
       <div class="box-infos-price">
-        <h2 class="highlight"><%= humanized_money_with_symbol(@coworking.price_per_month) %> /mois</h2>
         <%= form_tag(new_user_session_path, method: :get, class: 'form-search-coworking-show') do %>
         <div class="flexbox">
           <%= submit_tag "Demander un devis", class: "btn btn-primary btn-devis", style:"text-decoration:none" %>
         </div>
+        <% end %>
+        <h3 class="highlight-price">Tarifs</h3>
+        <% if @coworking.price_per_month? %>
+        <h2><%= @coworking.price_per_month %><em>€/mois</em></h2>
+        <% else %>
+        <% end %>
+        <% if @coworking.price_per_workstation_per_month? %>
+        <h2><%= @coworking.price_per_workstation_per_month %><em>€/mois/poste</em></h2>
+        <% end %>
+        <% if @coworking.price_per_workstation_per_day? %>
+        <h2><%= @coworking.price_per_workstation_per_day %><em>€/jour/poste</em></h2>
+        <% end %>
+        <% if @coworking.price_per_workstation_per_hour? %>
+        <h2><%= @coworking.price_per_workstation_per_hour %><em>€/heure/poste</em></h2>
         <% end %>
         <i>Dernière mise à jour <%= @coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
       </div>
