@@ -1,5 +1,5 @@
 class CoworkingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :new]
+  skip_before_action :authenticate_user!, only: [ :index, :show]
 
   def index
     # @coworkings = Coworking.all # Without pundit and no geocodage
