@@ -28,24 +28,31 @@
    </div>
  </div>
 
- <div class="card">
-  <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
-   <%= image_tag "Dna.svg", alt: "coworking" %>
-   <h2 class="offer-title">Sur mesure</h2>
-   <p>Nous vous accompagnons gratuitement tout au long du projet pour que vous trouviez l'espace de travail et les conditions qui correspondent à votre ADN</p>
- </div>
-</div>
-<%= link_to pages_concept_path, method: :get, class: 'form-search' do %>
-<div class="flexbox">
+  <div class="card">
+    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+       <%= image_tag "Dna.svg", alt: "coworking" %>
+       <h2 class="offer-title">Sur mesure</h2>
+       <p>Nous vous accompagnons gratuitement tout au long du projet pour que vous trouviez l'espace de travail et les conditions qui correspondent à votre ADN</p>
+    </div>
+  </div>
+  <%= link_to pages_concept_path, method: :get, class: 'form-search' do %>
+  <div class="flexbox">
   <%= submit_tag "Plus de détails sur notre approche", class: "btn btn-primary btn-concept-link", style:"text-decoration:none" %>
+  </div>
+  <% end %>
 </div>
-<% end %>
-</div>
-
-      <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'form-search-banner'}, url: coworkings_path do |f| %>
-      <%= f.input_field :address, placeholder: "Où rêvez-vous de travailler ?", class: "search-query" %>
-      <%= f.submit "Rechecher", class: "btn btn-primary btn-search", style:"text-decoration:none" %>
-      <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="home-cta">
+          <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'form-search-banner'}, url: coworkings_path do |f| %>
+          <%= f.input_field :address, placeholder: "Où rêvez-vous de travailler ?", class: "search-query" %>
+          <%= f.submit "Rechecher", class: "btn btn-primary btn-search", style:"text-decoration:none" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <div class="home-background-image" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 80%), url('<%= image_path('parisjungle3.jpg')%>');">
 <div class="container">
