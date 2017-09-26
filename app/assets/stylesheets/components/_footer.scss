@@ -4,10 +4,7 @@
   color: $my-white;
 }
 
-ul {
-margin-top: 30px;
-list-style: none;
-}
+
 
 #home-footer {
   background: $my-gray;
@@ -19,6 +16,10 @@ list-style: none;
   a {
     font-size: 15px;
     color: $my-white;
+  }
+  ul {
+  margin-top: 30px;
+  list-style: none;
   }
 }
 

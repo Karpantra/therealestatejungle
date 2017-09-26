@@ -89,6 +89,9 @@ font-weight: bold;
 .container-call-action-2 {
   margin-top: 50px;
   margin-bottom: 50px;
+  .form-search-banner {
+
+  }
 }
 
 
@@ -121,7 +124,7 @@ $card-radius:         0;
     display: flex;
     .no-flexbox & { float: left; }
 
-    margin-top: 45px;
+    margin-top: 0px;
     padding: 0 1em 2em;
     // border-radius: 5px 5px 0px 0px;
 
