@@ -18,7 +18,7 @@ class DemandsController < ApplicationController
       if @demand.save
         # DemandMailer.creation_confirmation(@demand).deliver_now
         flash[:notice] = "Votre cahier des charges a bien été enregistré"
-        redirect_to root_path
+        redirect_to demands_path
       else
       render :new
     end

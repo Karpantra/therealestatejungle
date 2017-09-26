@@ -90,6 +90,14 @@ font-weight: bold;
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+
+.search-query:focus {
+    border-color: $my-green;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 194, 154, 0.6);
+}
 // Cards CSS for type of company
 
 /*---------- CARDS LAYOUT ----------*/
