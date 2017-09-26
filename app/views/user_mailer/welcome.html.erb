@@ -1,16 +1,18 @@
 <p>Bonjour <%= @user.first_name %>,</p>
 <p>Bienvenue dans la jungle immobilière.</p>
 <p>Vous pouvez dès à présent partager avec nous votre recherche immobilière en cliquant sur le lien ci-dessous :</p>
-<%= link_to "Décrivez-nous vos besoins immobiliers", new_user_demand_url(@user) %>
+<%= link_to "Décrivez-nous vos besoins immobiliers", new_demand_url %>
 <p>Merci pour votre inscription et la confiance que vous nous témoignez :)</p>
 <p>Nous restons disponibles pour toute information complémentaire, n'hésitez pas à nous passer un coup de fil ou nous envoyer un email.</p>
 <p>Au plaisir de vous rencontrer bientôt pour faire avancer vos projets immobiliers.</p>
 <em>Gautier Weigert</em>
+<br>
+<em>Founder et CEO</em>
 <br>
 <em>Tél: 06 17 98 75 96</em>
 <br>
 <em>Email: gautier@therealestatejungle.fr</em>
 <br>
 <br>
-<%= image_tag "TREJhome.png", width: 50 %>
+<%= image_url("TREJhome.png", width: 50) %>
 

@@ -2,7 +2,7 @@
 <p>Vous avez modifié votre cahier des charges. Nos équipes prennent en compte les changements.</p>
 <p>Nous vous contacterons très rapidement à l'adresse suivante <b><%= @demand.user.email %></b>.</p>
 <p>Rendez-vous sur la page de votre cahier des charges en suivant le lien suivant:</p>
-<%= link_to "voir ma demande", user_demands_url(@demand.user_id) %>
+<%= link_to "voir ma demande", demand_url(@demand) %>
 <p>Merci de la confiance que vous nous témoignez :)</p>
 <p>Au plaisir de vous revoir bientôt pour faire avancer votre projet immobilier.</p>
 <em>Gautier Weigert</em>

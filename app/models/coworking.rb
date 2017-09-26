@@ -9,12 +9,13 @@ class Coworking < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
 
-  # validates :title, presence: true
-  # validates :name, presence: true
-  # validates :address, presence: true
-  # validates :surface, presence: true
-  # validates :workstation_number, presence: true
-  # validates :photos, presence: true
+  validates :title, presence: true
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :surface, presence: true
+  validates :price_per_month, presence: true
+  validates :workstation_number, presence: true
+  validates :photos, presence: true
 
   has_attachments :photos, maximum: 6
 end

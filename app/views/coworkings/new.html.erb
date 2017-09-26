@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
       <div class="form-coworking-new">
         <h1>Créez votre espace de travail</h1>
         <h2>Informations générales</h2>
@@ -14,41 +14,42 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-12">
             <%= f.input :address, label: "Adresse", placeholder: "31 rue Sentier 75002 Paris" %>
+            <%= f.hint "Pour le respect de vos informations, certaines données ne seront visibles qu'aux utilisateurs inscrits et confirmés " %>
           </div>
           <div class="col-xs-3">
-            <%= f.input :city, label: "Ville", placeholder: "Paris" %>
+            <%= f.input :city, label: "Ville", placeholder: "Paris", as: :hidden %>
           </div>
           <div class="col-xs-3">
-            <%= f.input :zip_code, label: "Zip", placeholder: "75002" %>
+            <%= f.input :zip_code, label: "Zip", placeholder: "75002", as: :hidden %>
           </div>
-          <%= f.hint "Pour le respect de vos informations, certaines données ne seront visibles qu'aux utilisateurs inscrits et confirmés " %>
         </div>
+        <h2>Tarifications</h2>
         <div class="row">
-          <div class="col-xs-3">
-            <%= f.input :price_per_month, label: "Prix au mois", placeholder: "5000€" %>
+          <div class="col-xs-12 col-sm-3 col-md-3">
+            <%= f.input :price_per_month, label: "Par mois", placeholder: "5000€" %>
           </div>
-          <div class="col-xs-3">
-            <%= f.input :price_per_workstation_per_month, label: "Prix/poste/mois", placeholder: "300€" %>
+          <div class="col-xs-12 col-sm-3 col-md-3">
+            <%= f.input :price_per_workstation_per_month, label: "Au poste/mois", placeholder: "300€" %>
           </div>
-          <div class="col-xs-3">
-            <%= f.input :price_per_workstation_per_day, label: "Prix/poste/jour", placeholder: "25€" %>
+          <div class="col-xs-12 col-sm-3 col-md-3">
+            <%= f.input :price_per_workstation_per_day, label: "Au poste/jour", placeholder: "25€" %>
           </div>
-          <div class="col-xs-3">
-            <%= f.input :price_per_workstation_per_hour, label: "Prix/poste/heure", placeholder: "5€" %>
+          <div class="col-xs-12 col-sm-3 col-md-3">
+            <%= f.input :price_per_workstation_per_hour, label: "Au poste/heure", placeholder: "5€" %>
           </div>
           <%= f.hint "Les prix seront affichés selon la prestation choisie par le locataire" %>
         </div>
         <div class="row">
-        <div class="col-xs-6">
-          <%= f.input :surface, label: "Surface", placeholder: "2000", hint: "Nous vous recommandons d'indiquer la surface totale de votre espace" %>
+          <div class="col-xs-6">
+            <%= f.input :surface, label: "Surface", placeholder: "2000", hint: "Nous vous recommandons d'indiquer la surface totale de votre espace" %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquer le nombre total de postes de travail installés" %>
+          </div>
         </div>
-        <div class="col-xs-6">
-          <%= f.input :workstation_number, label: "Nombre de postes", placeholder: "250", hint: "Nous vous recommandons d'indiquer le nombre total de postes de travail installés" %>
-        </div>
-        </div>
-        <h2>Vous êtes <em>(choix multiples)</em></h2>
+        <h2>Vous êtes un(e) <em>(choix multiples)</em></h2>
             <div class="form-group">
               <input type="hidden" name="coworking[landlord_ids][]" value="">
               <div class="checkbox-choices">

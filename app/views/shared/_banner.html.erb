@@ -11,20 +11,46 @@
               Le guide qui accompagne les <span class="color-animation"></span> <br> dans leur recherche de <em class="color-animation"></em>
             </p>
           </div>
-          <form class="simple_form form-search-banner" novalidate="novalidate" action="/coworkings" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-          <input class="string required search-query" placeholder="Où rêvez-vous de travailler ? " type="text" name="coworking[address]" id="coworking_address">
-            <input type="submit" name="commit" value="Rechecher" class="btn btn-primary btn-search" style="text-decoration:none" data-disable-with="Rechecher">
-          </form>
+          <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'form-search-banner'}, url: coworkings_path do |f| %>
+          <%= f.input_field :address, placeholder: "Où rêvez-vous de travailler ?", class: "search-query" %>
+          <%= f.submit "Rechecher", class: "btn btn-primary btn-search", style:"text-decoration:none" %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- autocomplete working form traditionnal -->
+<!--           <form class="simple_form form-search-banner"  action="/coworkings" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+          <input class="string required search-query" placeholder="Où rêvez-vous de travailler ? " type="text" name="coworking[address]" id="coworking_address">
+            <input type="submit" name="commit" value="Rechecher" class="btn btn-primary btn-search" style="text-decoration:none" data-disable-with="Rechecher">
+          </form> -->
 
-<!--           <%#= simple_form_for :coworking, :method => 'get',
+<!-- Autocomplete search le wagon github -->
+<!-- <div class="row">
+ <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+   <form role="form" class="form-horizontal">
+
+    <div class="form-group">
+     <div class="col-xs-12">
+       <input id="user_input_autocomplete_address" name="user_input_autocomplete_address" class="form-control" placeholder="Où souhaitez-vous travailler ?">
+     </div>
+   </div>
+   <input id="street_number" type="hidden" name="street_number" disabled="true" class="form-control">
+   <input id="route" type="hidden" name="route" disabled="true" class="form-control">
+   <input id="locality" type="hidden" name="locality" disabled="true" class="form-control">
+   <input id="administrative_area_level_1" type="hidden" name="administrative_area_level_1" disabled="true" class="form-control">
+   <input id="postal_code" type="hidden" name="postal_code" disabled="true" class="form-control">
+   <input id="country" type="hidden" name="country" disabled="true" class="form-control">
+   <input type="submit" name="commit" value="Rechecher" class="btn btn-primary btn-search" style="text-decoration:none" data-disable-with="Rechecher">
+ </form>
+</div>
+</div> -->
+
+
+<!--          <%#= simple_form_for :coworking, :method => 'get',
               :html => { :class => 'form-search-banner' }, url: coworkings_path do |f| %>
             <%#= f.input_field :search, placeholder: "Où rêvez-vous de travailler ? ",
-                class: "search-query" %>
+                class: "search-query", id: :coworking_address  %>
             <%#= f.submit "Rechecher", class: "btn btn-primary btn-search", style:"text-decoration:none" %>
-          <%# end %>
- -->
+          <%# end %> -->
