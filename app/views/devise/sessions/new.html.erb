@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class=" col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class=" col-xs-12 col-sm-8 col-sm-offset-2">
       <div class="form-login">
-        <h2>Log in with social network links...</h2>
+        <h2 class="hidden-xs">Log in with social network links...</h2>
 
         <%= render "devise/shared/socialnetworkslinks" %>
-        <h2>... Or log in with the good old way</h2>
+        <h2 class="hidden-xs">... Or log in with the good old way</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
