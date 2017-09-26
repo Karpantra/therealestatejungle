@@ -11,7 +11,7 @@
 
     <!-- Links when logged in -->
     <%= link_to "Proposer un espace", new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking" %>
-    <%= link_to "Mes critères", user_demands_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Mes critères", demands_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Mes devis", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Contact", pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
@@ -71,7 +71,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to user_demands_path(current_user) do %>
+          <%= link_to new_demand_path do %>
           <i class="fa fa-list-alt"></i> <%= t(".sign_in", default: "Mes critères") %>
           <% end %>
         </li>

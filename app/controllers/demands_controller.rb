@@ -1,9 +1,9 @@
 class DemandsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new]
-  before_action :authenticate_user!, only: [:create]
+  # skip_before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, except: [:new]
 
   def index
-    @demand = policy_scope(Coworking)
+    @demand = policy_scope(Demand)
   end
 
   def new

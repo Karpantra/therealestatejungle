@@ -16,10 +16,10 @@
           <%= f.hint "Cochez les deux cases si vous n'avez pas encore décidé de votre stratégie" %>
         </div>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
           <%= f.input :lease_budget, placeholder: "150 000", label: "Budget locatif maximum annuel hors charges et taxes (HC HT) ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
           <%= f.input :buy_budget, placeholder: "1 200 000", label: "Budget acquisition hors droits (HD) (environ 8% du prix d'achat) ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
           </div>
         </div>
@@ -38,18 +38,18 @@
         </div>
         <h2>Informations générales</h2>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :surface, label: "Surface", error: "Merci de remplir ce champs pour valider le formulaire", placeholder: "500", hint: "La surface SUBL (Surface Utile Brute Locative) représente l'espace comprenant les postes de travail, les salles de réunions, les espaces communs, etc.)." %>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :workstation_number, label: "Nombre de postes de travail", placeholder: "35", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Un poste de travail représente le bureau d'un collaborateur. Vous pouvez avoir moins de postes que le nombre d'employés (dans le cas d'une politique de bureaux non attribués par exemple)." %>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :meeting_room_number, label: "Nombre de salles de réunion", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal, nous ajusterons par la suite la taille des salles dont vous avez besoin pour organiser vos réunions. Ou laissez blanc si vous n'en avez pas besoin." %>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
             <%= f.input :parking_number, label: "Nombre de parking", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal ou laissez blanc si vous n'en avez pas l'utilité." %>
           </div>
         </div>
