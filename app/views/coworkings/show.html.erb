@@ -19,9 +19,11 @@
           <div class="item active">
             <%= cl_image_tag @coworking.photos[0].path, width: 600, crop: :scale, class: "img-responsive center-block" %>
           </div>
+          <% if @coworking.photos.count > 1 %>
           <div class="item">
             <%= cl_image_tag @coworking.photos[1].path, width: 600, crop: :scale, class: "img-responsive center-block" %>
           </div>
+          <% end %>
           <% if @coworking.photos.count > 2 %>
           <div class="item">
             <%= cl_image_tag @coworking.photos[2].path, width: 600, crop: :scale, class: "img-responsive center-block" %>
