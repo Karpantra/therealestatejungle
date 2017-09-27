@@ -98,21 +98,24 @@
                 <% end %>
                </div>
             </div>
-        <h2>Description de l'espace</h2>
-          <!-- Inject categories here -->
-          <%= f.input :description, label: "Détails", placeholder: "Entièrement rénové avec une belle hauteur sous plafond...", hint: "Vous pouvez préciser d'autres services s'ils ne figurent pas dans les choix proposés. Nous vous conseillons de prendre le temps de décrire vos services. Vous pouvez faire la différence :)" %>
-          <h2>Offres spéciales</h2>
-          <div class="row">
+          <h2>Description de l'espace</h2>
+            <div class="row">
               <div class="col-xs-12">
-              <%= f.input :special_offer, label: "Détails", placeholder: "1 mois offert pour toute réservation de plus de 6 mois...", hint: "Une offre spéciale peut être une réduction sur une durée particulière. Cette ligne permet d'augmenter votre taux d'acquisition de nouveaux clients. Il vous sera possible de modifier cette offre en répondant à la demande de devis" %>
+                <%= f.input :description, label: "Détails", placeholder: "Entièrement rénové avec une belle hauteur sous plafond...", hint: "Vous pouvez préciser d'autres services s'ils ne figurent pas dans les choix proposés. Nous vous conseillons de prendre le temps de décrire vos services. Vous pouvez faire la différence :)" %>
+              </div>
             </div>
-          </div>
+          <h2>Offres spéciales</h2>
+            <div class="row">
+              <div class="col-xs-12">
+                <%= f.input :special_offer, label: "Détails", placeholder: "1 mois offert pour toute réservation de plus de 6 mois...", hint: "Une offre spéciale peut être une réduction sur une durée particulière. Cette ligne permet d'augmenter votre taux d'acquisition de nouveaux clients. Il vous sera possible de modifier cette offre en répondant à la demande de devis" %>
+              </div>
+            </div>
           <h2>Photos</h2>
-          <div class="row">
-            <div class="col-xs-12">
-            <%= f.input :photos, label: "Téléchargez jusqu'à 10 photos", as: :attachinary %>
+            <div class="row">
+              <div class="col-xs-12">
+              <%= f.input :photos, label: "Téléchargez jusqu'à 10 photos", as: :attachinary %>
+              </div>
             </div>
-          </div>
           <%= f.submit "Créer et publier mon espace", class: "btn btn-primary"  %>
         <% end %>
       </div>

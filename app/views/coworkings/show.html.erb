@@ -95,19 +95,19 @@
         <% end %>
         <h3 class="highlight-price">Tarifs</h3>
         <% if @coworking.price_per_month? %>
-        <h2><%= @coworking.price_per_month %><em>€/mois</em></h2>
+        <h2><%= number_with_delimiter(@coworking.price_per_month) %><em> €/mois</em></h2>
         <% else %>
         <% end %>
         <% if @coworking.price_per_workstation_per_month? %>
-        <h2><%= @coworking.price_per_workstation_per_month %><em>€/mois/poste</em></h2>
+        <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_month) %><em> €/mois/poste</em></h2>
         <% end %>
         <% if @coworking.price_per_workstation_per_day? %>
-        <h2><%= @coworking.price_per_workstation_per_day %><em>€/jour/poste</em></h2>
+        <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_day) %><em> €/jour/poste</em></h2>
         <% end %>
         <% if @coworking.price_per_workstation_per_hour? %>
-        <h2><%= @coworking.price_per_workstation_per_hour %><em>€/heure/poste</em></h2>
+        <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_hour) %><em> €/heure/poste</em></h2>
         <% end %>
-        <i>Dernière mise à jour <%= @coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
+        <i>Dernière mise à jour le <%= @coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
       </div>
     </div>
 

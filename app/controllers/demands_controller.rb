@@ -35,7 +35,7 @@ class DemandsController < ApplicationController
    if @demand.update(demand_params)
     # DemandMailer.modification_confirmation(@demand).deliver_now
     flash[:notice] = "Votre cahier a bien été modifié"
-     redirect_to user_demands_path(@demand.user_id)
+     redirect_to demands_path
    else
      render :edit
    end
@@ -47,16 +47,16 @@ class DemandsController < ApplicationController
    if @demand.destroy
    # DemandMailer.destroy_confirmation(@demand).deliver_now
    flash[:notice] = "Votre cahier des charges a bien été supprimé"
-    redirect_to user_demands_path(@demand.user_id)
+    redirect_to demands_path
   else
     flash[:notice] = "Impossible de supprimer le cahier des charges"
-    redirect_to user_demands_path(@demand.user_id)
+    redirect_to demands_path
   end
  end
 
   private
 
   def demand_params
-    params.require(:demand).permit(:lease, :buy, :leaseandbuy, :company_name, :lease_budget, :buy_budget, :location_1, :location_2, :location_3, :surface, :workstation_number, :meeting_room_number, :parking_number, :surface_type, :building_type, :move_in_date, :other_spec, :leaseandbuy, :user_id)
+    params.require(:demand).permit(:lease, :buy, :leaseandbuy, :company_name, :lease_budget, :buy_budget, :location_1, :location_2, :location_3, :surface, :workstation_number, :meeting_room_number, :parking_number, :surface_type, :building_type, :move_in_date, :other_spec, :leaseandbuy, :user_id, occupation_ids:[], surface_ids:[])
   end
 end
