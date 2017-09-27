@@ -6,13 +6,7 @@
 
 
 
-#home-footer {
-  .row {
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
+.home-footer {
   background: $my-gray;
   height: auto;
   p {
@@ -29,7 +23,7 @@
   }
 }
 
-#home-footer a:hover {
+.home-footer a:hover {
   color: $my-green;
 }
 
