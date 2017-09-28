@@ -4,10 +4,13 @@
 
       <div class="tabs">
         <a class="tab" data-target="#briefs">
-          <h3>Devis</h3>
-          <a class="tab active" data-target="#messages">
-            <h3>Messages</h3>
-          </a>
+          <h3>Demandes</h3>
+        </a>
+        <a class="tab" data-target="#Propositions">
+          <h3>Propositions</h3>
+        </a>
+        <a class="tab active" data-target="#messages">
+          <h3>Messages</h3>
         </a>
         <a class="tab" data-target="#demands">
           <h3>Critères</h3>
@@ -16,6 +19,9 @@
 
       <div class="tab-content hidden" id="briefs">
         <%= render "my_briefs" %>
+      </div>
+      <div class="tab-content" id="Propositions">
+        <%= render "my_propositions" %>
       </div>
       <div class="tab-content" id="messages">
         <%= render "my_messages" %>

@@ -24,8 +24,9 @@
     <div class="row">
     <% current_user.briefs.each do |brief| %>
       <div class="col-xs-12 col-md-4">
-        <div class="card text-center">
-          <%= cl_image_tag brief.coworking.photos.first.path, width: 200, crop: :scale, class: "img-responsive center-block" %>
+        <div class="card-dashboard-demand text-center">
+        <i>Mise à jour le <%= brief.updated_at.strftime("%-d-%-m-%Y") %></i>
+          <%= cl_image_tag brief.coworking.photos.first.path, width: 300, crop: :scale, class: "img-responsive center-block" %>
           <div class="card-block">
             <h4 class="card-title"><%= brief.coworking.name %></h4>
             <p class="card-text"><%= brief.coworking.address %></p>
