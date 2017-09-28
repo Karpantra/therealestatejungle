@@ -1,0 +1,129 @@
+<% if current_user.demands.blank? %>
+<div class="wrapper-pages">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <div class="no-demands-content">
+          <h1>Vous n'avez pas encore renseigné votre cahier des charges.</h1>
+          <h2>Décrivez-nous votre recherche en cliquant sur le bouton ci-dessous</h2>
+        </div>
+        <div class="btn-no-demand">
+          <%= link_to new_demand_path, method: :get, class: 'form-search' do %>
+          <div class="flexbox">
+            <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="wrapper-pages">
+<% current_user.demands.each do |demand| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="demands-content">
+        <h1><%= demand.company_name %></h1>
+        <i>Dernière mise à jour le <%= demand.updated_at.strftime("%-d-%-m-%Y") %></i>
+        <ul>
+          <% unless demand.occupations.blank? %>
+          <h2>Type d'occupation</h2>
+          <% demand.occupations.each do |occupation| %>
+          <div class="row">
+            <div class="col-xs-12">
+              <ul>
+                <li>
+                 <strong><%= occupation.name %></strong>
+               </li>
+             </ul>
+           </div>
+           <% end %>
+         </div>
+         <% end %>
+         <h2>Budget</h2>
+          <div class="row">
+           <div class="col-xs-12">
+             <p>Location : <strong><%= number_with_delimiter(demand.lease_budget) %></strong><em> € HC HT / an</em></p>
+             <% unless demand.buy_budget.blank? %>
+              <p>Achat : <strong><%= number_with_delimiter(demand.buy_budget) %></strong><em> € HD</em></p>
+             <% end %>
+           </div>
+         </div>
+         <h2>Localisation</h2>
+         <div class="row">
+          <div class="col-xs-12">
+            <ul>
+              <li><%= demand.location_1 %></li>
+              <% unless demand.location_2.blank?%>
+              <li><%= demand.location_2 %></li>
+              <% end %>
+              <% unless demand.location_3.blank?%>
+              <li><%= demand.location_3 %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <h2>Critères de recherche</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <p>Surface : <strong><%= demand.surface %></strong><em> m² SUBL</em></p>
+            <p>Nombre de postes de travail : <strong><%= demand.workstation_number %></strong></p>
+            <p>Nombre de salles de réunions : <strong><%= demand.meeting_room_number %></strong></p>
+            <% unless demand.parking_number.blank? %>
+            <p>Nombre de parkings : <strong><%= demand.parking_number %></strong></p>
+            <% end %>
+          </div>
+        </div>
+        <% unless demand.surfaces.blank? %>
+        <h2>Type d'espace</h2>
+        <% demand.surfaces.each do |surface| %>
+        <div class="row">
+          <div class="col-xs-12">
+            <ul>
+              <li>
+                <strong> <%= surface.name %></strong> - <em><%= surface.space %></em>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+        <h2>Agenda</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <p><strong><%= demand.move_in_date %></strong></p>
+          </div>
+        </div>
+        <% unless demand.other_spec.blank? %>
+        <h2>Besoins spécifiques</h2>
+        <p><%= demand.other_spec %></p>
+        <% end %>
+        <div>
+          <ul class="list-inline">
+            <li>
+              <div>
+                <%= link_to edit_demand_path(demand), method: :get, class: 'form-search-demands' do %>
+                <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
+                <% end %>
+              </div>
+            </li>
+            <li>
+              <div>
+                <%= link_to demand_path(demand), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-demands' do %>
+                <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+                <% end %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% end %>
+</div>
+<% end %>
+

@@ -81,162 +81,242 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+      <div class="container-general-infos">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="box-infos-price">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-brief">Demander un devis</button>
+              <!-- Modal -->
+              <div class="modal fade" id="create-brief" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h5 class="modal-title" id="create-brief">Demande de devis pour <%= @coworking.name %> - <%= @coworking.address %> <%= @coworking.city %> <%= @coworking.zip_code %></h5>
+                      <p><em>Voux pourrez retrouver votre devis dans votre tableau de bord</em></p>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-demand-new">
+                        <%= simple_form_for([@coworking,@brief]) do |f| %>
+                        <h2>Quels est le nom de votre société ?</h2>
+                        <%= f.input :company_name, placeholder: "Ma société", label: false, error: "Merci de remplir ce champs pour valider le formulaire" %>
+                        <h2>Type de contrat souhaité</h2>
+                        <div class="form-group">
+                          <input type="hidden" name="coworking[contract_ids][]" value="">
+                          <div class="checkbox-choices">
+                            <% @coworking.contracts.each do |contract| %>
+                            <input type="checkbox" class="hidden" value="<%= contract.id %>" name="coworking[contract_ids][]" id="coworking_contract_ids_<%= contract.id %>">
+                            <label class="checkbox-choice" for="coworking_contract_ids_<%= contract.id %>">
+                              <%= contract.name %>
+                            </label>
+                            <% end %>
+                          </div>
+                        </div>
+                        <h2>Informations générales</h2>
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6">
+                            <%= f.input :surface, label: "Surface", error: "Merci de remplir ce champs pour valider le formulaire", placeholder: "500", hint: "La surface SUBL (Surface Utile Brute Locative) représente l'espace comprenant les postes de travail, les salles de réunions, les espaces communs, etc.)." %>
+                          </div>
+                          <div class="col-xs-12 col-md-6">
+                            <%= f.input :workstation_number, label: "Nombre de postes de travail", placeholder: "35", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Un poste de travail représente le bureau d'un collaborateur. Vous pouvez avoir moins de postes que le nombre d'employés (dans le cas d'une politique de bureaux non attribués par exemple)." %>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6">
+                            <%= f.input :meeting_room_number, label: "Nombre de salles de réunion", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal, nous ajusterons par la suite la taille des salles dont vous avez besoin pour organiser vos réunions. Ou laissez blanc si vous n'en avez pas besoin." %>
+                          </div>
+                          <div class="col-xs-12 col-md-6">
+                            <%= f.input :parking_number, label: "Nombre de parking", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal ou laissez blanc si vous n'en avez pas l'utilité." %>
+                          </div>
+                        </div>
+                        <h2>Type de surface recherché</h2>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <div class="form-group">
+                              <input type="hidden" name="brief[surface_ids][]" value="">
+                              <div class="checkbox-choices">
+                                <% Surface.all.each do |surface| %>
+                                <input type="checkbox" class="hidden" value="<%= surface.id %>" name="brief[surface_ids][]" id="brief_surface_ids_<%= surface.id %>">
+                                <label class="checkbox-choice" for="brief_surface_ids_<%= surface.id %>">
+                                  <%= surface.name %>
+                                </label>
+                                <% end %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <h2>A quelle date souhaitez-vous vous installer dans vos nouveaux bureaux ?</h2>
+                            <%= f.input :move_in_date, label: false, placeholder: "DD/MM/YYYY", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement la date à laquelle vous souhaitez pouvoir commencer à travailler. Nous prendrons en compte des périodes d'aménagement si nécessaire)." %>
+                          </div>
+                        </div>
+                        <h2>Avez-vous des besoins spécifiques que vous souhaiteriez partager dès maintenant ?</h2>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <%= f.input :other_spec, label: false, hint: "Un besoin spécifique peut être par exemple: un grand plateau type industriel, une très grande salle de réunion, une terrasse, une contrainte de confidentialité, un besoin en salle serveurs, etc.", placeholder: "Nous recherchons un espace atypique avec une grande hauteur sous plafond..." %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <%= f.submit "Envoyer mon cahier des charges", class: "btn btn-primary btn-block" %>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3 class="highlight-price">Tarifs</h3>
+                  <% if @coworking.price_per_month? %>
+                  <h2><%= number_with_delimiter(@coworking.price_per_month) %><em> €/mois</em></h2>
+                  <% else %>
+                  <% end %>
+                  <% if @coworking.price_per_workstation_per_month? %>
+                  <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_month) %><em> €/mois/poste</em></h2>
+                  <% end %>
+                  <% if @coworking.price_per_workstation_per_day? %>
+                  <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_day) %><em> €/jour/poste</em></h2>
+                  <% end %>
+                  <% if @coworking.price_per_workstation_per_hour? %>
+                  <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_hour) %><em> €/heure/poste</em></h2>
+                  <% end %>
+                  <i>Dernière mise à jour le <%= @coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<!-- Content of the offer -->
+          <div class="col-xs-12 col-sm-6 col-sm-offset-1 col-md-6">
+            <div class="special-offer">
+              <% if @coworking.special_offer.blank?%>
+              <% else %>
+              <h4><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Offre exceptionnelle</h4>
+              <p><%= @coworking.special_offer %></p>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8 col-md-9">
+            <div class="box-infos">
+              <h1 class="highlight-coworking-show"><%= @coworking.title %></h1>
+              <ul class="list-inline">
+                <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @coworking.address %></li>
+                <li><i class="fa fa-building" aria-hidden="true"></i> <%= @coworking.surface %> m²</li>
+                <li><i class="fa fa-desktop" aria-hidden="true"></i> <%= @coworking.workstation_number %> postes de travail</li>
+              </ul>
+              <h3>Description</h3>
+              <p><%= @coworking.description %></p>
+              <h3>Le lieu qui vous accueille</h3>
+              <div class="box-infos-contracts">
+                <div class="row">
+                  <% @coworking.landlords.each do |landlord| %>
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <ul>
+                      <li>
+                        <%= landlord.name %>
+                      </li>
+                    </ul>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+              <h3>Type d'espace</h3>
+              <div class="box-infos-contracts">
+                <div class="row">
+                  <% @coworking.types.each do |type| %>
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <ul>
+                      <li>
+                        <%= type.name %>
+                      </li>
+                    </ul>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+              <h3>Conditions de location proposées</h3>
+              <div class="box-infos-contracts">
+                <div class="row">
+                  <% @coworking.contracts.each do |contract| %>
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <ul>
+                      <li>
+                        <%= contract.name %>
+                      </li>
+                    </ul>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+              <h3>Equipements et Services</h3>
+              <div class="box-infos-equipements">
+                <div class="row">
+                  <% @coworking.categories.each do |category| %>
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <ul>
+                      <li>
+                        <%= image_tag(category.icon, size: "30x30") %> <%= category.name %>
+                      </li>
+                    </ul>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+              <h3>Localisation</h3>
+              <div id="map" style="width: 100%; height: 300px;"></div>
+              <div>
+                <ul class="list-inline">
+                  <li>
+                    <div>
+                      <% if policy(@coworking).edit? %>
+                      <%= link_to edit_coworking_path(@coworking), method: :get, class: 'form-search-demands' do %>
+                      <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
+                      <% end %>
+                      <% end %>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <% if policy(@coworking).destroy? %>
+                      <%= link_to coworking_path(@coworking), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre annonce ?"}, class: 'form-search-demands' do %>
 
-<div class="container-general-infos">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="box-infos-price">
-        <%= form_tag(new_user_session_path, method: :get, class: 'form-search-coworking-show') do %>
-        <div class="flexbox">
-          <%= submit_tag "Demander un devis", class: "btn btn-primary btn-devis", style:"text-decoration:none" %>
+                      <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
+
+                      <% end %>
+                      <% end %>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <% end %>
-        <h3 class="highlight-price">Tarifs</h3>
-        <% if @coworking.price_per_month? %>
-        <h2><%= number_with_delimiter(@coworking.price_per_month) %><em> €/mois</em></h2>
-        <% else %>
-        <% end %>
-        <% if @coworking.price_per_workstation_per_month? %>
-        <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_month) %><em> €/mois/poste</em></h2>
-        <% end %>
-        <% if @coworking.price_per_workstation_per_day? %>
-        <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_day) %><em> €/jour/poste</em></h2>
-        <% end %>
-        <% if @coworking.price_per_workstation_per_hour? %>
-        <h2><%= number_with_delimiter(@coworking.price_per_workstation_per_hour) %><em> €/heure/poste</em></h2>
-        <% end %>
-        <i>Dernière mise à jour le <%= @coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
       </div>
     </div>
 
-      <div class="col-xs-12 col-sm-6 col-sm-offset-1 col-md-6">
-        <div class="special-offer">
-          <% if @coworking.special_offer.blank?%>
-          <% else %>
-          <h4><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Offre exceptionnelle</h4>
-          <p><%= @coworking.special_offer %></p>
-          <% end %>
-        </div>
-      </div>
-<div class="col-xs-12 col-sm-8 col-md-9">
-  <div class="box-infos">
-    <h1 class="highlight-coworking-show"><%= @coworking.title %></h1>
-    <ul class="list-inline">
-      <li><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @coworking.address %></li>
-      <li><i class="fa fa-building" aria-hidden="true"></i> <%= @coworking.surface %> m²</li>
-      <li><i class="fa fa-desktop" aria-hidden="true"></i> <%= @coworking.workstation_number %> postes de travail</li>
-    </ul>
-    <h3>Description</h3>
-    <p><%= @coworking.description %></p>
-      <h3>Le lieu qui vous accueille</h3>
-    <div class="box-infos-contracts">
-      <div class="row">
-      <% @coworking.landlords.each do |landlord| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <ul>
-              <li>
-                <%= landlord.name %>
-              </li>
-            </ul>
-          </div>
-      <% end %>
-        </div>
-      </div>
-      <h3>Type d'espace</h3>
-    <div class="box-infos-contracts">
-      <div class="row">
-      <% @coworking.types.each do |type| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <ul>
-              <li>
-                <%= type.name %>
-              </li>
-            </ul>
-          </div>
-      <% end %>
-        </div>
-      </div>
-      <h3>Conditions de location proposées</h3>
-    <div class="box-infos-contracts">
-      <div class="row">
-      <% @coworking.contracts.each do |contract| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <ul>
-              <li>
-                <%= contract.name %>
-              </li>
-            </ul>
-          </div>
-      <% end %>
-        </div>
-      </div>
-    <h3>Equipements et Services</h3>
-  <div class="box-infos-equipements">
-    <div class="row">
-    <% @coworking.categories.each do |category| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-          <ul>
-            <li>
-              <%= image_tag(category.icon, size: "30x30") %> <%= category.name %>
-            </li>
-          </ul>
-        </div>
+
+
+    <% content_for(:after_js) do %>
+    <script>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    </script>
     <% end %>
-      </div>
-    </div>
-    <h3>Localisation</h3>
-    <div id="map" style="width: 100%; height: 300px;"></div>
-    <div>
-      <ul class="list-inline">
-        <li>
-          <div>
-            <% if policy(@coworking).edit? %>
-            <%= link_to edit_coworking_path(@coworking), method: :get, class: 'form-search-demands' do %>
-            <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-demands", style:"text-decoration:none" %>
-            <% end %>
-            <% end %>
-          </div>
-        </li>
-        <li>
-          <div>
-            <% if policy(@coworking).destroy? %>
-            <%= link_to coworking_path(@coworking), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre annonce ?"}, class: 'form-search-demands' do %>
-
-            <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-demands-delete", style:"text-decoration:none" %>
-
-            <% end %>
-            <% end %>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<% content_for(:after_js) do %>
-<script>
-  $(document).ready(function() {
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
-    });
-  });
-</script>
-<% end %>
 
 
 

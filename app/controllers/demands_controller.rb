@@ -2,7 +2,7 @@ class DemandsController < ApplicationController
   before_action :authenticate_user!, except: [:new]
 
   def index
-    @demand = policy_scope(Demand)
+    @demands = policy_scope(Demand)
   end
 
   def new
@@ -17,7 +17,7 @@ class DemandsController < ApplicationController
       if @demand.save
         # DemandMailer.creation_confirmation(@demand).deliver_now
         flash[:notice] = "Votre cahier des charges a bien été enregistré"
-        redirect_to demands_path
+        redirect_to dashboard_users_path
       else
       render :new
     end
@@ -33,8 +33,8 @@ class DemandsController < ApplicationController
    authorize @demand
    if @demand.update(demand_params)
     # DemandMailer.modification_confirmation(@demand).deliver_now
-    flash[:notice] = "Votre cahier a bien été modifié"
-     redirect_to demands_path
+    flash[:notice] = "Votre cahier des charges a bien été modifié"
+     redirect_to dashboard_users_path
    else
      render :edit
    end
@@ -46,10 +46,10 @@ class DemandsController < ApplicationController
    if @demand.destroy
    # DemandMailer.destroy_confirmation(@demand).deliver_now
    flash[:notice] = "Votre cahier des charges a bien été supprimé"
-    redirect_to demands_path
+    redirect_to dashboard_users_path
   else
     flash[:notice] = "Impossible de supprimer le cahier des charges"
-    redirect_to demands_path
+    redirect_to dashboard_users_path
   end
  end
 

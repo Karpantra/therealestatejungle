@@ -11,8 +11,8 @@
 
     <!-- Links when logged in -->
     <%= link_to "Proposer un espace", new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking" %>
-    <%= link_to "Mes critères", demands_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Mes devis", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Tableau de bord", dashboard_users_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Rechercher", coworkings_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Contact", pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Avatar with dropdown menu -->
@@ -66,18 +66,18 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
-          <%= link_to new_user_session_path do %>
-          <i class="fa fa-user"></i> <%= t(".sign_in", default: "S'identifier") %>
+          <%= link_to root_path do %>
+          <i class="fa fa-home"></i> <%= t(".sign_in", default: "Home") %>
           <% end %>
         </li>
         <li>
-          <%= link_to new_demand_path do %>
-          <i class="fa fa-list-alt"></i> <%= t(".sign_in", default: "Mes critères") %>
+          <%= link_to dashboard_users_path do %>
+          <i class="fa fa-list-alt"></i> <%= t(".sign_in", default: "Tableau de bord") %>
           <% end %>
         </li>
         <li>
-          <%= link_to "#" do %>
-          <i class="fa fa-money"></i> <%= t(".sign_in", default: "Mes devis") %>
+          <%= link_to dashboard_users_path do %>
+          <i class="fa fa-envelope"></i> <%= t(".sign_in", default: "Mes messages") %>
           <% end %>
         </li>
         <li>

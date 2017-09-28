@@ -1,32 +1,84 @@
-<%= form_for(@coworking) do |f| %>
-  <% if @coworking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@coworking.errors.count, "error") %> prohibited this coworking from being saved:</h2>
-
-      <ul>
-      <% @coworking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Area of Expertise" %><br />
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
-      <div class="collection-check-box">
-        <%= b.check_box %>
-        <%= b.label %>
+  <div class="form-demand-new">
+    <%= simple_form_for @brief do |f| %>
+    <%= f.input :company_name, placeholder: "Ma société", label: "Quel est le nom de votre société ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
+    <h2>Type de contrat souhaité</h2>
+    <div class="form-group">
+      <input type="hidden" name="demand[occupation_ids][]" value="">
+      <div class="checkbox-choices">
+        <% Occupation.all.each do |occupation| %>
+        <input type="checkbox" class="hidden" value="<%= occupation.id %>" name="demand[occupation_ids][]" id="demand_occupation_ids_<%= occupation.id %>">
+        <label class="checkbox-choice" for="demand_occupation_ids_<%= occupation.id %>">
+          <%= occupation.name %>
+        </label>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :lease_budget, placeholder: "150 000", label: "Budget locatif maximum annuel hors charges et taxes (HC HT) ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :buy_budget, placeholder: "1 200 000", label: "Budget acquisition hors droits (HD) (environ 8% du prix d'achat) ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
+      </div>
+    </div>
+    <h2>Où souhaitez-vous vous implanter ?</h2>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :location_1, label: "Choix n°1", prompt: "Où ?", collection: Demand::ZONE, error: "Merci de remplir ce champs pour valider le formulaire" %>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :location_2, label: "Choix n°2", collection: Demand::ZONE %>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :location_3, label: "Choix n°3", collection: Demand::ZONE %>
+      </div>
+      <%= f.hint "Merci d'indiquer au moins un choix - choix n°1" %>
+    </div>
+    <h2>Informations générales</h2>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :surface, label: "Surface", error: "Merci de remplir ce champs pour valider le formulaire", placeholder: "500", hint: "La surface SUBL (Surface Utile Brute Locative) représente l'espace comprenant les postes de travail, les salles de réunions, les espaces communs, etc.)." %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :workstation_number, label: "Nombre de postes de travail", placeholder: "35", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Un poste de travail représente le bureau d'un collaborateur. Vous pouvez avoir moins de postes que le nombre d'employés (dans le cas d'une politique de bureaux non attribués par exemple)." %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :meeting_room_number, label: "Nombre de salles de réunion", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal, nous ajusterons par la suite la taille des salles dont vous avez besoin pour organiser vos réunions. Ou laissez blanc si vous n'en avez pas besoin." %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :parking_number, label: "Nombre de parking", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal ou laissez blanc si vous n'en avez pas l'utilité." %>
+      </div>
+    </div>
+    <h2>Type de surface recherché</h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <input type="hidden" name="demand[surface_ids][]" value="">
+          <div class="checkbox-choices">
+            <% Surface.all.each do |surface| %>
+            <input type="checkbox" class="hidden" value="<%= surface.id %>" name="demand[surface_ids][]" id="demand_surface_ids_<%= surface.id %>">
+            <label class="checkbox-choice" for="demand_surface_ids_<%= surface.id %>">
+              <%= surface.name %>
+            </label>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :move_in_date, label: "A quelle date souhaitez-vous vous installer dans vos nouveaux bureaux ?", placeholder: "DD/MM/YYYY", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement la date à laquelle vous souhaitez pouvoir commencer à travailler. Nous prendrons en compte des périodes d'aménagement si nécessaire)." %>
+      </div>
+    </div>
+    <h2>Avez-vous des besoins spécifiques que vous souhaiteriez partager dès maintenant ?</h2>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :other_spec, label: "Détails", hint: "Un besoin spécifique peut être par exemple: un grand plateau type industriel, une très grande salle de réunion, une terrasse, une contrainte de confidentialité, un besoin en salle serveurs, etc.", placeholder: "Nous recherchons un espace atypique avec une grande hauteur sous plafond..." %>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+<%= f.submit "Envoyer mon cahier des charges", class: "btn btn-primary btn-block" %>
 <% end %>

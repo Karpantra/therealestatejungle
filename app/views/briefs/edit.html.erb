@@ -1,0 +1,71 @@
+<div class="container demand-container">
+  <div class="raw">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="form-demand-new">
+        <%= simple_form_for([@coworking, @brief]) do |f| %>
+        <h2>Quels est le nom de votre société ?</h2>
+        <%= f.input :company_name, placeholder: "Ma société", label: false, error: "Merci de remplir ce champs pour valider le formulaire" %>
+        <h2>Type de contrat souhaité</h2>
+        <div class="form-group">
+          <input type="hidden" name="coworking[contract_ids][]" value="">
+          <div class="checkbox-choices">
+            <% @brief.coworking.contracts.each do |contract| %>
+            <input type="checkbox" class="hidden" value="<%= contract.id %>" name="coworking[contract_ids][]" id="coworking_contract_ids_<%= contract.id %>">
+            <label class="checkbox-choice" for="coworking_contract_ids_<%= contract.id %>">
+              <%= contract.name %>
+            </label>
+            <% end %>
+          </div>
+        </div>
+        <h2>Informations générales</h2>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :surface, label: "Surface", error: "Merci de remplir ce champs pour valider le formulaire", placeholder: "500", hint: "La surface SUBL (Surface Utile Brute Locative) représente l'espace comprenant les postes de travail, les salles de réunions, les espaces communs, etc.)." %>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :workstation_number, label: "Nombre de postes de travail", placeholder: "35", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Un poste de travail représente le bureau d'un collaborateur. Vous pouvez avoir moins de postes que le nombre d'employés (dans le cas d'une politique de bureaux non attribués par exemple)." %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :meeting_room_number, label: "Nombre de salles de réunion", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal, nous ajusterons par la suite la taille des salles dont vous avez besoin pour organiser vos réunions. Ou laissez blanc si vous n'en avez pas besoin." %>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <%= f.input :parking_number, label: "Nombre de parking", placeholder: "3", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement le nombre idéal ou laissez blanc si vous n'en avez pas l'utilité." %>
+          </div>
+        </div>
+        <h2>Type de surface recherché</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <input type="hidden" name="demand[surface_ids][]" value="">
+              <div class="checkbox-choices">
+                <% Surface.all.each do |surface| %>
+                <input type="checkbox" class="hidden" value="<%= surface.id %>" name="demand[surface_ids][]" id="demand_surface_ids_<%= surface.id %>">
+                <label class="checkbox-choice" for="demand_surface_ids_<%= surface.id %>">
+                  <%= surface.name %>
+                </label>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>A quelle date souhaitez-vous vous installer dans vos nouveaux bureaux ?</h2>
+            <%= f.input :move_in_date, label: false, placeholder: "DD/MM/YYYY", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement la date à laquelle vous souhaitez pouvoir commencer à travailler. Nous prendrons en compte des périodes d'aménagement si nécessaire)." %>
+          </div>
+        </div>
+        <h2>Avez-vous des besoins spécifiques que vous souhaiteriez partager dès maintenant ?</h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.input :other_spec, label: false, hint: "Un besoin spécifique peut être par exemple: un grand plateau type industriel, une très grande salle de réunion, une terrasse, une contrainte de confidentialité, un besoin en salle serveurs, etc.", placeholder: "Nous recherchons un espace atypique avec une grande hauteur sous plafond..." %>
+          </div>
+        </div>
+        <%= f.submit "Mettre à jour mon cahier des charges", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
