@@ -86,7 +86,7 @@
           <div class="col-xs-12 col-sm-4 col-md-3">
             <div class="box-infos-price">
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-brief">Demander un devis</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-brief">Demander une proposition</button>
               <!-- Modal -->
               <div class="modal fade" id="create-brief" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -95,15 +95,15 @@
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
-                      <h5 class="modal-title" id="create-brief">Demande de devis pour <%= @coworking.name %> - <%= @coworking.address %> <%= @coworking.city %> <%= @coworking.zip_code %></h5>
-                      <p><em>Voux pourrez retrouver votre devis dans votre tableau de bord</em></p>
+                      <h5 class="modal-title" id="create-brief">Demande de proposition pour <%= @coworking.name.upcase %> - <%= @coworking.address %> <%= @coworking.city %> <%= @coworking.zip_code %></h5>
+                      <p><em>Voux pourrez retrouver votre demande dans votre tableau de bord</em></p>
                     </div>
                     <div class="modal-body">
                       <div class="form-demand-new">
                         <%= simple_form_for([@coworking,@brief]) do |f| %>
                         <h2>Quels est le nom de votre société ?</h2>
                         <%= f.input :company_name, placeholder: "Ma société", label: false, error: "Merci de remplir ce champs pour valider le formulaire" %>
-                        <h2>Type de contrat souhaité</h2>
+                        <h2>Type de contrat</h2>
                         <div class="form-group">
                           <input type="hidden" name="coworking[contract_ids][]" value="">
                           <div class="checkbox-choices">

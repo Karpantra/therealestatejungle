@@ -87,6 +87,27 @@
   text-decoration: none;
 }
 
+.navbar-wagon-item-demand {
+  cursor: pointer;
+  padding: 0 20px;
+  color: $my-green;
+}
+
+/* Navbar link */
+.navbar-wagon-link-demand {
+  color: #FAFAFF;
+  font-size: 14px;
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 5px;
+}
+.navbar-wagon-link-demand:hover {
+  color: $my-gray;
+  text-decoration: none;
+  background-color: $my-green;
+  border: none;
+}
+
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;

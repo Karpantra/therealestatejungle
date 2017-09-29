@@ -10,10 +10,11 @@
     <% if user_signed_in? %>
 
     <!-- Links when logged in -->
-    <%= link_to "Proposer un espace", new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking" %>
+    <%= link_to "Recherche spécifique", new_demand_path, class: "navbar-wagon-item-demand navbar-wagon-link-demand tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Vous êtes un grand groupe ou une startup, décrivez en quelques minutes vos besoins, nous vous accompagnons dans votre projet"}  %>
     <%= link_to "Tableau de bord", dashboard_users_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Rechercher", coworkings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Contact", pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%#= link_to "Rechercher", coworkings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%#= link_to "Contact", pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Proposer un espace", new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Publiez une annonce en quelques minutes et recevez des demandes qualifiées de startups et grands groupes"}  %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
@@ -27,11 +28,6 @@
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
-<!--           <li>
-            <%#= link_to new_coworking_path do %>
-            <i class="fa fa-building"></i>  <%#= t(".profile", default: "Proposer un espace") %>
-            <%# end %>
-          </li> -->
           <li>
             <%= link_to pages_contact_path do %>
             <i class="fa fa-phone"></i>  <%= t(".profile", default: "Contact") %>
@@ -49,13 +45,16 @@
     <!-- Login link (when logged out) -->
     <ul class="list-inline">
       <li>
-        <%= link_to t("t.profile", default: "Proposer un espace"), new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking" %>
+        <%= link_to "Recherche spécifique", new_demand_path, class: "navbar-wagon-item-demand navbar-wagon-link-demand tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Vous êtes un grand groupe ou une startup, décrivez en quelques minutes vos besoins, nous vous accompagnons dans votre projet"}  %>
       </li>
-      <li><%= link_to t(".profile", default: "Contact"), pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+      <li><%= link_to t(".profile", default: "+33 6 17 98 75 96"), pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %></%></li>
       <li><%= link_to t(".sign_in", default: "S'identifier"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <% end %>
+      </li>
+      <li>
+        <%= link_to "Proposer un espace", new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Publiez une annonce en quelques minutes et recevez des demandes qualifiées de startups et grands groupes"}  %>
       </li>
     </ul>
+        <% end %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
