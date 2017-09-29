@@ -59,6 +59,6 @@ class BriefsController < ApplicationController
    private
 
    def brief_params
-     params.require(:brief).permit(:company_name, :surface, :workstation_number, :meeting_room_number, :parking_number, :move_in_date, :other_spec, :user_id, :coworking_id, surface_ids:[])
+     params.require(:brief).permit(:company_name, :surface, :workstation_number, :meeting_room_number, :parking_number, :move_in_date, :duration, :other_spec, :user_id, :coworking_id, surface_ids:[])
    end
 end

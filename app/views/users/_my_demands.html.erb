@@ -90,10 +90,11 @@
         </div>
         <% end %>
         <% end %>
-        <h2>Agenda</h2>
+        <h2>Calendrier</h2>
         <div class="row">
           <div class="col-xs-12">
-            <p><strong><%= demand.move_in_date %></strong></p>
+            <p>Emménagement souhaité au <strong><%= demand.move_in_date %></strong></p>
+            <p>Pour une durée de <strong> <%= demand.duration %></strong> mois</p>
           </div>
         </div>
         <% unless demand.other_spec.blank? %>

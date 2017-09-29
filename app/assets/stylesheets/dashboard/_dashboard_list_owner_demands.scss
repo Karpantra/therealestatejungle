@@ -3,7 +3,13 @@
   align-items: center;
   padding: 20px;
   border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   transition: all 0.15s ease;
+  background-color: #DEE7E7;
+  i {
+    font-size: 12px;
+    color: $my-green;
+  }
 }
 
 /* Body design */
@@ -21,6 +27,7 @@
   font-weight: lighter;
   color: $my-gray;
   margin-bottom: 0;
+  padding-top: 2px;
   strong {
     font-weight: bold;
     color: #999999;
@@ -60,8 +67,14 @@
 
 /* Hover effects */
 .product:hover {
-  background: #f7f7fa;
+  background: $my-light-gray;
   cursor: pointer;
+  h3 {
+    color: $my-white;
+  }
+  p {
+    color: $my-white;
+  }
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
   color: #5898f1;
@@ -79,3 +92,30 @@
 .product-upvote:hover .product-arrow {
   border-bottom: 9px solid #5898f1;
 }
+
+.brief-content {
+  // border: 1px #313A3D solid;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px lightgrey solid;
+  h2 {
+    font-size: 20px;
+    color: $my-green;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

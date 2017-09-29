@@ -1,17 +1,20 @@
-<div class="wrapper-pages">
+<!-- <div class="wrapper-pages"> -->
   <div class="container">
     <div class="row">
 <!-- condition owner true or false  -->
     <% unless current_user.owner %>
 <!-- début de l'itération user n'est pas owner  -->
-    <%= render 'demand_if_user_not_owner' %>
+    <%= render 'brief_if_user_not_owner' %>
 <!-- fin du contenu de la modal si user n'est pas owner -->
     <% else %>
 <!-- début de l'itération user est owner  -->
-    <%= render 'demand_if_user_is_owner' %>
+    <%= render 'brief_if_user_is_owner' %>
 <!-- fin du contenu de la modal si user est owner -->
       <% end %>
 <!-- fin de la condition owner true or false  -->
     </div>
   </div>
-</div>
+<!-- </div> -->
+
+
+
