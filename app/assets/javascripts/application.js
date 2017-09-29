@@ -3,9 +3,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
-//= require bootstrap-datetimepicker
-//= require jquery.ui.datepicker
-//= require jquery.ui.datepicker-fr
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary

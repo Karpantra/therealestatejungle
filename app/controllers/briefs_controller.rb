@@ -12,7 +12,6 @@ class BriefsController < ApplicationController
    end
 
    def create
-    binding.pry
      @brief = Brief.new(brief_params)
      @coworking = Coworking.find(params[:coworking_id])
      @brief.user = current_user

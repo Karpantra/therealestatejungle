@@ -14,6 +14,11 @@
           <%= f.input :last_name, required: true, autofocus: true, label: "Nom" %>
           <%= f.input :phone_number, required: true, autofocus: true, label: "Numéro de téléphone", hint: "Aucun démarchage commercial ne sera fait. Cela nous permet de faciliter les échanges si besoin" %>
           <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :owner,
+                      :as => :select,
+                      :collection => [['Je cherche un espace de travail',false],['Je propose un espace de travail',true]],
+                      :include_blank => false,
+                      :label => "Merci de préciser l'objet de votre inscription" %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: "Mot de passe" %>
           <%= f.input :password_confirmation, required: true, label: "Confirmation du mot de passe" %>
         </div>

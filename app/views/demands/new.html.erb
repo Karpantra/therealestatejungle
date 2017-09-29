@@ -71,9 +71,14 @@
             </div>
           </div>
         </div>
+        <h2>A quelle date souhaitez-vous vous installer ?</h2>
         <div class="row">
           <div class="col-xs-12">
-          <%= f.input :move_in_date, label: "A quelle date souhaitez-vous vous installer dans vos nouveaux bureaux ?", placeholder: "DD/MM/YYYY", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement la date à laquelle vous souhaitez pouvoir commencer à travailler. Nous prendrons en compte des périodes d'aménagement si nécessaire)." %>
+          <div id="new_demand"  class="input-group date">
+            <input type="text" class="form-control" name="move_in_date"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+          </div>
+          <%#= f.input :move_in_date, %>
+          <%#= f.text_field :move_in_date, data:{ provide:'datepicker', label: "A quelle date souhaitez-vous vous installer dans vos nouveaux bureaux ?", placeholder: "DD/MM/YYYY", error: "Merci de remplir ce champs pour valider le formulaire", hint: "Indiquez simplement la date à laquelle vous souhaitez pouvoir commencer à travailler. Nous prendrons en compte des périodes d'aménagement si nécessaire)." } %>
           </div>
         </div>
         <h2>Avez-vous des besoins spécifiques que vous souhaiteriez partager dès maintenant ?</h2>
