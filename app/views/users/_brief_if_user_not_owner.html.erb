@@ -81,26 +81,30 @@
                   <div>
                     <ul class="list-inline">
                     <li>
-                      <div>
+                     <div class="row">
+                    <div class="col-xs-6">
                       <% if policy(brief).edit? %>
                         <%= link_to edit_brief_path(brief), method: :get, class: 'form-search-briefs' do %>
                         <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-briefs", style:"text-decoration:none" %>
                         <% end %>
                         <% end %>
                       </div>
+                    </div>
                     </li>
                     <li>
-                      <div>
+                      <div class="row">
+                        <div class="col-xs-6">
                       <% if policy(brief).destroy? %>
                         <%= link_to brief_path(brief), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-briefs' do %>
                         <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
                         <% end %>
                         <% end %>
                       </div>
-                    </li>
-                      <li>
-                        <button type="button" class="btn btn-primary btn-recall-briefs-delete" data-dismiss="modal">FERMER</button>
+                      </div>
                       </li>
+<!--                       <li>
+                        <button type="button" class="btn btn-primary btn-recall-briefs-delete" data-dismiss="modal">FERMER</button>
+                      </li> -->
                     </ul>
                   </div>
                 </div>
