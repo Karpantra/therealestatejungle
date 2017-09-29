@@ -38,11 +38,11 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
-              <input type="hidden" name="demand[surface_ids][]" value="">
+              <input type="hidden" name="brief[surface_ids][]" value="">
               <div class="checkbox-choices">
                 <% Surface.all.each do |surface| %>
-                <input type="checkbox" class="hidden" value="<%= surface.id %>" name="demand[surface_ids][]" id="demand_surface_ids_<%= surface.id %>">
-                <label class="checkbox-choice" for="demand_surface_ids_<%= surface.id %>">
+                <input type="checkbox" class="hidden" value="<%= surface.id %>" name="brief[surface_ids][]" id="brief_surface_ids_<%= surface.id %>">
+                <label class="checkbox-choice" for="brief_surface_ids_<%= surface.id %>">
                   <%= surface.name %>
                 </label>
                 <% end %>
