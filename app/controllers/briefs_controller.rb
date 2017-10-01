@@ -32,7 +32,6 @@ class BriefsController < ApplicationController
   end
 
   def update
-    binding.pry
     @brief = Brief.find(params[:id])
     authorize @brief
     if @brief.update(brief_params)
