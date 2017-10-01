@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :demands, dependent: :destroy
   has_many :coworkings, dependent: :destroy
   has_many :briefs, dependent: :destroy
+  has_many :messages, through: :chat_rooms, dependent: :destroy
+  has_many :chat_rooms, dependent: :destroy
   after_create :send_welcome_email
   after_create :subscribe_to_newsletter
   # Include default devise modules. Others available are:
@@ -10,6 +12,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:linkedin] #add :facebook when ready
 
   attr_accessor :current_password
+
+  ################# FACEBOOK AUTHENTICATION DO NOT DELETE ######################
 
     # def self.find_for_facebook_oauth(auth)
     #   user_params = auth.slice(:provider, :uid)
@@ -31,6 +35,8 @@ class User < ApplicationRecord
 
     #   return user
     # end
+
+ ###############################################################################
 
     def self.find_for_linkedin_oauth(auth)
         user_params = auth.slice(:provider, :uid)
