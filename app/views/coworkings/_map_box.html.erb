@@ -1,0 +1,42 @@
+<div class="container-infowindow">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="map_box">
+      <h3><%= coworking.name %></h3>
+      <p><%= coworking.address %></p>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>Tarifs</h3>
+            <% if coworking.price_per_month? %>
+            <h2><%= number_with_delimiter(coworking.price_per_month) %><em> €/mois</em></h2>
+            <% else %>
+            <% end %>
+            <% if coworking.price_per_workstation_per_month? %>
+            <h2><%= number_with_delimiter(coworking.price_per_workstation_per_month) %><em> €/mois/poste</em></h2>
+            <% end %>
+            <% if coworking.price_per_workstation_per_day? %>
+            <h2><%= number_with_delimiter(coworking.price_per_workstation_per_day) %><em> €/jour/poste</em></h2>
+            <% end %>
+            <% if coworking.price_per_workstation_per_hour? %>
+            <h2><%= number_with_delimiter(coworking.price_per_workstation_per_hour) %><em> €/heure/poste</em></h2>
+            <% end %>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+            <h3>Type de contrat</h3>
+              <% coworking.contracts.each do |contract| %>
+              <h2><%= contract.name %></h2>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <%= link_to "Voir", coworking_path(coworking), class:"btn btn-primary btn-infowindow", target: :_blank %>
+            </div>
+          </div>
+          <i>Dernière mise à jour le <%= coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
