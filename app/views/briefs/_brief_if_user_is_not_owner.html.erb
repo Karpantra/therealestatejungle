@@ -1,0 +1,122 @@
+ <!-- liste de demandes pour le owner ? -->
+ <!--  -->
+ <% current_user.briefs.each do |brief| %>
+ <div id="accordion" role="tablist" aria-multiselectable="true">
+   <div class="card-owner-list">
+     <div class="card-owner-list">
+       <div class="card-header" role="tab" id="heading_<%= brief.id %>">
+         <h5 class="mb-0">
+           <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#brief-content_<%= brief.id %>" aria-expanded="false" aria-controls="brief-content_<%= brief.id %>">
+             <div class="product">
+               <div class="container">
+                 <div class="row">
+                   <div class="col-xs-12">
+                     <div class="col-xs-12 col-md-2">
+                       <%= cl_image_tag brief.coworking.photos.first.path, width: 500, crop: :fill, class: "product-image-demand" %>
+                     </div>
+                     <div class="col-xs-12 col-md-8">
+                       <div class='product-body'>
+                         <h3><%= brief.coworking.name %></h3>
+                         <p>Votre demande a été envoyée à <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize.first(1) %>. le <%= brief.created_at.strftime("%-d-%-m-%Y") %></p>
+                         <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
+                       </div>
+                     </div>
+                     <div class="col-xs-12 col-md-2">
+                       <i>Dernière mise à jour le <%= brief.updated_at.strftime("%-d-%-m-%Y") %></i>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </a>
+         </h5>
+       </div>
+       <div id="brief-content_<%= brief.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= brief.id %>">
+         <div class="card-block">
+           <!--  -->
+            <div class="brief-content">
+           <div class="container">
+             <div class="row">
+               <!-- <div class="col-xs-12"> -->
+                <% unless brief.coworking.contracts.blank? %>
+                <div class="col-xs-12 col-md-6">
+                  <h2>Type de contrat</h2>
+                <% brief.coworking.contracts.each do |contract| %>
+                  <p><strong><%= contract.name %></strong></p>
+                <% end %>
+                </div>
+                <% end %>
+
+                <div class="col-xs-12 col-md-6">
+                  <h2>Critères de recherche</h2>
+                  <p>Nombre de postes de travail : <strong><%= brief.workstation_number %></strong></p>
+                  <p>Surface : <strong><%= brief.surface %></strong><em> m² SUBL (environ)</em></p>
+                  <p>Nombre de salles de réunions : <strong><%= brief.meeting_room_number %></strong></p>
+                  <% unless brief.parking_number.blank? %>
+                  <p>Nombre de parkings : <strong><%= brief.parking_number %></strong></p>
+                  <% end %>
+                </div>
+                <% unless brief.surfaces.blank? %>
+                <div class="col-xs-12 col-md-6">
+                  <h2>Type d'espace</h2>
+                <% brief.surfaces.each do |surface| %>
+                  <p><strong> <%= surface.name %></strong> - <em><%= surface.space %></em></p>
+                <% end %>
+                </div>
+                <% end %>
+                  <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <h2>Calendrier</h2>
+                  <p>Prise d'effet :<strong><%= brief.move_in_date %></strong></p>
+                  <p>Durée : <strong> <%= brief.duration %></strong> mois</p>
+                </div>
+                <% unless brief.other_spec.blank? %>
+                </div>
+                <div class="row">
+                <div class="col-xs-12">
+                  <h2>Besoins spécifiques</h2>
+                  <p><%= brief.other_spec %></p>
+                  <% end %>
+                </div>
+                </div>
+                <div>
+                  <ul class="list-inline">
+                  <li>
+                   <div class="row">
+                  <div class="col-xs-6">
+                    <% if policy(brief).edit? %>
+                      <%= link_to edit_brief_path(brief), method: :get, class: 'form-search-briefs' do %>
+                      <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-briefs", style:"text-decoration:none" %>
+                      <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col-xs-6">
+                    <% if policy(brief).destroy? %>
+                      <%= link_to brief_path(brief), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-briefs' do %>
+                      <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
+                      <% end %>
+                      <% end %>
+                    </div>
+                    </div>
+                    </li>
+<!--                       <li>
+                      <button type="button" class="btn btn-primary btn-recall-briefs-delete" data-dismiss="modal">FERMER</button>
+                    </li> -->
+                  </ul>
+                </div>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<% end %>

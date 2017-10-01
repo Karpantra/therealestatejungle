@@ -11,11 +11,11 @@
                <div class="container">
                  <div class="row">
                    <div class="col-xs-12">
-                     <div class="col-xs-12 col-md-1">
+                     <div class="col-xs-12 col-md-2">
                        <% avatar_url = current_user.facebook_picture_url || "TREJhome.png" %>
                        <%= image_tag avatar_url, class: "product-image" %>
                      </div>
-                     <div class="col-xs-12 col-md-9">
+                     <div class="col-xs-12 col-md-8">
                        <div class='product-body'>
                          <h3><%= brief.company_name %></h3>
                          <p><%= brief.user.first_name %> <%= brief.user.last_name.first(1) %>. vous a envoyé une demande de devis pour :</p>
@@ -48,15 +48,6 @@
                 </div>
                 <% end %>
 
-                <% unless brief.surfaces.blank? %>
-                <div class="col-xs-12 col-md-6">
-                  <h2>Type d'espace</h2>
-                <% brief.surfaces.each do |surface| %>
-                  <p><strong> <%= surface.name %></strong> - <em><%= surface.space %></em></p>
-                <% end %>
-                </div>
-                <% end %>
-                  <div class="row">
                 <div class="col-xs-12 col-md-6">
                   <h2>Critères de recherche</h2>
                   <p>Nombre de postes de travail : <strong><%= brief.workstation_number %></strong></p>
@@ -66,6 +57,15 @@
                   <p>Nombre de parkings : <strong><%= brief.parking_number %></strong></p>
                   <% end %>
                 </div>
+                <% unless brief.surfaces.blank? %>
+                <div class="col-xs-12 col-md-6">
+                  <h2>Type d'espace</h2>
+                <% brief.surfaces.each do |surface| %>
+                  <p><strong> <%= surface.name %></strong> - <em><%= surface.space %></em></p>
+                <% end %>
+                </div>
+                <% end %>
+                  <div class="row">
                 <div class="col-xs-12 col-md-6">
                   <h2>Calendrier</h2>
                   <p>Prise d'effet :<strong><%= brief.move_in_date %></strong></p>
@@ -80,7 +80,36 @@
                   <% end %>
                 </div>
                 </div>
-              <!-- </div> -->
+                <div>
+                  <ul class="list-inline">
+                  <li>
+                   <div class="row">
+                  <div class="col-xs-6">
+                    <% if policy(coworking).edit? %>
+                      <%= link_to edit_brief_path(brief), method: :get, class: 'form-search-briefs',title: "", data: { toggle: "tooltip", placement: "right", original_title: "Créez votre proposition personnalisée"} do %>
+                      <%= submit_tag "PROPOSITION", class: "btn btn-primary btn-recall-briefs", style:"text-decoration:none" %>
+                      <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col-xs-6">
+                    <% if policy(coworking).destroy? %>
+                      <%= link_to brief_path(brief), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-briefs',title: "", data: { toggle: "tooltip", placement: "right", original_title: "Le demandeur sera informé par mail"} do %>
+                      <%= submit_tag "PAS DE DISPONIBILITE", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
+                      <% end %>
+                      <% end %>
+                    </div>
+                    </div>
+                    </li>
+<!--                       <li>
+                      <button type="button" class="btn btn-primary btn-recall-briefs-delete" data-dismiss="modal">FERMER</button>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
