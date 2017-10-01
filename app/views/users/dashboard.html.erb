@@ -12,9 +12,11 @@
         <a class="tab" data-target="#chat_rooms">
           <h3><span><i class="fa fa-comments" aria-hidden="true"></i></span> Messages</h3>
         </a>
+        <% unless current_user.owner %>
         <a class="tab" data-target="#demands">
           <h3><span><i class="fa fa-folder-open" aria-hidden="true"></i></span> Critères</h3>
         </a>
+        <% end %>
       </div>
 
       <div class="tab-content" id="briefs">
