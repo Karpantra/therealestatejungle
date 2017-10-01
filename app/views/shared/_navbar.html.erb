@@ -86,6 +86,11 @@
           <% end %>
         </li>
         <li>
+          <%= link_to new_demand_path do %>
+          <i class="fa fa-search"></i>  <%= t(".sign_out", default: "Recherche spécifique") %>
+            <% end %>
+        </li>
+        <li>
           <%= link_to new_coworking_path do %>
           <i class="fa fa-building"></i>  <%= t(".sign_out", default: "Proposer un espace") %>
             <% end %>
