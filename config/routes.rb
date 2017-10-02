@@ -1,20 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'users/dashboard'
-
   mount Attachinary::Engine => "/attachinary"
-
-  # get 'coworkings/new'
-
-  # get 'coworkings/index'
-
-  # get 'coworkings/show'
-  # devise_for :users,
-  # controllers: { registrations: 'registrations' }
 
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
-
 
   root to: 'pages#home'
 
@@ -28,7 +17,7 @@ Rails.application.routes.draw do
    end
  end
 
-  resources :demands #, only: [:index, :new, :create, :update, :destroy]
+  resources :demands
 
   resources :coworkings do
     resources :briefs, only: [:new, :create]
