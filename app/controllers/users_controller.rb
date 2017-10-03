@@ -2,8 +2,13 @@ class UsersController < ApplicationController
   def dashboard
     @user = current_user
     authorize @user
+  end
 
-    @chat_rooms = policy_scope(ChatRoom)
-    @chat_rooms = current_user.chat_rooms
+  def index
+    if params[:query].blank?
+      @users = []
+    else
+      @users = User.where("first_name ILIKE ?", "#{params[:query]}%").where.not(id: current_user.id)
+    end
   end
 end

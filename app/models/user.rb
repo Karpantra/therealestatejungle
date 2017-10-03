@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :demands, dependent: :destroy
-  has_many :coworkings, dependent: :destroy
-  has_many :briefs, dependent: :destroy
-  has_many :messages, through: :chat_rooms, dependent: :destroy
-  has_many :chat_rooms, dependent: :destroy
+  has_many :demands, dependent: :nullify
+  has_many :coworkings, dependent: :nullify
+  has_many :briefs, dependent: :nullify
+  has_many :messages, through: :chat_rooms, dependent: :nullify
+  has_many :chat_rooms, dependent: :nullify
   after_create :send_welcome_email
   after_create :subscribe_to_newsletter
   # Include default devise modules. Others available are:
@@ -12,6 +12,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:linkedin] #add :facebook when ready
 
   attr_accessor :current_password
+
 
   ################# FACEBOOK AUTHENTICATION DO NOT DELETE ######################
 

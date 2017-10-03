@@ -1,3 +1,5 @@
+################ chat_room parameters ####################
+
 class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
