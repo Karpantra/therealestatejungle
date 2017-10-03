@@ -5,6 +5,10 @@ class MessagePolicy < ApplicationPolicy
     end
   end
 
+    def dasboard?
+      return true
+    end
+
     def create?
       return true
     end

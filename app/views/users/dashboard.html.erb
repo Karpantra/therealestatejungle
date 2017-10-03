@@ -26,7 +26,7 @@
         <%= render "my_propositions" %>
       </div>
       <div class="tab-content hidden" id="chat_rooms">
-        <%= render "my_chat_rooms" %>
+        <%= render "my_chat_rooms", chat_rooms: @chat_rooms %>
       </div>
       <%# unless current_user.owner %>
       <div class="tab-content hidden" id="demands">

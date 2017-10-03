@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930142316) do
+ActiveRecord::Schema.define(version: 20171003101626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20170930142316) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_chat_rooms_on_user_id", using: :btree
   end
 
   create_table "contracts", force: :cascade do |t|
@@ -176,6 +178,34 @@ ActiveRecord::Schema.define(version: 20170930142316) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "propositions", force: :cascade do |t|
+    t.integer  "workstation_number"
+    t.integer  "office_surface"
+    t.integer  "storage_surface"
+    t.integer  "parking_number"
+    t.string   "lease_start"
+    t.string   "mad_start"
+    t.integer  "office_charge_per_sqm"
+    t.integer  "office_rent_per_sqm"
+    t.integer  "office_taxe_per_sqm"
+    t.integer  "office_teom_per_sqm"
+    t.integer  "workstation_price_per_month"
+    t.integer  "workstation_price_per_day"
+    t.integer  "workstation_price_per_hour"
+    t.integer  "storage_price_per_sqm"
+    t.integer  "parking_price_per_unit"
+    t.string   "indexation"
+    t.boolean  "fiscal_status"
+    t.integer  "deposit"
+    t.integer  "lease_duration"
+    t.integer  "fitout_allowance_in_month"
+    t.integer  "free_rent_in_month"
+    t.integer  "brief_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["brief_id"], name: "index_propositions_on_brief_id", using: :btree
+  end
+
   create_table "surfaces", force: :cascade do |t|
     t.string   "name"
     t.string   "space"
@@ -218,8 +248,10 @@ ActiveRecord::Schema.define(version: 20170930142316) do
 
   add_foreign_key "briefs", "coworkings"
   add_foreign_key "briefs", "users"
+  add_foreign_key "chat_rooms", "users"
   add_foreign_key "coworkings", "users"
   add_foreign_key "demands", "users"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "propositions", "briefs"
 end
