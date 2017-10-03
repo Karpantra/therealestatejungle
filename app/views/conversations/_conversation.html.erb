@@ -1,16 +1,24 @@
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-    </a>
+  <% avatar_url = conversation.originator.facebook_picture_url || "https://via.placeholder.com/64x64" %>
+  <%= image_tag avatar_url, class: "avatar-large" %>
+<!--     <a href="#">
+      <img class="avatar-large" src="https://placehold.it/64x64" alt="...">
+    </a> -->
   </div>
   <div class="media-body">
     <h4 class="media-heading">
       <%= conversation.originator.first_name %> <br>
-      <small><b>Subject: </b><%= conversation.subject %></small><br>
-      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
+      <small><b>Sujet: </b><%= conversation.subject %></small><br>
+      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%e %b %Y à %H:%M") %></small>
     </h4>
     <%= truncate conversation.messages.last.body, length: 145 %>
     <%= link_to "Ouvrir", conversation_path(conversation)  %>
+    <% if conversation.is_trashed?(current_user) %>
+    <%= link_to 'Restaurer', untrash_conversation_path(conversation), method: :post %>
+    <% else %>
+    <%= link_to 'supprimer', trash_conversation_path(conversation), method: :post,
+    data: {confirm: 'Êtes-vous sûr ?'} %>
+    <% end %>
   </div>
 </div>

@@ -1,11 +1,11 @@
 <p>Bonjour <%= @demand.user.first_name %>,</p>
 <p>Votre cahier des charges est en cours d'analyse par nos équipes.</p>
-<p>Nous vous contacterons très rapidement à l'adresse suivante <b><%= @demand.user.email %></b>.</p>
-<p>Rendez-vous sur la page de votre cahier des charges en suivant le lien suivant:</p>
-<%= link_to "voir ma demande", demand_url(@demand)  %>
-<p>Vous pouvez apporter des modifications directement sur le site</p>
-<p>Merci de la confiance que vous nous témoignez :)</p>
-<p>Au plaisir de vous rencontrer bientôt pour faire avancer votre projet immobilier.</p>
+<p>Nous vous contacterons très rapidement à l'adresse suivante <b><%= @demand.user.email %></b> pour définir un rdv afin d'affiner vos besoins et définir le modus operandis de notre accompagnement.</p>
+<p>Retrouvez votre demande dans votre tableau de bord en suivant le lien suivant:</p>
+<%= link_to "voir ma demande", users_dashboard_url  %>
+<p>Vous pouvez apporter des modifications directement sur le site.</p>
+<p>Merci de la confiance que vous nous témoignez.</p>
+<p>A trés vite pour faire avancer votre projet immobilier.</p>
 <em>Gautier Weigert</em>
 <br>
 <em>Tél: 06 17 98 75 96</em>

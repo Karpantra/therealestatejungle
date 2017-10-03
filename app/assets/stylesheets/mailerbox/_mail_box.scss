@@ -1,0 +1,48 @@
+.panel-default {
+  margin-top: 20px;
+}
+
+
+.panel-body.right {
+  padding: 20px;
+  a {
+    border-radius: 2px;
+    font-size: 15px;
+    padding: 5px;
+    color: $my-green;
+  }
+  .btn {
+    color: white;
+  }
+  h4 {
+    color: $my-gray;
+    small {
+      font-size: 60%;
+      color: $my-light-gray;
+    }
+  }
+}
+
+
+.panel-body.left {
+  padding: 20px;
+  a {
+    border-radius: 2px;
+    font-size: 15px;
+    padding: 5px;
+    color: $my-gray;
+  }
+  .btn {
+    color: white;
+    margin-top: 5px;
+  }
+  .pull-right {
+    float: right !important;
+    padding: 5px;
+  }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: $my-green;
+}
