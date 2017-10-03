@@ -13,6 +13,15 @@ class User < ApplicationRecord
 
   attr_accessor :current_password
 
+  acts_as_messageable
+
+  def mailboxer_name
+   self.first_name
+  end
+
+  def mailboxer_email(object)
+   self.email
+  end
 
   ################# FACEBOOK AUTHENTICATION DO NOT DELETE ######################
 

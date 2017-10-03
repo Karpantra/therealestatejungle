@@ -18,6 +18,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem "coffee-rails"
 
+# inbox mailer
+gem 'mailboxer'
+gem 'chosen-rails'
+
 # Pundit
 gem "pundit"
 

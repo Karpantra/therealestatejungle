@@ -6,6 +6,30 @@ class ApplicationPolicy
     @record = record
   end
 
+  def inbox?
+    true
+  end
+
+  def sentbox?
+    false
+  end
+
+  def trash?
+    false
+  end
+
+  def reply?
+    false
+  end
+
+  def trash?
+    false
+  end
+
+  def untrash?
+    false
+  end
+
   def dashboard?
     false
   end
