@@ -5,6 +5,5 @@ class UsersController < ApplicationController
 
     @chat_rooms = policy_scope(ChatRoom)
     @chat_rooms = current_user.chat_rooms
-    raise
   end
 end
