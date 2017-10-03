@@ -21,6 +21,17 @@
       color: $my-light-gray;
     }
   }
+  textarea.form-control {
+    height: auto;
+    font-size: 15px;
+  }
+}
+
+.panel-footer{
+  textarea.form-control {
+    height: auto;
+    font-size: 15px;
+  }
 }
 
 
