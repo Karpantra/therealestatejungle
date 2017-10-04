@@ -4,6 +4,10 @@
     <div class="col-xs-12 col-sm-4 col-md-3">
       <div class="box-infos-price">
         <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-contact">Contacter l'espace</button>
+      <%= render 'coworkings/contact_form' %>
+      <br>
+      <br>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-brief">Demander un devis</button>
         <!-- Modal -->
         <%= render 'briefs/new_brief' %>

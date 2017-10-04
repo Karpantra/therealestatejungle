@@ -10,14 +10,14 @@ Contract.destroy_all
 puts "done"
 puts "starting seed"
 
-# csv_categories = File.read(Rails.root.join('lib', 'seeds', 'categories.csv'))
-# csv = CSV.parse(csv_categories, :headers => true, col_sep: ';')
-# csv.each do |row|
-#   category = Category.new(name: row["name"], icon: row["icon"])
-#   category.save
-# end
+csv_categories = File.read(Rails.root.join('lib', 'seeds', 'categories.csv'))
+csv = CSV.parse(csv_categories, :headers => true, col_sep: ';')
+csv.each do |row|
+  category = Category.new(name: row["name"], icon: row["icon"])
+  category.save
+end
 
-# puts "categories loaded"
+puts "categories loaded"
 
 csv_contracts = File.read(Rails.root.join('lib', 'seeds', 'contracts.csv'))
 csv = CSV.parse(csv_contracts, :headers => true, col_sep: ';')

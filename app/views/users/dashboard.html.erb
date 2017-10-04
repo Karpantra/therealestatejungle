@@ -9,12 +9,14 @@
         <a class="tab" data-target="#Propositions">
           <h3><span><i class="fa fa-handshake-o" aria-hidden="true"></i></span> Propositions</h3>
         </a>
-        <a class="tab" data-target="#chat_rooms">
-          <h3><span><i class="fa fa-comments" aria-hidden="true"></i></span> Messages</h3>
-        </a>
         <% unless current_user.owner %>
         <a class="tab" data-target="#demands">
           <h3><span><i class="fa fa-folder-open" aria-hidden="true"></i></span> Critères</h3>
+        </a>
+        <% end %>
+        <% if current_user.owner %>
+        <a class="tab" data-target="#offers">
+          <h3><span><i class="fa fa-folder-open" aria-hidden="true"></i></span> Annonces</h3>
         </a>
         <% end %>
       </div>
@@ -25,14 +27,14 @@
       <div class="tab-content hidden" id="Propositions">
         <%= render "my_propositions" %>
       </div>
-      <div class="tab-content hidden" id="chat_rooms">
-        <%= render "my_chat_rooms" %>
-      </div>
-      <%# unless current_user.owner %>
+      <% unless current_user.owner %>
       <div class="tab-content hidden" id="demands">
         <%= render "demands/my_demands" %>
       </div>
-      <%# end %>
+      <% end %>
+      <div class="tab-content" id="offers">
+        <!-- TODO SOMETHING -->
+      </div>
     </div>
   </div>
 </div>
