@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="form-proposition-new">
+      <h1>Créez votre proposition personnalisée</h1>
+      <p>Merci d'indiquer les prix Hors TVA</p>
+        <%= simple_form_for([@brief,@proposition]) do |f| %>
+        <h2>Désignation des locaux</h2>
+        <%= f.input :workstation_number, label: "Nombre de postes de travail" %>
+        <%= f.input :office_surface, label: "Surface bureaux SUBL en m²" %>
+        <%= f.input :storage_surface, label: "Surface stockage SUBL en m²" %>
+        <%= f.input :parking_number, label: "Nombre de parkings" %>
+        <%= f.input :meeting_room_number, label: "Nombre de salles de réunion" %>
+        <h2>Conditions générales</h2>
+        <h3>Prix au poste de travail <em>si applicable</em></h3>
+        <%= f.input :workstation_price_per_month, label: "Au mois" %>
+        <%= f.input :workstation_price_per_day, label: "A la journée" %>
+        <%= f.input :workstation_price_per_hour, label: "A l'heure" %>
+        <h3>Prix au m²/mois <em>si applicable</em></h3>
+        <%= f.input :office_rent_per_sqm, label: "Bureaux HT HC" %>
+        <%= f.input :storage_price_per_sqm, label: "Stockage HT HC" %>
+        <%= f.input :parking_price_per_unit, label: "Parking/unité HT HC" %>
+        <%= f.input :office_charge_per_sqm, label: "Charges" %>
+        <%= f.input :office_taxe_per_sqm, label: "Taxes" %>
+        <%= f.input :office_teom_per_sqm, label: "TEOM" %>
+        <%= f.input :indexation, label: "Indexation" %>
+        <%= f.input :deposit, label: "Dépôt de garantie" %>
+        <%= f.input :fiscal_status, label: "Régime TVA" %>
+        <h2>Conditions particulières</h2>
+        <%= f.input :lease_start, label: "Date de début du contrat ou du bail" %>
+        <%= f.input :lease_duration, label: "Durée du contrat ou du bail" %>
+        <%= f.input :mad_start, label: "Date de mise à disposition anticipée" %>
+        <%= f.input :free_rent_in_month, label: "Franchise de loyer en nbr de mois HT HC" %>
+        <%= f.input :fitout_allowance_in_month, label: "Accompagnement travaux en nbr de mois HT HC" %>
+        <h2>Spécificités</h2>
+        <%= f.input :other_spec, label: "Indiquez des précisions si nécessaire" %>
+        <div class="modal-footer">
+          <%= f.submit "Envoyer ma proposition", class: "btn btn-primary btn-block" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

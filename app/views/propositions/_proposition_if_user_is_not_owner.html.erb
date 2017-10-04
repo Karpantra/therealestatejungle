@@ -1,0 +1,126 @@
+<% current_user.briefs.each do |brief| %>
+<% brief.propositions.each do |proposition| %>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+ <div class="card-owner-list">
+   <div class="card-owner-list">
+     <div class="card-header" role="tab" id="heading_<%= proposition.id %>">
+       <h5 class="mb-0">
+         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#proposition-content_<%= proposition.id %>" aria-expanded="false" aria-controls="proposition-content_<%= proposition.id %>">
+           <div class="product">
+             <div class="container">
+               <div class="row">
+                 <div class="col-xs-12">
+                   <div class="col-xs-12 col-md-2">
+                     <%#= cl_image_tag proposition.coworking.photos.first.path, width: 500, crop: :fill, class: "product-image-demand" %>
+                   </div>
+                   <div class="col-xs-12 col-md-8">
+                     <div class='product-body'>
+                       <h3><%= proposition.brief.coworking.name %></h3>
+                       <p>Vous avez reçu une proposition de <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize.first(1) %>. le <%= proposition.created_at.strftime("%-d-%-m-%Y") %></p>
+                       <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
+                     </div>
+                   </div>
+                   <div class="col-xs-12 col-md-2">
+                     <i>Dernière mise à jour le <%= proposition.updated_at.strftime("%-d-%-m-%Y") %></i>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </a>
+       </h5>
+     </div>
+     <div id="proposition-content_<%= proposition.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= proposition.id %>">
+       <div class="card-block">
+         <!--  -->
+         <div class="proposition-content">
+           <div class="container">
+             <div class="row">
+               <!-- <div class="col-xs-12"> -->
+               <% unless proposition.brief.coworking.contracts.blank? %>
+               <div class="col-xs-12 col-md-6">
+                <h2>Type de contrat</h2>
+                <% proposition.brief.coworking.contracts.each do |contract| %>
+                <p><strong><%= contract.name %></strong></p>
+                <% end %>
+              </div>
+              <% end %>
+
+              <div class="col-xs-12">
+                <h2>Désignation des locaux</h2>
+                <p><%= proposition.workstation_number %></p>
+                <p><%= proposition.office_surface %></p>
+                <p><%= proposition.storage_surface %></p>
+                <p><%= proposition.parking_number %></p>
+                <p><%= proposition.meeting_room_number %></p>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h2>Conditions générales</h2>
+                  <h3>Prix au poste de travail <em>si applicable</em></h3>
+                  <p><%= proposition.workstation_price_per_month %></p>
+                  <p><%= proposition.workstation_price_per_day %></p>
+                  <p><%= proposition.workstation_price_per_hour %></p>
+                  <h3>Prix au m²/mois <em>si applicable</em></h3>
+                  <p><%= proposition.office_rent_per_sqm %></p>
+                  <p><%= proposition.storage_price_per_sqm %></p>
+                  <p><%= proposition.parking_price_per_unit %></p>
+                  <p><%= proposition.office_charge_per_sqm %></p>
+                  <p><%= proposition.office_taxe_per_sqm %></p>
+                  <p><%= proposition.office_teom_per_sqm %></p>
+                  <p><%= proposition.indexation %></p>
+                  <p><%= proposition.deposit %></p>
+                  <p><%= proposition.fiscal_status %></p>
+                </div>
+                <div class="col-xs-12">
+                  <h2>Conditions particulières</h2>
+                  <p><%= proposition.lease_start %></p>
+                  <p><%= proposition.lease_duration %></p>
+                  <p><%= proposition.mad_start %></p>
+                  <p><%= proposition.free_rent_in_month %></p>
+                  <p><%= proposition.fitout_allowance_in_month %></p>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h2>Spécificités</h2>
+                      <p><%= proposition.other_spec %></p>
+                    </div>
+                  </div>
+                  <div>
+                    <ul class="list-inline">
+                      <li>
+                       <div class="row">
+                        <div class="col-xs-6">
+
+                        <%= link_to edit_brief_proposition_path(brief, proposition), method: :get, class: 'form-search-briefs' do %>
+                          <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-propositions", style:"text-decoration:none" %>
+                          <% end %>
+
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="row">
+                        <div class="col-xs-6">
+
+                          <%= link_to brief_proposition_path(brief, proposition), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre proposition ?"}, class: 'form-search-briefs' do %>
+                          <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-propositions-delete", style:"text-decoration:none" %>
+                          <% end %>
+
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Last div in row 114 user is not owner -->
+<% end %>
+<% end %>
+

@@ -81,11 +81,9 @@
               <div class="col-xs-6">
                 <ul class="list-inline">
                   <li>
-                    <% if policy(coworking).edit? %>
-                    <%= link_to edit_brief_path(brief), method: :get, class: 'form-search-briefs',title: "", data: { toggle: "tooltip", placement: "right", original_title: "Créez votre proposition personnalisée"} do %>
-                    <%= submit_tag "PROPOSITION", class: "btn btn-primary btn-recall-briefs", style:"text-decoration:none" %>
-                    <% end %>
-                    <% end %>
+                  <%= link_to new_brief_proposition_path(brief), class: 'form-search-briefs',title: "", data: { toggle: "tooltip", placement: "right", original_title: "Créez votre proposition personnalisée"} do %>
+                  <%= submit_tag "PROPOSITION", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
+                  <% end %>
                   </li>
                   <li>
                     <% if policy(coworking).destroy? %>

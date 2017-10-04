@@ -3,6 +3,8 @@ class Demand < ApplicationRecord
   has_and_belongs_to_many :occupations
   has_and_belongs_to_many :surfaces
 
+
+  ### Check and uncomment when ready ####
   # validates :company_name, presence: true
   # validates :lease_budget, presence: true
   # validates :location_1, presence: true

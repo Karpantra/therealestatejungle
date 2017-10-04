@@ -39,7 +39,10 @@ Rails.application.routes.draw do
     resources :briefs, only: [:new, :create]
   end
 
-  resources :briefs
+
+  resources :briefs do
+    resources :propositions
+  end
 
   resources :chat_rooms, only: [:show] do
     resources :messages, only: [:create]

@@ -1,0 +1,79 @@
+.form-proposition-new {
+  background: white;
+  padding: 10px 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  h1 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 20px;
+    color: $my-green;
+  }
+  h3 {
+    font-size: 17px;
+    color: $my-gray;
+  }
+  p {
+   font-size: 17px;
+   color: $my-gray;
+   text-align: center;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: $my-white;
+    font-size: 15px;
+  }
+  .help-block {
+    font-size: 10px;
+  }
+  .form-control {
+    font-size: 12px;
+  }
+  label {
+    font-size: 15px;
+  }
+  em  {
+    font-size: 10px;
+  }
+}
+
+.checkbox-new-proposition {
+  label {
+    font-size: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    text-align: space-between;
+  }
+}
+
+// Attachinary design
+
+.attachinary {
+  input {
+    font-size: 12px;
+  }
+}
+
+.attachinary_container {
+  margin-top: 20px;
+  ul {
+    display: inline-block;
+    list-style: none;
+  }
+  a {
+    font-size: 10px;
+    color: $my-green;
+  }
+  img {
+    margin-bottom: 5px;
+  }
+}
+
