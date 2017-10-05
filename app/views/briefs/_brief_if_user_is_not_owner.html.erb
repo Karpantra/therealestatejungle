@@ -14,8 +14,8 @@
                      </div>
                      <div class="col-xs-12 col-md-8">
                        <div class='product-body'>
-                         <h3><%= brief.coworking.name %></h3>
-                         <p>Votre demande a été envoyée à <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize.first(1) %>. le <%= brief.created_at.strftime("%-d-%-m-%Y") %></p>
+                         <h3>Demande pour <%= brief.coworking.name %></h3>
+                         <p>Contact : <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize %>. le <%= brief.created_at.strftime("%-d-%-m-%Y") %></p>
                          <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
                        </div>
                      </div>

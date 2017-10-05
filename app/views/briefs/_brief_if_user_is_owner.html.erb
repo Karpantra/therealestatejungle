@@ -16,8 +16,8 @@
                     </div>
                     <div class="col-xs-12 col-md-8">
                      <div class='product-body'>
-                         <h3><%= brief.company_name %></h3>
-                         <p><%= brief.user.first_name %> <%= brief.user.last_name.first(1) %>. vous a envoyé une demande de devis pour :</p>
+                         <h3>Demande de <%= brief.company_name %></h3>
+                         <p>Contact : <%= brief.user.first_name %> <%= brief.user.last_name.capitalize %></p>
                          <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
                       </div>
                      </div>
@@ -77,28 +77,26 @@
               <div class="col-xs-12">
                 <h2>Besoins spécifiques</h2>
                 <p><%= brief.other_spec %></p>
-              <% end %>
               </div>
             </div>
+              <% end %>
             <div class="row">
               <div class="col-xs-6">
                 <ul class="list-inline">
                   <li>
-                  <%= link_to new_brief_proposition_path(brief), class: 'form-search-briefs',title: "", data: { toggle: "tooltip", placement: "right", original_title: "Créez votre proposition personnalisée"} do %>
-                  <%= submit_tag "PROPOSITION", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
-                  <% end %>
+                    <%= link_to new_brief_proposition_path(brief), class: 'form-search-briefs',title: "", data: { toggle: "tooltip", placement: "right", original_title: "Créez votre proposition personnalisée"} do %>
+                    <%= submit_tag "PROPOSITION", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
+                    <% end %>
                   </li>
                   <li>
-
                     <%= link_to decline_brief_path(brief), method: :post, data: { confirm: "Êtes-vous sûr de vouloir décliner cette demande ?"}, class: 'form-search-briefs',title: "", data: { toggle: "tooltip", placement: "right", original_title: "Le demandeur sera informé par mail"} do %>
                     <%= submit_tag "PAS DE DISPONIBILITE", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
                     <% end %>
-
-                  </li>
+                    </li>
                 </ul>
               </div>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
