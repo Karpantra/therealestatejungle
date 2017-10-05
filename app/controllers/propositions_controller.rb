@@ -10,9 +10,10 @@ class PropositionsController < ApplicationController
   def create
     @proposition = Proposition.new(proposition_params)
     @brief = Brief.find(params[:brief_id])
+    @brief.status = "answered"
+    @brief.save
     @proposition.brief = @brief
     skip_authorization
-    binding.pry
       if @proposition.save
         # PropositionMailer.creation_confirmation(@proposition).deliver_now
         flash[:notice] = "Votre proposition a bien été envoyée"
@@ -41,13 +42,39 @@ class PropositionsController < ApplicationController
     end
   end
 
-  def accept_proposition
+  def decline
+    @proposition = Proposition.find(params[:id])
+    @proposition.status = "declined"
+    skip_authorization
+    if @proposition.save
+      flash[:notice] = "Vous avez accepté la proposition"
+      redirect_to dashboard_users_path
+    else
+      flash[:notice] = "Un problème est survenu, merci de nous contacter"
+      redirect_to dashboard_users_path
+    end
+  end
+
+  def cancel
+    @proposition = Proposition.find(params[:id])
+    @proposition.status = "canceled"
+    skip_authorization
+    if @proposition.save
+      flash[:notice] = "Votre proposition a été annulée"
+      redirect_to dashboard_users_path
+    else
+      flash[:notice] = "impossible d'annuler votre proposition"
+      redirect_to dashboard_users_path
+    end
+  end
+
+  def accept
     @proposition = Proposition.find(params[:id])
     @proposition.status = "accepted"
     skip_authorization
     if @proposition.save
       flash[:notice] = "La proposition a bien été acceptée"
-      redirect_to dashboard_user_path
+      redirect_to dashboard_users_path
     else
       flash[:notice] = "Une erreur s'est produite, merci de nous contacter"
       redirect_to dashboard_users_path

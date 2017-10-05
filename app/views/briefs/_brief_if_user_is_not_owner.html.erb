@@ -21,7 +21,9 @@
                      </div>
                      <div class="col-xs-12 col-md-2">
                        <i>Dernière mise à jour le <%= brief.updated_at.strftime("%-d-%-m-%Y") %></i>
-                       <p><%= brief.status %></p>
+                       <br>
+                       <br>
+                       <span class="badge badge-default"><%= brief.status %></span>
                      </div>
                    </div>
                  </div>
@@ -94,9 +96,9 @@
                   <li>
                     <div class="row">
                       <div class="col-xs-6">
-                        <% if policy(brief).destroy? %>
-                        <%= link_to brief_path(brief), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer votre recherche ?"}, class: 'form-search-briefs' do %>
-                        <%= submit_tag "SUPPRIMER", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
+                        <% if policy(brief).cancel? %>
+                        <%= link_to cancel_brief_path(brief), method: :post, data: { confirm: "Êtes-vous sûr de vouloir annuler votre recherche ?"}, class: 'form-search-briefs' do %>
+                        <%= submit_tag "ANNULER", class: "btn btn-primary btn-recall-briefs-delete", style:"text-decoration:none" %>
                         <% end %>
                         <% end %>
                       </div>

@@ -58,6 +58,10 @@ class ApplicationPolicy
     update?
   end
 
+  def decline?
+    false
+  end
+
   def destroy?
     false
   end

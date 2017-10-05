@@ -16,6 +16,14 @@ class BriefPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+  def decline?
+    true
+  end
+
+  def cancel?
+    true
+  end
+
   def destroy?
     user_is_owner_or_admin?
   end

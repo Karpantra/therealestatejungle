@@ -32,7 +32,6 @@ Rails.application.routes.draw do
    end
  end
 
-
   resources :demands
 
   resources :coworkings do
@@ -41,7 +40,13 @@ Rails.application.routes.draw do
 
 
   resources :briefs do
-    resources :propositions
+    post :decline, on: :member
+    post :cancel, on: :member
+    resources :propositions do
+      post :accept, on: :member
+      post :cancel, on: :member
+      post :decline, on: :member
+    end
   end
 
   resources :chat_rooms, only: [:show] do

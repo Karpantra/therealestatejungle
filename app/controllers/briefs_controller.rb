@@ -43,6 +43,32 @@ class BriefsController < ApplicationController
     end
   end
 
+  def decline
+    @brief = Brief.find(params[:id])
+    @brief.status = "declined"
+    authorize @brief
+    if @brief.save
+      flash[:notice] = "La demande a été déclinée"
+      redirect_to dashboard_users_path
+    else
+      flash[:notice] = "impossible de décliner la demande"
+      redirect_to dashboard_users_path
+    end
+  end
+
+  def cancel
+    @brief = Brief.find(params[:id])
+    @brief.status = "canceled"
+    authorize @brief
+    if @brief.save
+      flash[:notice] = "Votre demande a été annulée"
+      redirect_to dashboard_users_path
+    else
+      flash[:notice] = "impossible d'annuler votre demande"
+      redirect_to dashboard_users_path
+    end
+  end
+
   def destroy
     @brief = Brief.find(params[:id])
     authorize @brief
