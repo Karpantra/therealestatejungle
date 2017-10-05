@@ -23,7 +23,7 @@
   margin-bottom: 15px;
 }
 
-.briefs-content {
+.brief-content {
   border: 1px solid solid rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -42,6 +42,8 @@
     color: $my-green;
     font-family: $body-font;
     font-size: 18px;
+    // border-bottom: 1px $my-green solid;
+    text-decoration: underline;
   }
   p {
     color: $my-light-gray;

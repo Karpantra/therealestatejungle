@@ -12,12 +12,14 @@
                <div class="row">
                  <div class="col-xs-12">
                    <div class="col-xs-12 col-md-2">
-                     <%#= cl_image_tag proposition.coworking.photos.first.path, width: 500, crop: :fill, class: "product-image-demand" %>
+                   <% avatar_url = brief.user.facebook_picture_url || "default-avatar.jpg" %>
+                   <%= image_tag avatar_url, class: "product-image" %>
+                   <%#= cl_image_tag proposition.brief.coworking.photos.first.path, width: 500, crop: :fill, class: "product-image-demand" %>
                    </div>
                    <div class="col-xs-12 col-md-8">
                      <div class='product-body'>
                        <h3><%= proposition.brief.coworking.name %></h3>
-                       <p>Vous avez reçu une proposition de <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize.first(1) %>. le <%= proposition.created_at.strftime("%-d-%-m-%Y") %></p>
+                       <p>Vous avez envoyé une proposition de <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize.first(1) %>. le <%= proposition.created_at.strftime("%-d-%-m-%Y") %></p>
                        <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
                      </div>
                    </div>
@@ -25,7 +27,7 @@
                      <i>Dernière mise à jour le <%= proposition.updated_at.strftime("%-d-%-m-%Y") %></i>
                      <br>
                      <br>
-                      <span class="badge badge-default"><%= proposition.status %></span>
+                     <span class="badge badge-default"><%= proposition.status %></span>
                    </div>
                  </div>
                </div>
@@ -41,80 +43,80 @@
            <div class="container">
              <div class="row">
                <!-- <div class="col-xs-12"> -->
-               <% unless proposition.brief.coworking.contracts.blank? %>
+               <% unless proposition.brief.contracts.blank? %>
                <div class="col-xs-12 col-md-6">
-                <h2>Type de contrat</h2>
-                <% proposition.brief.coworking.contracts.each do |contract| %>
-                <p><strong><%= contract.name %></strong></p>
-                <% end %>
-              </div>
-              <% end %>
+                 <h2>Type de contrat</h2>
+                 <% proposition.brief.contracts.each do |contract| %>
+                 <p><strong><%= contract.name %></strong></p>
+                 <% end %>
+               </div>
+               <% end %>
 
-              <div class="col-xs-12">
-                <h2>Désignation des locaux</h2>
-                <p><%= proposition.workstation_number %></p>
-                <p><%= proposition.office_surface %></p>
-                <p><%= proposition.storage_surface %></p>
-                <p><%= proposition.parking_number %></p>
-                <p><%= proposition.meeting_room_number %></p>
-              </div>
-              <div class="row">
-                <div class="col-xs-12">
-                  <h2>Conditions générales</h2>
-                  <h3>Prix au poste de travail <em>si applicable</em></h3>
-                  <p><%= proposition.workstation_price_per_month %></p>
-                  <p><%= proposition.workstation_price_per_day %></p>
-                  <p><%= proposition.workstation_price_per_hour %></p>
-                  <h3>Prix au m²/mois <em>si applicable</em></h3>
-                  <p><%= proposition.office_rent_per_sqm %></p>
-                  <p><%= proposition.storage_price_per_sqm %></p>
-                  <p><%= proposition.parking_price_per_unit %></p>
-                  <p><%= proposition.office_charge_per_sqm %></p>
-                  <p><%= proposition.office_taxe_per_sqm %></p>
-                  <p><%= proposition.office_teom_per_sqm %></p>
-                  <p><%= proposition.indexation %></p>
-                  <p><%= proposition.deposit %></p>
-                  <p><%= proposition.fiscal_status %></p>
-                </div>
-                <div class="col-xs-12">
-                  <h2>Conditions particulières</h2>
-                  <p><%= proposition.lease_start %></p>
-                  <p><%= proposition.lease_duration %></p>
-                  <p><%= proposition.mad_start %></p>
-                  <p><%= proposition.free_rent_in_month %></p>
-                  <p><%= proposition.fitout_allowance_in_month %></p>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h2>Spécificités</h2>
-                      <p><%= proposition.other_spec %></p>
-                    </div>
-                  </div>
-                  <div>
-                    <ul class="list-inline">
-                      <li>
-                       <div class="row">
-                        <div class="col-xs-6">
+               <div class="col-xs-12 col-md-6">
+                 <h2>Désignation des locaux</h2>
+                 <p>Nombre de postes de travail : <%= proposition.workstation_number %></p>
+                 <p>Surface bureaux : <%= proposition.office_surface %> m² SUBL</p>
+                 <p>Surface stockage : <%= proposition.storage_surface %> m² SUBL</p>
+                 <p>Nombre de parkings : <%= proposition.parking_number %> par unité</p>
+                 <p>Nombre de salles de réunion : <%= proposition.meeting_room_number %></p>
+               </div>
+               <div class="row">
+                 <div class="col-xs-12 col-md-6">
+                   <h2>Conditions générales</h2>
+                   <h3>Prix au poste de travail Hors TVA <em>si applicable</em></h3>
+                   <p><%= proposition.workstation_price_per_month %> € par mois</p>
+                   <p><%= proposition.workstation_price_per_day %> € par jour</p>
+                   <p><%= proposition.workstation_price_per_hour %> € par heure</p>
+                   <h3>Prix au m²/mois <em>si applicable</em></h3>
+                   <p>Bureaux :<%= proposition.office_rent_per_sqm %> € HT HC</p>
+                   <p>Stockage :<%= proposition.storage_price_per_sqm %> € HT HC</p>
+                   <p>Parkings :<%= proposition.parking_price_per_unit %> €/unité HT HC</p>
+                   <p>Charges :<%= proposition.office_charge_per_sqm %> €</p>
+                   <p>Taxes : <%= proposition.office_taxe_per_sqm %> €</p>
+                   <p>TEOM : <%= proposition.office_teom_per_sqm %> €</p>
+                   <p>Indexation :<%= proposition.indexation %></p>
+                   <p>Dépôt de garantie : <%= proposition.deposit %> mois de loyer HT HC</p>
+                   <p>Régime fiscal :<%= proposition.fiscal_status ? "TVA" : "Non soumis à la TVA" %></p>
+                 </div>
+                 <div class="col-xs-12 col-md-6">
+                   <h2>Conditions particulières</h2>
+                   <p>Date de prise d'effet : <%= proposition.lease_start %></p>
+                   <p>Durée ferme du contrat ou du bail : <%= proposition.lease_duration %></p>
+                   <p>Date de mise à disposition anticipée : <%= proposition.mad_start %></p>
+                   <p>Franchise de loyer : <%= proposition.free_rent_in_month %> mois HT HC</p>
+                   <p>Accompagnement travaux : <%= proposition.fitout_allowance_in_month %> équivelant mois HT HC</p>
+                 </div>
+                 <div class="row">
+                   <div class="col-xs-12">
+                     <h2>Spécificités</h2>
+                     <p><%= proposition.other_spec %></p>
+                   </div>
+                 </div>
+                 <div>
+                  <ul class="list-inline">
+                    <li>
+                     <div class="row">
+                      <div class="col-xs-6">
 
                         <%= link_to edit_brief_proposition_path(brief, proposition), method: :get, class: 'form-search-briefs' do %>
-                          <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-propositions", style:"text-decoration:none" %>
-                          <% end %>
+                        <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-propositions", style:"text-decoration:none" %>
+                        <% end %>
 
-                        </div>
                       </div>
-                    </li>
-                    <li>
-                      <div class="row">
-                        <div class="col-xs-6">
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col-xs-6">
 
-                          <%= link_to cancel_brief_proposition_path(brief, proposition), method: :post, data: { confirm: "Êtes-vous sûr de vouloir annuler votre proposition ?"}, class: 'form-search-briefs' do %>
-                          <%= submit_tag "ANNULER", class: "btn btn-primary btn-recall-propositions-delete", style:"text-decoration:none" %>
-                          <% end %>
+                        <%= link_to cancel_brief_proposition_path(brief, proposition), method: :post, data: { confirm: "Êtes-vous sûr de vouloir annuler votre proposition ?"}, class: 'form-search-briefs' do %>
+                        <%= submit_tag "ANNULER", class: "btn btn-primary btn-recall-propositions-delete", style:"text-decoration:none" %>
+                        <% end %>
 
-                        </div>
                       </div>
-                    </li>
-                  </ul>
-                </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -122,6 +124,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 <% end %>

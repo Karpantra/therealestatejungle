@@ -27,3 +27,20 @@
   background-color: transparent;
   border: 2px $gray;
 }
+
+.avatar-circle {
+  padding: 2px 6px 2px 6px;
+  background-color: $my-white;
+  color: $my-gray;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.avatar-circle-mailbox {
+  padding: 2px 6px 2px 6px;
+  background-color: $my-white;
+  color: $my-gray;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
