@@ -15,7 +15,6 @@
           <%= f.input :company_name, placeholder: "Ma société", label: false, error: "Merci de remplir ce champs pour valider le formulaire" %>
           <h2>Type de contrat</h2>
           <div class="form-group">
-            <input type="hidden" name="coworking[contract_ids][]" value="">
             <div class="checkbox-choices">
               <% @coworking.contracts.each do |contract| %>
               <input type="checkbox" class="hidden" value="<%= contract.id %>" name="coworking[contract_ids][]" id="coworking_contract_ids_<%= contract.id %>">

@@ -16,6 +16,9 @@ class BriefsController < ApplicationController
      @coworking = Coworking.find(params[:coworking_id])
      @brief.user = current_user
      @brief.coworking = @coworking
+     coworking_params["contract_ids"].each do |contract|
+      @brief.contracts << Contract.find(contract)
+     end
      authorize @brief
        if @brief.save
          # briefMailer.creation_confirmation(@brief).deliver_now
@@ -86,5 +89,9 @@ class BriefsController < ApplicationController
 
    def brief_params
      params.require(:brief).permit(:company_name, :surface, :workstation_number, :meeting_room_number, :parking_number, :move_in_date, :duration, :other_spec, :user_id, :coworking_id, surface_ids:[])
+   end
+
+   def coworking_params
+      params.require(:coworking).permit(contract_ids:[])
    end
 end

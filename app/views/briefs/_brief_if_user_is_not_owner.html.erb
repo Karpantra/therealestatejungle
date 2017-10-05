@@ -42,7 +42,7 @@
                  <% unless brief.coworking.contracts.blank? %>
                  <div class="col-xs-12 col-md-6">
                   <h2>Type de contrat</h2>
-                  <% brief.coworking.contracts.each do |contract| %>
+                  <% brief.contracts.each do |contract| %>
                   <p><strong><%= contract.name %></strong></p>
                   <% end %>
                 </div>
@@ -112,7 +112,6 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 </div>
 <!-- Last div in row 114 user is not owner -->
