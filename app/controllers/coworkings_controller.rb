@@ -8,6 +8,7 @@ class CoworkingsController < ApplicationController
 
     #with search from banner
     search = params[:coworking][:address]
+    binding.pry
       if search.to_s.size > 0
         @coworkings = policy_scope(Coworking).near(search,20).where.not(latitude: nil, longitude: nil)
         @hash = Gmaps4rails.build_markers(@coworkings) do |coworking, marker|

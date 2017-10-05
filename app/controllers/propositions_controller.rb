@@ -8,10 +8,11 @@ class PropositionsController < ApplicationController
   end
 
   def create
-    @proposition = Proposition.new
+    @proposition = Proposition.new(proposition_params)
     @brief = Brief.find(params[:brief_id])
     @proposition.brief = @brief
     skip_authorization
+    binding.pry
       if @proposition.save
         # PropositionMailer.creation_confirmation(@proposition).deliver_now
         flash[:notice] = "Votre proposition a bien été envoyée"
