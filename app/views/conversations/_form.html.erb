@@ -2,7 +2,7 @@
     <div class="form-group">
       <% if current_page?(new_conversation_path) %>
         <%= f.label "Destinataire(s)" %>
-        <%= f.select(:recipients, User.all.collect {|p| [ p.email, p.id ] }, {}, { multiple: true , class: "chosen-select form-control"})%>
+        <%= f.select(:recipients, User.all.collect {|user| [ user.full_name ] }, {}, { multiple: true , class: "chosen-select form-control"})%>
       <% elsif @coworking.present? && current_page?(coworking_path(@coworking)) %>
         <%= f.hidden_field :recipients, :value => @coworking.user.id %>
       <% end %>

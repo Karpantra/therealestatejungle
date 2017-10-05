@@ -23,6 +23,10 @@ class User < ApplicationRecord
    self.email
   end
 
+  def full_name
+    return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
   ################# FACEBOOK AUTHENTICATION DO NOT DELETE ######################
 
     # def self.find_for_facebook_oauth(auth)
