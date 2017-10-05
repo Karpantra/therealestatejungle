@@ -16,11 +16,9 @@ class BriefsController < ApplicationController
      @coworking = Coworking.find(params[:coworking_id])
      @brief.user = current_user
      @brief.coworking = @coworking
-     # @brief.contracts = coworking_params["contract_ids"]
      coworking_params["contract_ids"].each do |contract|
       @brief.contracts << Contract.find(contract)
      end
-     binding.pry
      authorize @brief
        if @brief.save
          # briefMailer.creation_confirmation(@brief).deliver_now
