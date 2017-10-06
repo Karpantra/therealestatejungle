@@ -2,18 +2,18 @@
   <div class="container">
     <div class="row">
       <% unless current_user.owner %>
-      <div class="col-xs-12">
+      <!-- <div class="col-xs-12"> -->
 <!-- condition owner true or false  -->
 <!-- début de l'itération user n'est pas owner  -->
         <%= render 'propositions/proposition_if_user_is_not_owner' %>
 <!-- fin du contenu du collapse si user n'est pas owner -->
-      </div>
+      <!-- </div> -->
       <% else %>
-      <div class="col-xs-12">
+      <!-- <div class="col-xs-12"> -->
 <!-- début de l'itération user est owner  -->
         <%= render 'propositions/proposition_if_user_is_owner' %>
 <!-- fin du contenu du collapse si user est owner -->
-      </div>
+      <!-- </div> -->
 <!-- fin de la condition owner true or false  -->
       <% end %>
     </div>
