@@ -2,26 +2,43 @@ class CoworkingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show]
 
   def index
-    # @coworkings = Coworking.all # Without pundit and no geocodage
-    # @coworkings = Coworking.where.not(latitude: nil, longitude: nil) #without pundit with geocodage
-    # @coworkings = policy_scope(Coworking).where.not(latitude: nil, longitude: nil) # With pundited
+    # define variable for filter
+    @location = filter_params[:address]
+    @landlords = filter_params[:landlord]
+    @surface_min = filter_params[:surface_min]
+    @surface_max = filter_params[:surface_max]
+    @workstation_number = filter_params[:workstation_number]
 
-    #with search from banner
-    search = params[:coworking][:address]
-      if search.to_s.size > 0
-        @coworkings = policy_scope(Coworking).near(search,20).where.not(latitude: nil, longitude: nil)
-        @hash = Gmaps4rails.build_markers(@coworkings) do |coworking, marker|
-        marker.lat coworking.latitude
-        marker.lng coworking.longitude
-        marker.infowindow render_to_string(partial: "/coworkings/map_box", locals: { coworking: coworking })
-      end
+    # filter by location
+    if @location.present?
+      @coworkings = policy_scope(Coworking).near(@location,20).where.not(latitude: nil, longitude: nil)
     else
       @coworkings = policy_scope(Coworking).where.not(latitude: nil, longitude: nil)
-      @hash = Gmaps4rails.build_markers(@coworkings) do |coworking, marker|
-        marker.lat coworking.latitude
-        marker.lng coworking.longitude
-        marker.infowindow render_to_string(partial: "/coworkings/map_box", locals: { coworking: coworking })
-      end
+    end
+
+    # filter by landlords
+    unless @landlords.nil? || @landlords.join == ""
+      @coworkings = @coworkings.joins(:landlords).where(landlords: {id: @landlords}).uniq
+    end
+
+    # filter by surface
+    unless @surface_min.nil? || @surface_min == ""
+      @coworkings = @coworkings.where("surface >= ?", @surface_min)
+    end
+    unless @surface_max.nil? || @surface_max == ""
+      @coworkings = @coworkings.where("surface <= ?", @surface_max)
+    end
+
+    # filter by workstation_number
+    unless @workstation_number.nil? || @workstation_number == ""
+      @coworkings = @coworkings.where("workstation_number >= ?", @workstation_number)
+    end
+
+    # render map
+    @hash = Gmaps4rails.build_markers(@coworkings) do |coworking, marker|
+      marker.lat coworking.latitude
+      marker.lng coworking.longitude
+      marker.infowindow render_to_string(partial: "/coworkings/map_box", locals: { coworking: coworking })
     end
   end
 
@@ -87,5 +104,9 @@ class CoworkingsController < ApplicationController
 
   def coworking_params
       params.require(:coworking).permit(:user_id, :title, :name, :address, :city, :zip_code, :surface, :workstation_number, :price_per_month, :price_per_workstation_per_month, :price_per_workstation_per_day, :price_per_workstation_per_hour, :description, :special_offer, photos: [], category_ids:[], contract_ids:[], type_ids:[], landlord_ids:[])
+  end
+
+  def filter_params
+      params.require(:coworking).permit(:address, :surface_min, :surface_max, :workstation_number, landlord:[])
   end
 end
