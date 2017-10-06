@@ -63,7 +63,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-4">
-        <%= f.input :indexation, label: "Indexation" %>
+        <%= f.input :indexation, label: "Indexation", collection: Proposition::INDEXATION %>
           </div>
           <div class="col-xs-12 col-md-4">
         <%= f.input :deposit, label: "Dépôt de garantie" %>

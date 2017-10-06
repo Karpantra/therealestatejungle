@@ -7,7 +7,6 @@
         <%= f.input :company_name, placeholder: "Ma société", label: "Quel est le nom de votre société ?", error: "Merci de remplir ce champs pour valider le formulaire" %>
             <h2>Type de contrat souhaité</h2>
             <div class="form-group">
-              <input type="hidden" name="demand[occupation_ids][]" value="">
               <div class="checkbox-choices">
                 <% Occupation.all.each do |occupation| %>
                   <input type="checkbox" class="hidden" value="<%= occupation.id %>" name="demand[occupation_ids][]" id="demand_occupation_ids_<%= occupation.id %>">
@@ -59,7 +58,6 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
-              <input type="hidden" name="demand[surface_ids][]" value="">
               <div class="checkbox-choices">
                 <% Surface.all.each do |surface| %>
                   <input type="checkbox" class="hidden" value="<%= surface.id %>" name="demand[surface_ids][]" id="demand_surface_ids_<%= surface.id %>">

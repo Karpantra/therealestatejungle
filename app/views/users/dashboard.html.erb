@@ -27,13 +27,11 @@
       <div class="tab-content hidden" id="Propositions">
         <%= render "propositions/my_propositions" %>
       </div>
-      <% unless current_user.owner %>
       <div class="tab-content hidden" id="demands">
         <%= render "demands/my_demands" %>
       </div>
-      <% end %>
-      <div class="tab-content" id="offers">
-        <!-- TODO SOMETHING -->
+      <div class="tab-content hidden" id="offers">
+        <%= render "coworkings/coworkings_list_dashboard" %>
       </div>
     </div>
   </div>

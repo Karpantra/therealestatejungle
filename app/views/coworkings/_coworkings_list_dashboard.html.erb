@@ -1,0 +1,12 @@
+<div class="container-coworking-index">
+  <div class="row">
+    <div class="col-xs-12">
+      <% current_user.coworkings.each do |coworking| %>
+      <div class="col-xs-12 col-md-6">
+        <%= render 'coworkings/card', coworking: coworking, image_url: cl_image_path(coworking.photos.first.path, aspect_ratio: 4, crop: :crop)  %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
