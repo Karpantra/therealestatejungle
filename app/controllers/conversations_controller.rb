@@ -7,9 +7,11 @@ class ConversationsController < ApplicationController
 
   def create
     recipients = User.where(id: conversation_params[:recipients])
+    binding.pry
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
-    flash[:success] = "Your message was successfully sent!"
-    redirect_to conversation_path(conversation)
+    create_contact(recipients)
+    flash[:notice] = "Your message was successfully sent!"
+    redirect_to :back
     skip_authorization
   end
 
@@ -41,11 +43,20 @@ class ConversationsController < ApplicationController
 
   private
 
+  def create_contact(list_of_user = [])
+    list_of_user.each do |user|
+      sender = Contact.new(owner: current_user, user: user)
+      recipient = Contact.new(owner: user, user: current_user)
+      sender.valid? ? sender.save : "Contact already exist"
+      recipient.valid? ? recipient.save : "Contact already exist"
+    end
+  end
+
   def message_params
     params.require(:message).permit(:body, :subject)
   end
 
   def conversation_params
-    params.require(:conversation).permit(:subject, :body,recipients:[])
+    params.require(:conversation).permit(:subject, :body, recipients:[])
   end
 end

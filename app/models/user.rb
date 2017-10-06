@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :briefs, dependent: :nullify
   has_many :messages, through: :chat_rooms, dependent: :nullify
   has_many :chat_rooms, dependent: :nullify
+  has_many :contacts, :foreign_key => 'owner_id', dependent: :destroy
   after_create :send_welcome_email
   after_create :subscribe_to_newsletter
   # Include default devise modules. Others available are:
@@ -21,6 +22,10 @@ class User < ApplicationRecord
 
   def mailboxer_email(object)
    self.email
+  end
+
+  def full_name
+    return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
   ################# FACEBOOK AUTHENTICATION DO NOT DELETE ######################

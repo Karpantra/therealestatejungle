@@ -1,0 +1,24 @@
+.badge_message {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 0 20px;
+
+  & a {
+    padding: 0;
+    z-index: 2;
+  }
+
+  & p {
+    background: $my-green;
+    color: white;
+    border-radius: 100px;
+    padding: 2px 6px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 -4px 12px 0;
+  }
+}
