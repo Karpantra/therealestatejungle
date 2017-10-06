@@ -1,14 +1,26 @@
 <div class="container-coworking-index">
   <div class="row">
     <div class="col-xs-12 col-md-7">
-    <div id="" style="overflow:scroll; height:100vh;">
-        <% @coworkings.each do |coworking| %>
-        <div class="col-xs-12 col-md-6">
-          <%= render 'card', coworking: coworking, image_url: cl_image_path(coworking.photos.first.path, aspect_ratio: 4, crop: :crop)  %>
+      <div class="row">
+        <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'TODO'}, url: coworkings_path do |f| %>
+            <%= f.input :address, class: "TODO", input_html: {value: @location} %>
+            <%= f.input :landlord, collection: Landlord.all, class: "TODO", as: :check_boxes, checked: @landlords %>
+            <%= f.input :surface_min, class: "TODO", input_html: {value: @surface_min} %>
+            <%= f.input :surface_max, class: "TODO", input_html: {value: @surface_max} %>
+            <%= f.input :workstation_number, class: "TODO", input_html: {value: @workstation_number} %>
+            <%= f.submit "Rechercher", class: "TODO", style:"text-decoration:none" %>
+          <% end %>
+      </div>
+      <div class="row">
+        <div id="" style="overflow:scroll; height:100vh;">
+            <% @coworkings.each do |coworking| %>
+            <div class="col-xs-12 col-md-6">
+              <%= render 'card', coworking: coworking, image_url: cl_image_path(coworking.photos.first.path, aspect_ratio: 4, crop: :crop)  %>
+            </div>
+            <% end %>
         </div>
-        <% end %>
+      </div>
     </div>
-  </div>
 
     <div class="col-xs-12 col-md-5">
       <div id="map"></div>
