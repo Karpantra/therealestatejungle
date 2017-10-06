@@ -160,13 +160,6 @@ ActiveRecord::Schema.define(version: 20171006082023) do
     t.integer "demand_id",  null: false
   end
 
-  create_table "equipments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "landlords", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
