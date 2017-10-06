@@ -9,6 +9,7 @@ class ConversationsController < ApplicationController
     recipients = User.where(id: conversation_params[:recipients])
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
     create_contact(recipients)
+    flash[:notice] = "Your message was successfully sent!"
     redirect_to :back
     skip_authorization
   end
