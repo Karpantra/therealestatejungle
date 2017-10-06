@@ -7,6 +7,7 @@ class ConversationsController < ApplicationController
 
   def create
     recipients = User.where(id: conversation_params[:recipients])
+    binding.pry
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
     create_contact(recipients)
     flash[:notice] = "Your message was successfully sent!"
@@ -56,6 +57,6 @@ class ConversationsController < ApplicationController
   end
 
   def conversation_params
-    params.require(:conversation).permit(:subject, :body, :recipients, recipients:[])
+    params.require(:conversation).permit(:subject, :body, recipients:[])
   end
 end
