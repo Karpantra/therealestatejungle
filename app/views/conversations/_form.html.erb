@@ -1,7 +1,11 @@
 <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
     <div class="form-group">
-      <%= f.label "Destinataire(s)" %>
-      <%= f.select(:recipients, User.all.collect {|p| [ p.email, p.id ] }, {}, { multiple: true , class: "chosen-select form-control"})%>
+      <% if current_page?(new_conversation_path) %>
+        <%= f.label "Destinataire(s)" %>
+        <%= f.select(:recipients, current_user.contacts.collect {|contact| [ "#{contact.user.full_name}", contact.user.id ] }, {}, { multiple: true , class: "chosen-select form-control"})%>
+      <% elsif @coworking.present? && current_page?(coworking_path(@coworking)) %>
+        <input name="conversation[recipients][]" type="hidden" value="<%= @coworking.user.id %>">
+      <% end %>
     </div>
     <div class="form-group">
       <%= f.label "Objet" %>

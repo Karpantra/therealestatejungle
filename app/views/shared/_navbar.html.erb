@@ -12,15 +12,18 @@
     <!-- Links when logged in -->
     <%= link_to "Recherche spécifique", new_demand_path, class: "navbar-wagon-item-demand navbar-wagon-link-demand tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Vous êtes un grand groupe ou une startup, décrivez en quelques minutes vos besoins, nous vous accompagnons dans votre projet"}  %>
     <%= link_to "Tableau de bord", dashboard_users_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Messagerie", mailbox_inbox_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <div class="badge_message">
+      <%= link_to "Messagerie", mailbox_inbox_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <p><%=unread_messages_count%></p>
+    </div>
     <%#= link_to "Contact", pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Proposer un espace", new_coworking_path, class: "navbar-wagon-item-coworking navbar-wagon-link-coworking tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Publiez une annonce en quelques minutes et recevez des demandes qualifiées de startups et grands groupes"}  %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%# avatar_url = current_user.facebook_picture_url || current_user.first_name.upcase %>
-        <% avatar_url = current_user.facebook_picture_url || "http://via.placeholder.com/350x150" %>
+        <%# avatar_url = current_user.facebook_picture_url || current_user.first_name.upcase  %>
+        <% avatar_url = current_user.facebook_picture_url || "default-avatar.jpg" %>
         <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
