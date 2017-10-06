@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004213529) do
+ActiveRecord::Schema.define(version: 20171006082023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 20171004213529) do
     t.index ["user_id"], name: "index_briefs_on_user_id", using: :btree
   end
 
+  create_table "briefs_contracts", id: false, force: :cascade do |t|
+    t.integer "contract_id", null: false
+    t.integer "brief_id",    null: false
+  end
+
   create_table "briefs_surfaces", id: false, force: :cascade do |t|
     t.integer "surface_id", null: false
     t.integer "brief_id",   null: false
@@ -69,6 +74,13 @@ ActiveRecord::Schema.define(version: 20171004213529) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "owner_id"
+    t.integer "user_id"
+    t.index ["owner_id"], name: "index_contacts_on_owner_id", using: :btree
+    t.index ["user_id"], name: "index_contacts_on_user_id", using: :btree
   end
 
   create_table "contracts", force: :cascade do |t|
@@ -146,13 +158,6 @@ ActiveRecord::Schema.define(version: 20171004213529) do
   create_table "demands_surfaces", id: false, force: :cascade do |t|
     t.integer "surface_id", null: false
     t.integer "demand_id",  null: false
-  end
-
-  create_table "equipments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "landlords", force: :cascade do |t|
