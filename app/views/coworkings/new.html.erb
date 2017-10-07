@@ -51,7 +51,6 @@
         </div>
         <h2>Vous êtes un(e) <em>(choix multiples)</em></h2>
             <div class="form-group">
-              <input type="hidden" name="coworking[landlord_ids][]" value="">
               <div class="checkbox-choices">
                 <% Landlord.all.each do |landlord| %>
                   <input type="checkbox" class="hidden" value="<%= landlord.id %>" name="coworking[landlord_ids][]" id="coworking_landlord_ids_<%= landlord.id %>">
@@ -63,7 +62,6 @@
             </div>
         <h2>Type d'espace <em>(choix multiples)</em></h2>
             <div class="form-group">
-              <input type="hidden" name="coworking[type_ids][]" value="">
               <div class="checkbox-choices">
                 <% Type.all.each do |type| %>
                   <input type="checkbox" class="hidden" value="<%= type.id %>" name="coworking[type_ids][]" id="coworking_type_ids_<%= type.id %>">
@@ -75,7 +73,7 @@
             </div>
         <h2>Type de contrats <em>(choix multiples)</em></h2>
             <div class="form-group">
-              <input type="hidden" name="coworking[contract_ids][]" value="">
+              <!-- <input type="hidden" name="coworking[contract_ids][]" value=""> -->
               <div class="checkbox-choices">
                 <% Contract.all.each do |contract| %>
                   <input type="checkbox" class="hidden" value="<%= contract.id %>" name="coworking[contract_ids][]" id="coworking_contract_ids_<%= contract.id %>">
@@ -87,7 +85,7 @@
             </div>
         <h2>Equipements et services <em>(choix multiples)</em></h2>
             <div class="form-group">
-              <input type="hidden" name="coworking[category_ids][]" value="">
+              <!-- <input type="hidden" name="coworking[category_ids][]" value=""> -->
               <div class="checkbox-choices">
                 <% Category.all.each do |category| %>
                   <input type="checkbox" class="hidden" value="<%= category.id %>" name="coworking[category_ids][]" id="coworking_category_ids_<%= category.id %>">

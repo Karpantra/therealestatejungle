@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-12 col-md-4 col-sm-4">
+  <%= f.input :workstation_number, label: false, placeholder: "Nombre de postes de travail", class: "TODO", input_html: {value: @workstation_number} %>
+  </div>
+  <div class="col-xs-12 col-md-4 col-sm-4">
+    <%= f.input :surface_min, label: false, placeholder: "Surface Min", class: "TODO", input_html: {value: @surface_min} %>
+  </div>
+  <div class="col-xs-12 col-md-4 col-sm-4">
+    <%= f.input :surface_max, label: false, placeholder: "Surface Max", class: "TODO", input_html: {value: @surface_max} %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <%= f.input :landlord, as: :check_boxes, label: false do %>
+    <%= f.collection_check_boxes :landlord, Landlord.all, :id, :name, checked: @landlords do |b| %>
+    <%= b.check_box(class: "") + b.label(class: "") %>
+    <% end %>
+    <% end %>
+  </div>
+</div>

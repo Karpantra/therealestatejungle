@@ -2,22 +2,54 @@
   <div class="row">
     <div class="col-xs-12 col-md-7">
       <div class="row">
-        <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'TODO'}, url: coworkings_path do |f| %>
-            <%= f.input :address, class: "TODO", input_html: {value: @location} %>
-            <%= f.input :landlord, collection: Landlord.all, class: "TODO", as: :check_boxes, checked: @landlords %>
-            <%= f.input :surface_min, class: "TODO", input_html: {value: @surface_min} %>
-            <%= f.input :surface_max, class: "TODO", input_html: {value: @surface_max} %>
-            <%= f.input :workstation_number, class: "TODO", input_html: {value: @workstation_number} %>
-            <%= f.submit "Rechercher", class: "TODO", style:"text-decoration:none" %>
+        <div class="form-group-filtering">
+          <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'TODO'}, url: coworkings_path do |f| %>
+          <div class="row">
+            <div class="col-xs-12 col-md-2 col-sm-2 hidden-xs">
+              <h1><%= @results %> résultats</h1>
+            </div>
+            <div class="col-xs-9 col-md-6 col-sm-6 location">
+              <%= f.input :address, label: false, placeholder: "Où rêvez-vous de travailler ?", class: "TODO", input_html: {value: @location} %>
+              <%#= f.input :landlord, label: false, collection: Landlord.all, class: "checkbox-choice", as: :check_boxes, checked: @landlords %>
+            </div>
+             <div class="col-xs-3 hidden-lg hidden-md hidden-sm">
+             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="collapseExample">
+               Filtres
+             </button>
+             </div>
+            <div class="col-xs-12 col-md-2 col-sm-2 hidden-xs">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="collapseExample">
+              Filtres
+            </button>
+            </div>
+            <div class="col-xs-12 col-md-2 col-sm-2">
+              <%= f.submit "Rechercher", class: "btn btn-primary hidden-xs", style:"text-decoration:none" %>
+            </div>
+          </div>
+          <div class="collapse" id="filters">
+          <%= render 'filters', f: f %>
+          </div>
+
+
+
+
+
+          <div class="row hidden-md hidden-sm hidden-lg">
+            <div class="col-xs-12">
+              <%= f.submit "Rechercher", class: "btn btn-primary", style:"text-decoration:none" %>
+            </div>
+          </div>
           <% end %>
+        </div>
       </div>
+      <!-- </div> -->
       <div class="row">
         <div id="" style="overflow:scroll; height:100vh;">
-            <% @coworkings.each do |coworking| %>
-            <div class="col-xs-12 col-md-6">
-              <%= render 'card', coworking: coworking, image_url: cl_image_path(coworking.photos.first.path, aspect_ratio: 4, crop: :crop)  %>
-            </div>
-            <% end %>
+          <% @coworkings.each do |coworking| %>
+          <div class="col-xs-12 col-md-6">
+            <%= render 'card', coworking: coworking, image_url: cl_image_path(coworking.photos.first.path, aspect_ratio: 4, crop: :crop)  %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -29,21 +61,21 @@
 </div>
 
 <% content_for(:after_js) do %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
+<script type="text/javascript">
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
         // markers
 
       });
-    });
-  </script>
+  });
+</script>
 <% end %>

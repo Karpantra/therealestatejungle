@@ -33,9 +33,42 @@
   margin-top: 10px;
   font-family: $body-font;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  // border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+
+.form-group-filtering {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  label {
+    padding-left: 12px;
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 15px;
+    position: relative;
+    bottom: 15px;
+  }
+  .btn {
+      background-color: #29AB87;
+      border-color: #29AB87;
+      font-size: 12px;
+      width: auto;
+      padding: 10px 10px;
+      font-family: "Montserrat", "sans-serif";
+      -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  input.form-control {
+      border: 1px solid #ECECEC;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      font-size: 14px;
+      color: #868686;
+      font-size: 10px;
+      height: 39px;
+  }
+}
 // * {
 //     background: #000 !important;
 //     color: #0f0 !important;

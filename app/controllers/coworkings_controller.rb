@@ -8,6 +8,7 @@ class CoworkingsController < ApplicationController
     @surface_min = filter_params[:surface_min]
     @surface_max = filter_params[:surface_max]
     @workstation_number = filter_params[:workstation_number]
+    @results = policy_scope(Coworking).where.not(latitude: nil, longitude: nil).count
 
     # filter by location
     if @location.present?
