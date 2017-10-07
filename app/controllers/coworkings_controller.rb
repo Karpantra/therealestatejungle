@@ -94,7 +94,7 @@ class CoworkingsController < ApplicationController
     if @coworking.destroy
     # coworkingMailer.destroy_confirmation(@coworking).deliver_now #uncomment to run
     flash[:notice] = "Votre annonce a bien été supprimée"
-     redirect_to coworkings_path
+     redirect_to root_path
    else
      flash[:notice] = "Impossible de supprimer votre annonce"
      redirect_to coworking_path(@coworking)
