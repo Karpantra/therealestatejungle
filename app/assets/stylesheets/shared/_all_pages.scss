@@ -3,6 +3,10 @@
   // position:relative;
 }
 
+.content-wrapper {
+  min-height: calc(100vh - 60px - 80px)
+}
+
 body, html {
  background-color: $my-white;
  height:100%;

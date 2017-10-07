@@ -9,13 +9,13 @@
 
 .home-footer {
   background: $my-gray;
-  height: auto;
+  height: 150px;
   // remove of any trouble
-  position: relative;
-  z-index: -6;
-  @media(max-width: $screen-sm) {
-    text-align: center;
-  }
+  // position: relative;
+  // z-index: -6;
+  // @media(max-width: $screen-sm) {
+  //   text-align: center;
+  // }
   //
   p {
     font-size: 10px;

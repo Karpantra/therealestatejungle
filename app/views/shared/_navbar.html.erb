@@ -84,9 +84,12 @@
           <% end %>
         </li>
         <li>
+          <div class="badge_message_dropdown">
           <%= link_to mailbox_inbox_path do %>
-          <i class="fa fa-envelope"></i> <%= t(".sign_in", default: "Mes messages") %>
+          <%= t(".sign_in", default: "Messagerie") %>
           <% end %>
+          <p><%=unread_messages_count%></p>
+          </div>
         </li>
         <li>
           <%= link_to new_demand_path do %>
