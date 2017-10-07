@@ -5,16 +5,13 @@
  <div class="card-owner-list">
    <div class="card-owner-list">
      <div class="card-header" role="tab" id="heading_<%= proposition.id %>">
-       <!-- <h5 class="mb-0"> -->
          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#proposition-content_<%= proposition.id %>" aria-expanded="false" aria-controls="proposition-content_<%= proposition.id %>">
            <div class="product">
              <div class="container">
                <div class="row">
-                 <!-- <div class="col-xs-12"> -->
                    <div class="col-xs-12 col-md-2">
                      <% avatar_url = brief.user.facebook_picture_url || "default-avatar.jpg" %>
                      <%= image_tag avatar_url, class: "product-image" %>
-                     <%#= cl_image_tag proposition.brief.coworking.photos.first.path, width: 500, crop: :fill, class: "product-image-demand" %>
                    </div>
                    <div class="col-xs-12 col-md-8">
                      <div class='product-body'>
@@ -29,25 +26,23 @@
                      <br>
                      <span class="badge badge-default"><%= proposition.status %></span>
                    </div>
-                 <!-- </div> -->
                </div>
              </div>
            </div>
          </a>
-       <!-- </h5> -->
      </div>
      <div id="proposition-content_<%= proposition.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= proposition.id %>">
       <div class="card-block">
         <div class="proposition-content">
           <div class="row">
-            <% unless proposition.brief.contracts.blank? %>
+            <%# unless proposition.brief.contracts.blank? %>
             <div class="col-xs-12 col-md-6">
               <h2>Type de contrat</h2>
               <% proposition.brief.contracts.each do |contract| %>
               <p><strong><%= contract.name %></strong></p>
               <% end %>
             </div>
-            <% end %>
+            <%# end %>
             <div class="col-xs-12 col-md-6">
              <h2>Désignation des locaux</h2>
              <p>Nombre de postes de travail : <%= proposition.workstation_number %></p>
@@ -56,7 +51,6 @@
              <p>Nombre de parkings : <%= proposition.parking_number %> par unité</p>
              <p>Nombre de salles de réunion : <%= proposition.meeting_room_number %></p>
            </div>
-         </div>
          <div class="row">
            <div class="col-xs-12 col-md-6">
              <h2>Conditions particulières</h2>
@@ -115,6 +109,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </div>
