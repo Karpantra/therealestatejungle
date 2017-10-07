@@ -1,4 +1,23 @@
 <div class="content-wrapper">
+<% if current_user.coworkings.blank? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <div class="no-demands-content">
+          <h1>Vous n'avez pas encore proposé d'espaces.</h1>
+          <h2>Créez votre annonce en quelques minutes en suivant le lien ci-dessous</h2>
+        </div>
+        <div class="btn-no-demand">
+          <%= link_to new_coworking_path, method: :get, class: 'form-search' do %>
+          <div class="flexbox">
+            <%= submit_tag "PROPOSER UN ESPACE", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% else %>
   <div class="container-coworking-index">
     <div class="row">
       <div class="col-xs-12">
@@ -11,3 +30,4 @@
     </div>
   </div>
 </div>
+<% end %>
