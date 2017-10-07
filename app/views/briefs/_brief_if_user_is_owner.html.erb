@@ -39,14 +39,14 @@
          <div class="brief-content">
            <div class="container">
              <div class="row">
-               <% unless brief.coworking.contracts.blank? %>
+               <%# unless brief.coworking.contracts.blank? %>
               <div class="col-xs-12 col-md-6">
                 <h2>Type de contrat</h2>
                 <% brief.contracts.each do |contract| %>
                 <p><strong><%= contract.name %></strong></p>
                 <% end %>
               </div>
-                <% end %>
+                <%# end %>
               <div class="col-xs-12 col-md-6">
                 <h2>Critères de recherche</h2>
                 <p>Nombre de postes de travail : <strong><%= brief.workstation_number %></strong></p>
@@ -56,14 +56,14 @@
                 <p>Nombre de parkings : <strong><%= brief.parking_number %></strong></p>
                 <% end %>
               </div>
-              <% unless brief.surfaces.blank? %>
+              <%# unless brief.surfaces.blank? %>
               <div class="col-xs-12 col-md-6">
                 <h2>Type d'espace</h2>
                 <% brief.surfaces.each do |surface| %>
                 <p><strong> <%= surface.name %></strong> - <em><%= surface.space %></em></p>
                 <% end %>
               </div>
-              <% end %>
+              <%# end %>
               </div>
             <div class="row">
               <div class="col-xs-12 col-md-6">
@@ -72,14 +72,14 @@
                 <p>Durée : <strong> <%= brief.duration %></strong> mois</p>
               </div>
             </div>
-              <% unless brief.other_spec.blank? %>
+              <%# unless brief.other_spec.blank? %>
             <div class="row">
               <div class="col-xs-12">
                 <h2>Besoins spécifiques</h2>
                 <p><%= brief.other_spec %></p>
               </div>
             </div>
-              <% end %>
+              <%# end %>
             <div class="row">
               <div class="col-xs-6">
                 <ul class="list-inline">
