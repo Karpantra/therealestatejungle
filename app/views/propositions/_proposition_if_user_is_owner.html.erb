@@ -1,119 +1,121 @@
 <% @coworkings.each do |coworking| %>
 <% coworking.briefs.each do |brief| %>
 <% brief.propositions.each do |proposition| %>
-<div id="accordion" role="tablist" aria-multiselectable="true">
- <div class="card-owner-list">
+  <div id="accordion" role="tablist" aria-multiselectable="true">
    <div class="card-owner-list">
-     <div class="card-header" role="tab" id="heading_<%= proposition.id %>">
-         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#proposition-content_<%= proposition.id %>" aria-expanded="false" aria-controls="proposition-content_<%= proposition.id %>">
-           <div class="product">
-             <div class="container">
-               <div class="row">
-                   <div class="col-xs-12 col-md-2">
-                     <% avatar_url = brief.user.facebook_picture_url || "default-avatar.jpg" %>
-                     <%= image_tag avatar_url, class: "product-image" %>
-                   </div>
-                   <div class="col-xs-12 col-md-8">
-                     <div class='product-body'>
-                       <h3> Proposition pour <%= proposition.brief.company_name %></h3>
-                       <p>Contact : <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize %> le <%= proposition.created_at.strftime("%-d-%-m-%Y") %></p>
-                       <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
+     <div class="card-owner-list">
+       <div class="card-header" role="tab" id="heading_<%= proposition.id %>">
+           <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#proposition-content_<%= proposition.id %>" aria-expanded="false" aria-controls="proposition-content_<%= proposition.id %>">
+             <div class="product">
+               <div class="container">
+                 <div class="row">
+                     <div class="col-xs-12 col-md-2">
+                       <% avatar_url = brief.user.facebook_picture_url || "default-avatar.jpg" %>
+                       <%= image_tag avatar_url, class: "product-image" %>
                      </div>
-                   </div>
-                   <div class="col-xs-12 col-md-2">
-                     <i>Dernière mise à jour le <%= proposition.updated_at.strftime("%-d-%-m-%Y") %></i>
-                     <br>
-                     <br>
-                     <span class="badge badge-default"><%= proposition.status %></span>
-                   </div>
+                     <div class="col-xs-12 col-md-8">
+                       <div class='product-body'>
+                         <h3> Proposition pour <%= proposition.brief.company_name %></h3>
+                         <p>Contact : <%= brief.coworking.user.first_name %> <%= brief.coworking.user.last_name.capitalize %> le <%= proposition.created_at.strftime("%-d-%-m-%Y") %></p>
+                         <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
+                       </div>
+                     </div>
+                     <div class="col-xs-12 col-md-2">
+                       <i>Dernière mise à jour le <%= proposition.updated_at.strftime("%-d-%-m-%Y") %></i>
+                       <br>
+                       <br>
+                       <span class="badge badge-default"><%= proposition.status %></span>
+                     </div>
+                 </div>
                </div>
              </div>
-           </div>
-         </a>
-     </div>
-     <div id="proposition-content_<%= proposition.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= proposition.id %>">
-      <div class="card-block">
-        <div class="proposition-content">
-          <div class="row">
-            <%# unless proposition.brief.contracts.blank? %>
-            <div class="col-xs-12 col-md-6">
-              <h2>Type de contrat</h2>
-              <% proposition.brief.contracts.each do |contract| %>
-              <p><strong><%= contract.name %></strong></p>
-              <% end %>
-            </div>
-            <%# end %>
-            <div class="col-xs-12 col-md-6">
-             <h2>Désignation des locaux</h2>
-             <p>Nombre de postes de travail : <%= proposition.workstation_number %></p>
-             <p>Surface bureaux : <%= proposition.office_surface %> m² SUBL</p>
-             <p>Surface stockage : <%= proposition.storage_surface %> m² SUBL</p>
-             <p>Nombre de parkings : <%= proposition.parking_number %> par unité</p>
-             <p>Nombre de salles de réunion : <%= proposition.meeting_room_number %></p>
-           </div>
-         <div class="row">
-           <div class="col-xs-12 col-md-6">
-             <h2>Conditions particulières</h2>
-             <p>Date de prise d'effet : <%= proposition.lease_start %></p>
-             <p>Durée ferme du contrat ou du bail : <%= proposition.lease_duration %></p>
-             <p>Date de mise à disposition anticipée : <%= proposition.mad_start %></p>
-             <p>Franchise de loyer : <%= proposition.free_rent_in_month %> mois HT HC</p>
-             <p>Accompagnement travaux : <%= proposition.fitout_allowance_in_month %> €</p>
-             <!-- fitout allowance in cash need to change name in DB -->
-           </div>
-           <div class="col-xs-12 col-md-6">
-             <h2>Conditions générales</h2>
-             <h3>Prix au poste de travail Hors TVA <em>si applicable</em></h3>
-             <p><%= proposition.workstation_price_per_month %> € par mois</p>
-             <p><%= proposition.workstation_price_per_day %> € par jour</p>
-             <p><%= proposition.workstation_price_per_hour %> € par heure</p>
-             <h3>Prix au m²/an <em>si applicable</em></h3>
-             <p>Bureaux :<%= proposition.office_rent_per_sqm %> € HT HC</p>
-             <p>Stockage :<%= proposition.storage_price_per_sqm %> € HT HC</p>
-             <p>Parkings :<%= proposition.parking_price_per_unit %> €/unité HT HC</p>
-             <p>Charges :<%= proposition.office_charge_per_sqm %> €</p>
-             <p>Taxes : <%= proposition.office_taxe_per_sqm %> €</p>
-             <p>TEOM : <%= proposition.office_teom_per_sqm %> €</p>
-             <p>Indexation :<%= proposition.indexation %></p>
-             <p>Dépôt de garantie : <%= proposition.deposit %> mois de loyer HT HC</p>
-             <p>Régime fiscal :<%= proposition.fiscal_status ? "TVA" : "Non soumis à la TVA" %></p>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-xs-12">
-             <h2>Spécificités</h2>
-             <p><%= proposition.other_spec %></p>
-           </div>
-         </div>
-         <div>
-          <ul class="list-inline">
-            <li>
-             <div class="row">
-              <div class="col-xs-6">
-                <%= link_to edit_brief_proposition_path(brief, proposition), method: :get, class: 'form-search-briefs' do %>
-                <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-propositions", style:"text-decoration:none" %>
-                <% end %>
-              </div>
-            </div>
-          </li>
-          <li>
+           </a>
+       </div>
+       <div id="proposition-content_<%= proposition.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= proposition.id %>">
+        <div class="card-block">
+          <div class="proposition-content">
+            <div class="container">
             <div class="row">
-              <div class="col-xs-6">
-                <%= link_to cancel_brief_proposition_path(brief, proposition), method: :post, data: { confirm: "Êtes-vous sûr de vouloir annuler votre proposition ?"}, class: 'form-search-briefs' do %>
-                <%= submit_tag "ANNULER", class: "btn btn-primary btn-recall-propositions-delete", style:"text-decoration:none" %>
+              <%# unless proposition.brief.contracts.blank? %>
+              <div class="col-xs-12 col-md-6">
+                <h2>Type de contrat</h2>
+                <% proposition.brief.contracts.each do |contract| %>
+                <p><strong><%= contract.name %></strong></p>
                 <% end %>
               </div>
-            </div>
-          </li>
-        </ul>
+              <%# end %>
+              <div class="col-xs-12 col-md-6">
+               <h2>Désignation des locaux</h2>
+               <p>Nombre de postes de travail : <%= proposition.workstation_number %></p>
+               <p>Surface bureaux : <%= proposition.office_surface %> m² SUBL</p>
+               <p>Surface stockage : <%= proposition.storage_surface %> m² SUBL</p>
+               <p>Nombre de parkings : <%= proposition.parking_number %> par unité</p>
+               <p>Nombre de salles de réunion : <%= proposition.meeting_room_number %></p>
+             </div>
+           <div class="row">
+             <div class="col-xs-12 col-md-6">
+               <h2>Conditions particulières</h2>
+               <p>Date de prise d'effet : <%= proposition.lease_start %></p>
+               <p>Durée ferme du contrat ou du bail : <%= proposition.lease_duration %></p>
+               <p>Date de mise à disposition anticipée : <%= proposition.mad_start %></p>
+               <p>Franchise de loyer : <%= proposition.free_rent_in_month %> mois HT HC</p>
+               <p>Accompagnement travaux : <%= proposition.fitout_allowance_in_month %> €</p>
+               <!-- fitout allowance in cash need to change name in DB -->
+             </div>
+             <div class="col-xs-12 col-md-6">
+               <h2>Conditions générales</h2>
+               <h3>Prix au poste de travail Hors TVA <em>si applicable</em></h3>
+               <p><%= proposition.workstation_price_per_month %> € par mois</p>
+               <p><%= proposition.workstation_price_per_day %> € par jour</p>
+               <p><%= proposition.workstation_price_per_hour %> € par heure</p>
+               <h3>Prix au m²/an <em>si applicable</em></h3>
+               <p>Bureaux :<%= proposition.office_rent_per_sqm %> € HT HC</p>
+               <p>Stockage :<%= proposition.storage_price_per_sqm %> € HT HC</p>
+               <p>Parkings :<%= proposition.parking_price_per_unit %> €/unité HT HC</p>
+               <p>Charges :<%= proposition.office_charge_per_sqm %> €</p>
+               <p>Taxes : <%= proposition.office_taxe_per_sqm %> €</p>
+               <p>TEOM : <%= proposition.office_teom_per_sqm %> €</p>
+               <p>Indexation :<%= proposition.indexation %></p>
+               <p>Dépôt de garantie : <%= proposition.deposit %> mois de loyer HT HC</p>
+               <p>Régime fiscal :<%= proposition.fiscal_status ? "TVA" : "Non soumis à la TVA" %></p>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-xs-12">
+               <h2>Spécificités</h2>
+               <p><%= proposition.other_spec %></p>
+             </div>
+           </div>
+           <div>
+            <ul class="list-inline">
+              <li>
+               <div class="row">
+                <div class="col-xs-6">
+                  <%= link_to edit_brief_proposition_path(brief, proposition), method: :get, class: 'form-search-briefs' do %>
+                  <%= submit_tag "MODIFIER", class: "btn btn-primary btn-recall-propositions", style:"text-decoration:none" %>
+                  <% end %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="row">
+                <div class="col-xs-6">
+                  <%= link_to cancel_brief_proposition_path(brief, proposition), method: :post, data: { confirm: "Êtes-vous sûr de vouloir annuler votre proposition ?"}, class: 'form-search-briefs' do %>
+                  <%= submit_tag "ANNULER", class: "btn btn-primary btn-recall-propositions-delete", style:"text-decoration:none" %>
+                  <% end %>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+  </div>
+  </div>
+  </div>
+  </div>
 <% end %>
 <% end %>
 <% end %>
