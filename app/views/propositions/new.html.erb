@@ -93,7 +93,7 @@
           </div>
         </div>
         <h2>Spécificités</h2>
-        <%= f.input :other_spec, label: "Indiquez des précisions si nécessaire" %>
+        <%= f.input :other_spec, as: :text, :input_html => {:rows => 10}, label: "Indiquez des précisions si nécessaire" %>
         <div class="modal-footer">
           <%= f.submit "Envoyer ma proposition", class: "btn btn-primary btn-block", data: { confirm: "Confirmez-vous les informations renseignées dans la proposition ? En appuyant sur annuler vous pourrez revenir au formulaire. Appuyez sur ok pour confirmer."} %>
         </div>
