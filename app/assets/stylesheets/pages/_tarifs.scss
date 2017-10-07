@@ -1,0 +1,40 @@
+.offer-content {
+  border: 1px solid solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid $my-green;
+  background-color: $my-white;
+  margin-top: -5px;
+  text-align: justify;
+  margin-bottom: 20px;
+  padding: 20px;
+  h2 {
+    font-size: 30px;
+    color: $my-gray;
+  }
+  h3 {
+    font-size: 20px;
+    color: $my-gray;
+    em {
+      font-size: 15px;
+    }
+    b {
+      font-weight: bold;
+      font-size: 22px;
+      color: $my-green;
+    }
+  }
+  p {
+    font-size: 15px;
+    color: $my-gray;
+    b {
+      font-weight: bold;
+      font-size: 18px;
+      color: $my-green;
+    }
+  }
+  img {
+    position: relative;
+    top: 150px;
+    left: 60px;
+  }
+}

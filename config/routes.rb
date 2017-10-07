@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/concept'
   get 'pages/tarifs'
+  get 'pages/cgu'
 
  resources :users, only: [:update] do
    collection do
