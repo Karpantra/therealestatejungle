@@ -1,20 +1,22 @@
-<div class="card-coworking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0)),url('<%= image_url %>')">
-  <%= link_to "", coworking_path(coworking), class:"card-link" %>
-  <div class="card-category"><%= coworking.name %></div>
-  <div class="card-price">
-  <% if coworking.price_per_month != nil %>
-  <p><%= number_with_delimiter(coworking.price_per_month) %> €/mois</p>
-  <% elsif coworking.price_per_workstation_per_month != nil %>
-  <p><%= number_with_delimiter(coworking.price_per_workstation_per_month) %> €/mois/poste</p>
-  <% elsif coworking.price_per_workstation_per_day != nil %>
-  <p><%= number_with_delimiter(coworking.price_per_workstation_per_day) %> €/jour/poste</p>
-  <% elsif coworking.price_per_workstation_per_hour != nil %>
-  <p><%= number_with_delimiter(coworking.price_per_workstation_per_hour) %> €/heure/poste</p>
-  <% end %>
-  </div>
-  <div class="card-description">
-    <h2><%= coworking.title.first(25) %>...</h2>
-    <p><%= coworking.workstation_number %> postes</p>
-    <p><%= coworking.surface %> m²</p>
+<div class="content-wrapper">
+  <div class="card-coworking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0)),url('<%= image_url %>')">
+    <%= link_to "", coworking_path(coworking), class:"card-link" %>
+    <div class="card-category"><%= coworking.name %></div>
+    <div class="card-price">
+    <% if coworking.price_per_month != nil %>
+    <p><%= number_with_delimiter(coworking.price_per_month) %> €/mois</p>
+    <% elsif coworking.price_per_workstation_per_month != nil %>
+    <p><%= number_with_delimiter(coworking.price_per_workstation_per_month) %> €/mois/poste</p>
+    <% elsif coworking.price_per_workstation_per_day != nil %>
+    <p><%= number_with_delimiter(coworking.price_per_workstation_per_day) %> €/jour/poste</p>
+    <% elsif coworking.price_per_workstation_per_hour != nil %>
+    <p><%= number_with_delimiter(coworking.price_per_workstation_per_hour) %> €/heure/poste</p>
+    <% end %>
+    </div>
+    <div class="card-description">
+      <h2><%= coworking.title.first(25) %>...</h2>
+      <p><%= coworking.workstation_number %> postes</p>
+      <p><%= coworking.surface %> m²</p>
+    </div>
   </div>
 </div>
