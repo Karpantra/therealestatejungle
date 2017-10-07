@@ -31,18 +31,15 @@
            </a>
        </div>
        <div id="proposition-content_<%= proposition.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= proposition.id %>">
-          <!-- <div class="card-block"> -->
-            <div class="proposition-content">
+          <div class="proposition-content">
             <div class="container">
               <div class="row">
-               <%# unless proposition.brief.contracts.blank? %>
                <div class="col-xs-12 col-md-6">
                 <h2>Type de contrat</h2>
                 <% proposition.brief.contracts.each do |contract| %>
                 <p><strong><%= contract.name %></strong></p>
-                <%# end %>
-              </div>
               <% end %>
+              </div>
               <div class="col-xs-12 col-md-6">
                 <h2>Désignation des locaux</h2>
                 <p>Nombre de postes de travail : <%= proposition.workstation_number %></p>
@@ -59,7 +56,6 @@
                   <p>Date de mise à disposition anticipée : <%= proposition.mad_start %></p>
                   <p>Franchise de loyer : <%= proposition.free_rent_in_month %> mois HT HC</p>
                   <p>Accompagnement travaux : <%= proposition.fitout_allowance_in_month %> €</p>
-                  <!-- fitout allowance in cash need to change name in DB -->
                 </div>
                 <div class="col-xs-12 col-md-6">
                   <h2>Conditions générales</h2>

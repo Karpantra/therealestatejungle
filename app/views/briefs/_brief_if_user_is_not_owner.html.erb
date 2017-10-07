@@ -29,49 +29,39 @@
              </a>
          </div>
          <div id="brief-content_<%= brief.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= brief.id %>">
-             <!-- <div class="card-block"> -->
                <div class="brief-content">
                  <div class="container">
                    <div class="row">
-                     <%# unless brief.contracts.blank? %>
                      <div class="col-xs-12 col-md-6">
                       <h2>Type de contrat</h2>
                       <% brief.contracts.each do |contract| %>
                       <p><strong><%= contract.name %></strong></p>
                       <% end %>
                     </div>
-                    <%# end %>
-
                     <div class="col-xs-12 col-md-6">
                       <h2>Critères de recherche</h2>
                       <p>Nombre de postes de travail : <strong><%= brief.workstation_number %></strong></p>
                       <p>Surface : <strong><%= brief.surface %></strong><em> m² SUBL (environ)</em></p>
                       <p>Nombre de salles de réunions : <strong><%= brief.meeting_room_number %></strong></p>
-                      <%# unless brief.parking_number.blank? %>
                       <p>Nombre de parkings : <strong><%= brief.parking_number %></strong></p>
-                      <%# end %>
                     </div>
-                    <%# unless brief.surfaces.blank? %>
                     <div class="col-xs-12 col-md-6">
                       <h2>Type d'espace</h2>
                       <% brief.surfaces.each do |surface| %>
                       <p><strong> <%= surface.name %></strong> - <em><%= surface.space %></em></p>
                       <% end %>
                     </div>
-                    <%# end %>
                     <div class="row">
                       <div class="col-xs-12 col-md-6">
                         <h2>Calendrier</h2>
                         <p>Prise d'effet :<strong><%= brief.move_in_date %></strong></p>
                         <p>Durée : <strong> <%= brief.duration %></strong> mois</p>
                       </div>
-                      <%# unless brief.other_spec.blank? %>
                     </div>
                     <div class="row">
                       <div class="col-xs-12">
                         <h2>Besoins spécifiques</h2>
                         <p><%= brief.other_spec %></p>
-                        <%# end %>
                       </div>
                     </div>
                     <div>
@@ -103,9 +93,8 @@
                 </div>
               </div>
             </div>
-          <!-- </div> -->
+          </div>
         </div>
       </div>
     </div>
-  </div>
 <% end %>
