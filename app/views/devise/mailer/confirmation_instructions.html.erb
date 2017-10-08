@@ -1,5 +1,20 @@
-<p>Welcome <%= @email %>!</p>
+<p>Bonjour <%= @user.first_name %>,</p>
+<p>Bienvenue dans The Real Estate Jungle</p>
+<p>Vous venez de vous inscrire sur le site avec l'adresse suivante</p>
+<p><%= @email %></p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Vous pouvez confirmer votre email en cliquant sur le lien ci-dessous:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirmer mon compte', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Vous pourrez vous identifier en utilisant l'email et le mot de passe renseignés lors de votre inscription</p>
+
+<em>Gautier Weigert</em>
+<br>
+<em>Founder</em>
+<br>
+<em>Tél: 06 17 98 75 96</em>
+<br>
+<em>Email: gautier@therealestatejungle.fr</em>
+<br>
+<br>
