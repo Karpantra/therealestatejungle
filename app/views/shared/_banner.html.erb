@@ -1,14 +1,19 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 30%), url('<%= image_path('parisjungle.jpg')%>');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 80%), url('<%= image_path('parisjungle.jpg')%>');">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <div class="banner-content">
           <div class="brand-banner">
             <h1>The <br> Real Estate <br> Jungle</h1>
           </div>
-          <div class="content">
+<!--           <div class="content">
             <p class="content__container__text">
               Le guide qui accompagne les <span class="color-animation"></span> <br> dans leur recherche de <em class="color-animation"></em>
+            </p>
+          </div> -->
+          <div class="simple-tagline">
+            <p>
+              Le guide des startups et des grands groupes pour leurs recherches d'espaces de travail flexibles
             </p>
           </div>
           <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'form-search-banner'}, url: coworkings_path do |f| %>

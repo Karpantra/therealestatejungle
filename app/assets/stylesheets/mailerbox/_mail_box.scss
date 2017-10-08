@@ -7,7 +7,7 @@
   padding: 20px;
   a {
     border-radius: 2px;
-    font-size: 15px;
+    font-size: 10px;
     padding: 5px;
     color: $my-green;
   }
@@ -16,8 +16,14 @@
   }
   h4 {
     color: $my-gray;
-    small {
+    i {
+      font-size: 70%;
+    }
+    b {
       font-size: 60%;
+    }
+    small {
+      font-size: 50%;
       color: $my-light-gray;
     }
   }

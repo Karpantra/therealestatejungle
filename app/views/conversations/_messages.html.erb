@@ -12,8 +12,8 @@
       <div class="media-body">
         <h4 class="media-heading">
           <%= message.sender.first_name %> <br>
-          <small><b>Sujet: </b><%= message.subject %></small><br>
-          <small><b>Date: </b><%=  message.created_at.strftime("%e %b %Y à %H:%M") %></small>
+          <b>Sujet: </b><i><%= conversation.subject %></i><br>
+          <b>Date: </b><small><%=  conversation.messages.last.created_at.strftime("%e %b %Y à %H:%M") %></small>
         </h4>
         <%= message.body %>
       </div>

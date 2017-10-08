@@ -18,7 +18,7 @@
     font-weight: bold;
   }
   p {
-    font-family: "Montserrat-light", sans-serif;
+    font-family: $body-font;
     font-size: 17px;
     i {
       font-size: 15px;
@@ -111,7 +111,7 @@
    font-weight: bold;
   }
   li {
-    font-family: "Montserrat-light", sans-serif;
+    font-family: $body-font;
     font-size: 15px;
     list-style: none;
     text-align: left;
@@ -130,7 +130,7 @@
    font-weight: bold;
   }
   li {
-    font-family: "Montserrat-light", sans-serif;
+    font-family: $body-font;
     font-size: 15px;
     list-style: none;
     background-color: $my-green;
@@ -150,7 +150,7 @@
   padding: 15px 30px;
   margin-bottom: 20px;
   margin-top: 20px;
-  font-family: "Montserrat", "sans-serif";
+  font-family: $body-font;
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   }

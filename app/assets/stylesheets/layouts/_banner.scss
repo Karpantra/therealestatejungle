@@ -10,14 +10,14 @@
   background-attachment: fixed;
 }
 
-.banner p {
-  font-size: 20px;
-  font-weight: lighter;
-  color: $my-white;
-  margin-bottom: 30px;
-  font-family: $body-font;
-  letter-spacing: 1px;
-}
+// .banner p {
+//   font-size: 20px;
+//   font-weight: lighter;
+//   color: $my-white;
+//   margin-bottom: 30px;
+//   font-family: $body-font;
+//   letter-spacing: 1px;
+// }
 
 .banner-content {
   label {
@@ -53,6 +53,15 @@
 
 .brand-banner {
   margin-bottom: 40px;
+}
+
+.simple-tagline {
+  margin: 0px 0px 40px 0px;
+  p {
+  font-size: 25px;
+  font-family: $body-font;
+  font-weight: 100;
+  }
 }
 
 .color-animation {
@@ -147,7 +156,7 @@
   padding: 0px 10px;
   border: 1px gray solid;
   border-radius: 0 5px 5px 0;
-  font-family: "Montserrat", "sans-serif";
+  font-family: $body-font;
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
