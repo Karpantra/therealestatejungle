@@ -1,1 +1,1 @@
-All Right reserved to JANGALA SAS.
+All Rights reserved to JANGALA SAS.
