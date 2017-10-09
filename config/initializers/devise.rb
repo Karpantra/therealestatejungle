@@ -14,7 +14,7 @@ Devise.setup do |config|
   config.mailer_sender = 'contact@realestatejungle.fr'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Application::Mailer'
+  # config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
