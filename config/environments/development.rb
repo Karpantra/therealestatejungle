@@ -14,7 +14,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Action mailer config with letter_opener gem
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
   # config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
