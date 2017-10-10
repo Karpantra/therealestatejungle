@@ -1,10 +1,20 @@
 <div class="container">
   <div class="row">
     <% unless current_user.owner %>
+
+    <% current_user.briefs.each do |brief| %>
+    <% brief.propositions.each do |proposition| %>
+    <% if proposition.blank? %>
+    <%= render 'propositions/no_proposition' %>
+    <% else %>
     <!-- condition owner true or false  -->
     <!-- début de l'itération user n'est pas owner  -->
     <%= render 'propositions/proposition_if_user_is_not_owner' %>
     <!-- fin du contenu du collapse si user n'est pas owner -->
+    <% end %>
+    <% end %>
+    <% end %>
+
     <% else %>
     <!-- début de l'itération user est owner  -->
     <%= render 'propositions/proposition_if_user_is_owner' %>

@@ -1,9 +1,11 @@
+<div class="content-wrapper">
 <div class="container">
   <div class="row">
     <% unless current_user.owner %>
     <!-- condition owner true or false  -->
     <!-- début de l'itération user n'est pas owner  -->
     <% if current_user.briefs.blank? %>
+    <%= render 'briefs/no_brief' %>
     <% else %>
     <%= render 'briefs/brief_if_user_is_not_owner' %>
     <% end %>
@@ -16,6 +18,6 @@
     <% end %>
   </div>
 </div>
-
+</div>
 
 
