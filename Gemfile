@@ -46,6 +46,9 @@ end
 # Post mark
 gem 'postmark-rails'
 
+# MJML rails
+gem 'mjml-rails'
+
 gem 'jquery-ui-rails'
 gem 'jquery-ui-sass-rails'
 
