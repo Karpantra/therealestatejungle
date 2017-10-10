@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'contact@therealestatejungle.fr'
+  add_template_helper(EmailHelper)
+  default from: 'The Real Estate Jungle <contact@therealestatejungle.fr>'
   layout 'mailer'
 end

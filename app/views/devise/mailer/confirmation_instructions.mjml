@@ -1,0 +1,31 @@
+<mjml>
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+
+          <mj-image width="100" href="<%= root_url %>" src="<%= email_image_url('TREJhome.png') %>"></mj-image>
+
+          <mj-divider border-color="#07AB8A"></mj-divider>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Bonjour
+            <%= @resource.first_name %>,</mj-text>
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Bienvenue dans The Real Estate Jungle</mj-text>
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Vous venez de vous inscrire sur le site avec l'adresse suivante</mj-text>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica"><%= @resource.email %></mj-text>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Vous pouvez confirmer votre email en cliquant sur le lien ci-dessous:</mj-text>
+
+          <mj-button background-color="#07AB8A" font-size="15px" href="<%= confirmation_url(@resource, confirmation_token: @token) %>">Confirmer mon compte</mj-button>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Vous pourrez vous identifier en utilisant l'email et le mot de passe renseignés lors de votre inscription</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "10px">Gautier Weigert</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "5px">Founder</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "5px">Tél: +33 6 17 98 75 96</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "5px">Email: gautier@therealestatejungle.fr</mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>

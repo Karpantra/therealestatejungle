@@ -1,0 +1,38 @@
+<mjml>
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+
+          <mj-image width="100" href="<%= root_url %>" src="<%= email_image_url('TREJhome.png') %>"></mj-image>
+
+          <mj-divider border-color="#07AB8A"></mj-divider>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Bonjour
+            <%= @user.first_name %>,</mj-text>
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Bienvenue dans The Real Estate Jungle</mj-text>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Vous pouvez commencer à rechercher les espaces de travail flexibles sur notre site en cliquant sur le lien suivant :</mj-text>
+
+          <mj-button background-color="#07AB8A" font-size="15px" href="<%= root_url %>">Rechercher mes nouveaux bureaux</mj-button>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Vous pouvez dès à présent partager avec nous votre recherche immobilière en cliquant sur le lien ci-dessous :</mj-text>
+
+          <mj-button background-color="#07AB8A" font-size="15px" href="<%= new_demand_url %>">Décrivez-nous vos besoins immobiliers</mj-button>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Vous pouvez dès à présent proposer un espace de travail en cliquant sur le lien ci-dessous :</mj-text>
+
+          <mj-button background-color="#07AB8A" font-size="15px" href="<%= new_coworking_url %>">Proposer un espace</mj-button>
+
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Merci pour votre inscription et la confiance que vous nous témoignez.</mj-text>
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Nous restons disponibles pour toute information complémentaire, n'hésitez pas à nous contacter par emaim ou par téléphone.</mj-text>
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Au plaisir de vous rencontrer bientôt pour faire avancer vos projets immobiliers.</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "10px">Gautier Weigert</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "5px">Founder</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "5px">Tél: +33 6 17 98 75 96</mj-text>
+          <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "5px">Email: gautier@therealestatejungle.fr</mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>
