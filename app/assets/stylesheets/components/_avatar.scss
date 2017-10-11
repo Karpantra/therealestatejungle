@@ -44,3 +44,11 @@
   text-align: center;
   border-radius: 50%;
 }
+
+.default-avatar {
+  background: $my-green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px rgba(0,0,0,0.2);
+}
