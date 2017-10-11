@@ -4,7 +4,6 @@
 
 
 .panel-body.right {
-  padding: 20px;
   a {
     border-radius: 2px;
     font-size: 10px;
@@ -42,7 +41,6 @@
 
 
 .panel-body.left {
-  padding: 20px;
   a {
     border-radius: 2px;
     font-size: 15px;
@@ -62,6 +60,14 @@
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     color: #fff;
     background-color: $my-green;
+}
+
+.media {
+  padding: 10px 20px;
+  &.read {
+    opacity: .8;
+    background: #efefef;
+  }
 }
 
 

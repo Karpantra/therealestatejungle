@@ -1,14 +1,13 @@
-<div class="media">
+<div class="media <%= conversation.messages.last.is_unread?(current_user) ? "unread" : "read" %>">
   <div class="media-left">
-  <% avatar_url = conversation.originator.facebook_picture_url || "https://via.placeholder.com/64x64" %>
-  <%= image_tag avatar_url, class: "avatar-large" %>
+    <%= display_avatar_mailbox(conversation.messages.last) %>
 <!--     <a href="#">
       <img class="avatar-large" src="https://placehold.it/64x64" alt="...">
     </a> -->
   </div>
   <div class="media-body">
     <h4 class="media-heading">
-      <%= conversation.originator.first_name %> <br>
+      <%= conversation.messages.last.sender.first_name %> <br>
       <b>Sujet: </b><i><%= conversation.subject %></i><br>
       <b>Date: </b><small><%=  conversation.messages.last.created_at.strftime("%e %b %Y à %H:%M") %></small>
     </h4>
