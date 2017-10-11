@@ -73,6 +73,9 @@
   em {
     font-size: 15px;
   }
+  & > button {
+    min-width: 90%;
+  }
   .highlight-price {
     display: inline-block;
     box-shadow: inset 0px -12px $my-green;
