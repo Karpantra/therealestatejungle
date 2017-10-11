@@ -1,5 +1,6 @@
 class DeviseMailer < Devise::Mailer
   add_template_helper(EmailHelper)
+  default from: 'The Real Estate Jungle <contact@therealestatejungle.fr>'
 
   def confirmation_instructions(record, token, opts={})
     @token = token
