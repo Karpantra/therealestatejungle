@@ -9,4 +9,13 @@ class DeviseMailer < Devise::Mailer
       format.text
     end
   end
+
+  def reset_password_instructions(record, token, opts={})
+      @token = token
+      @resource = record
+      mail template_path: 'devise/mailer', to: record.email, subject: "Changement de votre mot de passe" do |format|
+        format.mjml
+        format.text
+      end
+    end
 end
