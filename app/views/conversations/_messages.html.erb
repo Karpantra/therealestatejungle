@@ -3,8 +3,7 @@
     <div class="media">
       <div class="media-left">
         <!-- user avators can go here -->
-        <% avatar_url = message.sender.facebook_picture_url || "https://via.placeholder.com/64x64" %>
-        <%= image_tag avatar_url, class: "avatar-large" %>
+        <%= display_avatar_mailbox(message) %>
 <!--         <a href="#">
           <img class="avatar-large" src="http://placehold.it/64x64" alt="...">
         </a> -->
