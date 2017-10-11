@@ -53,6 +53,10 @@ class CoworkingsController < ApplicationController
     @coworking.user = current_user
     authorize @coworking
     if @coworking.save
+      if @coworking.user.provider == "linkedin"
+        @coworking.user.owner = true
+        @coworking.user.save
+      end
       # coworkingMailer.creation_confirmation(@coworking).deliver_now #uncomment to run
       flash[:notice] = "Votre espace a bien été créé"
       redirect_to coworking_path(@coworking)
