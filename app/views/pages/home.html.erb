@@ -46,8 +46,8 @@
         <div class="col-xs-12">
           <div class="home-cta">
           <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'form-search-banner'}, url: coworkings_path do |f| %>
-          <%= f.input_field :address, placeholder: "Où rêvez-vous de travailler ?", class: "search-query" %>
-          <%= f.submit "Rechecher", class: "btn btn-primary btn-search", style:"text-decoration:none" %>
+          <%= f.input_field :address, placeholder: "Où rêvez-vous de travailler ?", class: "search-query hidden" %>
+          <%= f.submit "Consulter toutes nos offres", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
           <% end %>
           </div>
         </div>
