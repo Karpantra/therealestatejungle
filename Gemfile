@@ -18,6 +18,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem "coffee-rails"
 
+# Contact page
+gem 'mail_form'
+
 # inbox mailer
 gem 'mailboxer'
 gem 'chosen-rails'
