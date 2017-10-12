@@ -37,7 +37,7 @@
   </div>
   <%= link_to pages_concept_path, method: :get, class: 'form-search' do %>
   <div class="flexbox">
-  <%= submit_tag "Plus de détails sur notre approche", class: "btn btn-primary btn-concept-link", style:"text-decoration:none" %>
+  <%= submit_tag "Plus de détails sur notre concept", class: "btn btn-primary btn-concept-link", style:"text-decoration:none" %>
   </div>
   <% end %>
 </div>
@@ -128,3 +128,63 @@
   </div>
 </div>
 </div>
+
+<div class="container text-center home-container">
+  <div class="text-center title-features">
+    <h1><h2 class="highlight">PROPOSER UN ESPACE</h1>
+  </div>
+  <div class="card">
+   <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+     <%= image_tag "Apartment.svg", alt: "coworking" %>
+     <h2 class="offer-title">Visibilité gratuite </h2>
+     <p>Vos espaces sont visibles gratuitement sur la plateforme. Vous pouvez les gérer facilement et directement depuis votre tableau de bord</p>
+   </div>
+ </div>
+
+ <div class="card">
+   <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+     <%= image_tag "Clipboard-Plan.svg", alt: "coworking" %>
+     <h2 class="offer-title">Gérer l'arrivée des demandes</h2>
+     <p>Depuis votre tableau de bord, vous recevez les cahiers des charges des startups et grands groupes, vous avez la possibilité de faire une proposition personnalisée immédiatement ou rentrer en contact avec le prospect depuis la messagerie</p>
+   </div>
+ </div>
+ <div class="card">
+   <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+     <%= image_tag "Checklist.svg", alt: "coworking" %>
+     <h2 class="offer-title">Apprenez à vous connaître</h2>
+     <p>Grâce à la messagerie vous pouvez prendre contact avec le prospect, organiser une visite ou encore demander des détails supplémentaires pour répondre au mieux aux besoins exprimés</p>
+   </div>
+ </div>
+
+  <div class="card">
+    <div class="col-xs-12 col-sm-6 col-lg-3 image-home">
+       <%= image_tag "Euro-Coin.svg", alt: "coworking" %>
+       <h2 class="offer-title">Commercialisation</h2>
+       <p>Fort de l'expérience dans l'immobilier d'entreprise, notre équipe se charge de trouver vos futurs clients et de leur démontrer la pertinence de choisir vos solutions </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to pages_tarifs_path, method: :get, class: 'form-search' do %>
+      <div class="flexbox">
+      <%= submit_tag "Plus de détails sur notre approche", class: "btn btn-primary btn-concept-link", style:"text-decoration:none" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="home-cta">
+        <%= link_to new_coworking_path, class: 'form-search' do %>
+        <div class="flexbox">
+          <%= submit_tag "Déposer un espace", class: "btn btn-primary btn-recall", style:"text-decoration:none" %>
+        </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
