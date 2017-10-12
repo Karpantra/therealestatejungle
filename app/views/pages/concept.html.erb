@@ -18,7 +18,7 @@
         <p>Nous avons décidé de lancer The Real Estate Jungle pour 3 raisons :
           <br>
           <br>
-          (1)Conseiller les entrepreneurs, les startups et les grands groupes dans le choix de leurs espaces flexibles de travail.
+          (1)Conseiller les startups et les grands groupes dans le choix de leurs espaces flexibles de travail.
           <br>
           (2)Digitaliser l’approche du marché de l’immobilier d’entreprises avec un outil permettant de comparer les différentes alternatives (Coworking, bureaux classiques, sous-location, etc.).
           <br>
@@ -31,7 +31,7 @@
           <br>
           Aujourd’hui il n’existe pas de cabinet de conseil ayant la capacité et la volonté d’accompagner les startups et les grands groupes dans la recherche de la solution immobilière la plus adaptée à leurs besoins.</p>
           <h2>Quel est le concept de The Real Estate Jungle ?</h2>
-          <p>Toutes ces raisons nous ont poussé à développer The Real Estate Jungle afin de proposer un conseil adapté aux startups et grands groupes recherchant, pour l’un des locaux pour la première fois ou en raison d’une forte croissance par exemple, pour l’autre recherchant des espaces flexibles bénéficiant des nouveaux codes de l’immobilier d’entreprise.
+          <p>Toutes ces raisons nous ont poussé à développer The Real Estate Jungle afin de proposer un conseil adapté aux startups et grands groupes recherchant, pour l’un des locaux pour la première fois ou en raison d’une forte croissance par exemple, pour l’autre recherchant des espaces flexibles bénéficiant des nouveaux codes de l’immobilier d’entreprise et leur permettant de gérer au mieux les fluctuations d'activité.
             <br>
             <br>
             L’approche de The Real Estate Jungle est essentiellement tournée vers l’analyse de scénarios d'utilisation d'espaces de travail flexibles :
@@ -43,7 +43,7 @@
             <br>
             - L'approche consulting permet de mettre en évidence les différences de coûts entre un espace de travail flexible et une implantation classique
             <br>
-            - Nous proposons un accompagnement pour négocier au mieux les termes des engagements que vous prendrez
+            - Nous proposons un accompagnement pour négocier au mieux les termes des engagements que les startups ou les grands groupes seront amenés à prendre
             <br>
             <br>
             Cette approche permet d’avoir une vision claire des futures dépenses en immobilier, permettant aux chefs d’entreprises de prendre les bonnes décisions. Elle permet aussi de négocier au plus juste avec les propriétaires immobiliers ou les espaces de Coworking. </p>
@@ -72,35 +72,44 @@
               <br> - de notre expérience dans la gestion de projets immobiliers acquise sur le terrain à rechercher, analyser et négocier pour le compte de différents types de clients sur diverses actifs.
               <br> - de notre expertise financière pour la construction des analyses économiques de votre projet afin de réaliser des benchmarks des différentes solutions.
               <br> - de nos conseils commerciaux et d'un accompagnement sur les accords juridiques que vous pourrez signer.
-              <br> - de nos recommandations afin de faire adhérer au plus grand nombre de vos collaborateurs à un projet potentiellement novateur pour votre entreprise.
+              <br> - de nos recommandations afin de faire adhérer vos collaborateurs à un projet potentiellement novateur pour votre entreprise.
               <br>
               <br>
               N'hésitez pas à venir consulter mon profil Linkedin pour décourvir plus en détail mon parcours.
               <br>
               A bientôt dans cette fascinante jungle immobilière :)
               </p>
-              <em>Tél: 06 17 98 75 96</em>
-              <br>
-              <em>Email: gautier@therealestatejungle.fr</em>
               <br>
               <a target="_blank" href="https://www.linkedin.com/in/gautierweigert/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+              <%= link_to new_info_path, method: :get, class: 'form-search' do %>
             </div>
           </div>
           </div>
         </div>
       </div>
     </div>
-  <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-md-12">
+                  <div class="flexbox">
+                  <%= submit_tag "Contactez-nous", class: "btn btn-primary btn-concept-link", style:"text-decoration:none" %>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+              <br>
+
+
+<!--   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
         <div class="btn-concept">
-          <%= link_to new_demand_path, method: :get, class: 'form-search' do %>
+          <%#= link_to new_demand_path, method: :get, class: 'form-search' do %>
           <div class="flexbox">
-            <%= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
+            <%#= submit_tag "TROUVEZ LES BUREAUX DE MES RÊVES", class: "btn btn-primary btn-banner", style:"text-decoration:none" %>
           </div>
-          <% end %>
+          <%# end %>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
     <!-- </div> -->
