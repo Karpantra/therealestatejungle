@@ -9,7 +9,7 @@ class Info < MailForm::Base
     def headers
       {
         :subject => "Demande d'information",
-        :to => "gautier@therealestatejungle.fr",
+        :to => "contact@therealestatejungle.fr",
         :from => %("#{name}" <#{email}>)
       }
     end
