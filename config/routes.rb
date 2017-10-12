@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
+  # Mail Form routes with infos controller
+  resources :infos, only: [:new, :create]
+
   mount Attachinary::Engine => "/attachinary"
 
 

@@ -31,7 +31,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to pages_contact_path do %>
+            <%= link_to new_info_path do %>
             <i class="fa fa-phone"></i>  <%= t(".profile", default: "Contact") %>
             <% end %>
           </li>
@@ -49,7 +49,7 @@
       <li>
         <%= link_to "Recherche spécifique", new_demand_path, class: "navbar-wagon-item-demand navbar-wagon-link-demand tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Vous êtes un grand groupe ou une startup, décrivez en quelques minutes vos besoins, nous vous accompagnons dans votre projet"}  %>
       </li>
-      <li><%= link_to t(".profile", default: "+33 6 17 98 75 96"), pages_contact_path, class: "navbar-wagon-item navbar-wagon-link" %></%></li>
+      <li><%= link_to t(".profile", default: "+33 6 17 98 75 96"), new_info_path, class: "navbar-wagon-item navbar-wagon-link" %></%></li>
       <li><%= link_to t(".sign_in", default: "S'identifier"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </li>
       <li>
@@ -100,7 +100,7 @@
             <% end %>
         </li>
         <li>
-          <%= link_to pages_contact_path do %>
+          <%= link_to new_info_path do %>
           <i class="fa fa-phone"></i>  <%= t(".sign_out", default: "Contact") %>
             <% end %>
         </li>
@@ -130,7 +130,7 @@
                   <% end %>
             </li>
             <li>
-              <%= link_to pages_contact_path do %>
+              <%= link_to new_info_path do %>
               <i class="fa fa-phone"></i>  <%= t(".sign_out", default: "Contact") %>
                 <% end %>
               </li>
