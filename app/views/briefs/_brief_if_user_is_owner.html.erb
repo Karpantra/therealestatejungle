@@ -10,13 +10,14 @@
               <div class="container">
                 <div class="row">
                    <div class="col-xs-12 col-md-2">
+
                       <% avatar_url = brief.user.facebook_picture_url || "default-avatar.jpg" %>
                       <%= image_tag avatar_url, class: "product-image" %>
                     </div>
                     <div class="col-xs-12 col-md-8">
                      <div class='product-body'>
                          <h3>Demande de <%= brief.company_name %></h3>
-                         <p>Contact : <%= brief.user.first_name %> <%= brief.user.last_name.capitalize %></p>
+                         <p>Contact : <%= brief.user.full_name %></p>
                          <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
                       </div>
                      </div>

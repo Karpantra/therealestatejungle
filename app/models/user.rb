@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    return "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+    return "#{self.first_name.capitalize} #{self.last_name.first.capitalize}."
   end
 
   ################# FACEBOOK AUTHENTICATION DO NOT DELETE ######################

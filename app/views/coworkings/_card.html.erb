@@ -1,7 +1,11 @@
 <!-- <div class="content-wrapper"> -->
   <div class="card-coworking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0)),url('<%= image_url %>')">
     <%= link_to "", coworking_path(coworking), class:"card-link" %>
-    <div class="card-category"><%= coworking.name %></div>
+    <div class="card-category">
+    <% unless coworking.landlords.blank? %>
+    <%= coworking.landlords.first.name %>
+    <% end %>
+    </div>
     <div class="card-price">
     <% if coworking.price_per_month != nil %>
     <p><%= number_with_delimiter(coworking.price_per_month) %> €/mois</p>
