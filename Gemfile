@@ -21,6 +21,9 @@ gem "coffee-rails"
 # Contact page
 gem 'mail_form'
 
+# Forest admin
+gem 'forest_liana'
+
 # inbox mailer
 gem 'mailboxer'
 gem 'chosen-rails'
