@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount ForestLiana::Engine => '/forest'
   # mailbox folder routes
     get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
     get "mailbox/sent" => "mailbox#sentbox", as: :mailbox_sentbox
