@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :demands, dependent: :nullify
-  has_many :coworkings, dependent: :nullify
-  has_many :briefs, dependent: :nullify
+  has_many :demands, dependent: :destroy
+  has_many :coworkings, dependent: :destroy
+  has_many :briefs, dependent: :destroy
   has_many :contacts, :foreign_key => 'owner_id', dependent: :destroy
   after_create :send_welcome_email
   after_create :subscribe_to_newsletter

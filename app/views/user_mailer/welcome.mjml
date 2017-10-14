@@ -25,7 +25,7 @@
           <mj-button background-color="#07AB8A" font-size="15px" href="<%= new_coworking_url %>">Proposer un espace</mj-button>
 
           <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Merci pour votre inscription et la confiance que vous nous témoignez.</mj-text>
-          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Nous restons disponibles pour toute information complémentaire, n'hésitez pas à nous contacter par emaim ou par téléphone.</mj-text>
+          <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Nous restons disponibles pour toute information complémentaire, n'hésitez pas à nous contacter par email ou par téléphone.</mj-text>
           <mj-text font-size="15px" color="#313B3D" font-family="helvetica">Au plaisir de vous rencontrer bientôt pour faire avancer vos projets immobiliers.</mj-text>
           <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "10px">Gautier Weigert</mj-text>
           <mj-text font-size="12px" color="#313B3D" font-family="helvetica" line-height= "5px">Founder</mj-text>
