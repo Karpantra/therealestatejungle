@@ -33,7 +33,7 @@
 .special-offer {
   padding: 0px 15px 0px 15px;
   text-transform: bold;
-  background-color: #F48024;
+  background-color: #E5D352;
   border-radius: 10px;
   text-align: center;
   margin-top: 15px;
@@ -146,8 +146,8 @@
 
 .form-search-coworking-show {
   .btn-devis {
-  background-color: #29AB87;
-  border-color: #29AB87;
+  background-color: $my-green;
+  border-color: $my-green;
   font-size: 12px;
   width: auto;
   padding: 15px 30px;
@@ -160,8 +160,8 @@
 }
 
 .highlight-coworking-show {
-  -webkit-box-shadow: inset 0px -10px #29AB87;
-  box-shadow: inset 0px -10px #29AB87;
+  -webkit-box-shadow: inset 0px -10px $my-green;
+  box-shadow: inset 0px -10px $my-green;
   font-weight: bold;
   text-align: left;
 }
