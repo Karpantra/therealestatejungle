@@ -187,6 +187,46 @@ $card-radius:         0;
   }
 }
 
+
+.modal-title-welcome {
+  text-align: center;
+  color: $my-green;
+}
+
+.modal-body-welcome {
+  padding: 25px;
+  p {
+    font-size: 12px;
+  }
+}
+
+.flexbox-welcome {
+  text-align: center;
+}
+
+.btn {
+    background-color: #29AB87;
+    border-color: #29AB87;
+    font-size: 12px;
+    width: auto;
+    padding: 15px 25px;
+    font-family: "Montserrat", "sans-serif";
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-welcome-modal {
+    background-color: #313A3D;
+    margin-bottom: 10px;
+    min-width: 260px;
+}
+
+.modal-footer-welcome .btn + .btn {
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
 // * {
 //     background: #000 !important;
 //     color: #0f0 !important;
