@@ -11,13 +11,14 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-12 col-md-2">
-                 <% avatar_url = brief.user.facebook_picture_url || "default-avatar.jpg" %>
-                 <%= image_tag avatar_url, class: "product-image" %>
+                 <%= display_avatar_proposition(proposition.brief.user) %>
+                 <%# avatar_url = brief.user.facebook_picture_url || "default-avatar.jpg" %>
+                 <%#= image_tag avatar_url, class: "product-image" %>
                 </div>
                 <div class="col-xs-12 col-md-8">
                   <div class='product-body'>
                    <h3> Proposition pour <%= proposition.brief.company_name %></h3>
-                   <p>Contact : <%= brief.coworking.user.full_name %> le <%= proposition.created_at.strftime("%-d-%-m-%Y") %></p>
+                   <p>Contact : <%= brief.user.full_name %> le <%= proposition.created_at.strftime("%-d-%-m-%Y") %></p>
                    <p><strong><%= brief.coworking.name %> - <%= brief.coworking.address %></strong></p>
                 </div>
                 </div>

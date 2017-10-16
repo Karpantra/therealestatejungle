@@ -14,4 +14,20 @@ module ViewHelper
       image_tag message.sender.facebook_picture_url, class: "avatar-large"
     end
   end
+
+  def display_avatar_brief(brief)
+    if brief.user.facebook_picture_url.nil?
+      content_tag(:div, "#{brief.user.first_name.first}#{brief.user.last_name.first}", class: 'avatar default-avatar')
+    else
+      image_tag brief.user.facebook_picture_url, class: "avatar-large"
+    end
+  end
+
+  def display_avatar_proposition(user)
+    if user.facebook_picture_url.nil?
+      content_tag(:div, "#{user.first_name.first}#{user.last_name.first}", class: 'avatar default-avatar')
+    else
+      image_tag user.facebook_picture_url, class: "avatar-large"
+    end
+  end
 end
