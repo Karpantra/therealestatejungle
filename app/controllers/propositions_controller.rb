@@ -47,7 +47,7 @@ class PropositionsController < ApplicationController
     @proposition.status = "declined"
     skip_authorization
     if @proposition.save
-      flash[:notice] = "Vous avez accepté la proposition"
+      flash[:notice] = "Vous avez décliné la proposition"
       redirect_to dashboard_users_path
     else
       flash[:notice] = "Un problème est survenu, merci de nous contacter"

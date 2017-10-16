@@ -1,5 +1,5 @@
 class BriefsController < ApplicationController
-   before_action :authenticate_user!, except: [:new]
+   before_action :authenticate_user!
 
    def index
      @briefs = policy_scope(Brief)
