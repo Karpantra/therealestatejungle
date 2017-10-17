@@ -7,7 +7,7 @@
         <a class="tab active" data-target="#briefs">
           <h3><span><i class="fa fa-paper-plane" aria-hidden="true"></i></span> Demandes</h3>
         </a>
-        <a class="tab" data-target="#Propositions">
+        <a class="tab" data-target="#propositions">
           <h3><span><i class="fa fa-handshake-o" aria-hidden="true"></i></span> Propositions</h3>
         </a>
         <% unless current_user.owner %>
@@ -25,7 +25,7 @@
       <div class="tab-content" id="briefs">
         <%= render "briefs/my_briefs" %>
       </div>
-      <div class="tab-content hidden" id="Propositions">
+      <div class="tab-content hidden" id="propositions">
         <%= render "propositions/my_propositions" %>
       </div>
       <div class="tab-content hidden" id="demands">
