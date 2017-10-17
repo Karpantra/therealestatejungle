@@ -19,6 +19,18 @@ class ApplicationController < ActionController::Base
   # Mailbox helper
   helper_method :mailbox, :conversation
 
+  # Redirect to previous page but not in modal...
+  after_filter :store_location
+
+  def store_location
+    # store last url as long as it isn't a /users path
+    session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || root_path
+  end
+
   private
 
   def skip_pundit?
