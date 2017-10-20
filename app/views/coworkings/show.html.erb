@@ -30,8 +30,31 @@
             <i>Dernière mise à jour le <%= @coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
           </div>
         </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="highlight-price">Horaires</h3>
+              <% if @coworking.schedules.blank? %>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-hours">Renseigner les horaires</button>
+              <%= render 'schedules/new' %>
+              <% else %>
+              <% @coworking.schedules.each do |s| %>
+              <p>Lundi de <%= s.mond_start %> à <%= s.mond_end %></p>
+              <p>Mardi de <%= s.thu_start %> à <%= s.thu_end %></p>
+              <p>Mercredi de <%= s.wed_start %> à <%= s.wed_end %></p>
+              <p>Jeudi <%= s.tue_start %> à <%= s.tue_end %></p>
+              <p>Vendredi de <%= s.fri_start %> à <%= s.fri_end %></p>
+              <p>Samedi de <%= s.sat_start %> à <%= s.sat_end %></p>
+              <p>Dimanche de <%= s.sun_start %> à <%= s.sun_end %></p>
+              <% end %>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-hours">Mettre à jour</button>
+              <%= render 'schedules/edit' %>
+              <% end %>
+          </div>
+        </div>
       </div>
     </div>
+
+
 
     <div class="col-xs-12 col-sm-6 col-sm-offset-1 col-md-6">
       <div class="special-offer">

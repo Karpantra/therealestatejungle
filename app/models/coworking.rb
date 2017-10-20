@@ -5,6 +5,7 @@ class Coworking < ApplicationRecord
   has_and_belongs_to_many :contracts
   has_and_belongs_to_many :landlords
   has_and_belongs_to_many :types
+  has_many :schedules, dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

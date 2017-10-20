@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008204558) do
+ActiveRecord::Schema.define(version: 20171020093744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -258,6 +258,28 @@ ActiveRecord::Schema.define(version: 20171008204558) do
     t.index ["brief_id"], name: "index_propositions_on_brief_id", using: :btree
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.string   "mond_start"
+    t.string   "mond_end"
+    t.string   "tue_start"
+    t.string   "tue_end"
+    t.string   "wed_start"
+    t.string   "wed_end"
+    t.string   "thu_start"
+    t.string   "thu_end"
+    t.string   "fri_start"
+    t.string   "fri_end"
+    t.string   "sat_start"
+    t.string   "sat_end"
+    t.string   "sun_start"
+    t.string   "sun_end"
+    t.boolean  "no_stop"
+    t.integer  "coworking_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["coworking_id"], name: "index_schedules_on_coworking_id", using: :btree
+  end
+
   create_table "surfaces", force: :cascade do |t|
     t.string   "name"
     t.string   "space"
@@ -312,4 +334,5 @@ ActiveRecord::Schema.define(version: 20171008204558) do
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "propositions", "briefs"
+  add_foreign_key "schedules", "coworkings"
 end

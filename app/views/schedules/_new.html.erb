@@ -1,0 +1,77 @@
+
+<div class="modal fade" id="create-hours" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="create-hours">Renseigner les horaires d'ouverture pour le <%= @coworking.address %> <%= @coworking.city %> <%= @coworking.zip_code %></h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-demand-new">
+            <%= simple_form_for([@coworking, @schedule]) do |f| %>
+            <%#= f.input :no_stop, as: :check_boxes %>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :mond_start, collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :mond_end, collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :tue_start, collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :tue_end, collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :wed_start, collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :wed_end, collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :tue_start, collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :tue_end, collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :fri_start, collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :fri_end, collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sat_start, collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sat_end, collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sun_start, collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sun_end, collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <%= f.submit "Enregistrer mes horaires", class: "btn btn-primary btn-block", data: { confirm: "Les horaires d'ouverture seront enregistrées, vous pouvez les modifier à tout moment. Confirmez-vous les informations renseignées"} %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
