@@ -11,61 +11,61 @@
       <div class="modal-body">
         <div class="form-demand-new">
             <%= simple_form_for([@coworking, @schedule]) do |f| %>
-            <%#= f.input :no_stop, as: :check_boxes %>
+            <%= f.input :no_stop, as: :boolean, label: "Ouvert tous les jours 24/24" %>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-            <%= f.input :mond_start, collection: Schedule::HOURS %>
+            <%= f.input :mond_start, label: "Lundi à partir de", collection: Schedule::HOURS %>
               </div>
               <div class="col-xs-12 col-md-6">
-            <%= f.input :mond_end, collection: Schedule::HOURS %>
+            <%= f.input :mond_end, label: "Jusqu'à", collection: Schedule::HOURS %>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-            <%= f.input :tue_start, collection: Schedule::HOURS %>
+            <%= f.input :tue_start, label: "Mardi à partir de", collection: Schedule::HOURS %>
               </div>
               <div class="col-xs-12 col-md-6">
-            <%= f.input :tue_end, collection: Schedule::HOURS %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-            <%= f.input :wed_start, collection: Schedule::HOURS %>
-              </div>
-              <div class="col-xs-12 col-md-6">
-            <%= f.input :wed_end, collection: Schedule::HOURS %>
+            <%= f.input :tue_end, label: "Jusqu'à", collection: Schedule::HOURS %>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-            <%= f.input :tue_start, collection: Schedule::HOURS %>
+            <%= f.input :wed_start, label: "Mercredi à partir de", collection: Schedule::HOURS %>
               </div>
               <div class="col-xs-12 col-md-6">
-            <%= f.input :tue_end, collection: Schedule::HOURS %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-md-6">
-            <%= f.input :fri_start, collection: Schedule::HOURS %>
-              </div>
-              <div class="col-xs-12 col-md-6">
-            <%= f.input :fri_end, collection: Schedule::HOURS %>
+            <%= f.input :wed_end, label: "Jusqu'à", collection: Schedule::HOURS %>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-            <%= f.input :sat_start, collection: Schedule::HOURS %>
+            <%= f.input :thu_start, label: "Jeudi à partir de", collection: Schedule::HOURS %>
               </div>
               <div class="col-xs-12 col-md-6">
-            <%= f.input :sat_end, collection: Schedule::HOURS %>
+            <%= f.input :thu_end, label: "Jusqu'à", collection: Schedule::HOURS %>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-6">
-            <%= f.input :sun_start, collection: Schedule::HOURS %>
+            <%= f.input :fri_start, label: "Vendredi à partir de",  collection: Schedule::HOURS %>
               </div>
               <div class="col-xs-12 col-md-6">
-            <%= f.input :sun_end, collection: Schedule::HOURS %>
+            <%= f.input :fri_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sat_start, label: "Samedi à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sat_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sun_start, label: "Dimanche à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sun_end, label: "Jusqu'à", collection: Schedule::HOURS %>
               </div>
             </div>
             <%= f.submit "Enregistrer mes horaires", class: "btn btn-primary btn-block", data: { confirm: "Les horaires d'ouverture seront enregistrées, vous pouvez les modifier à tout moment. Confirmez-vous les informations renseignées"} %>

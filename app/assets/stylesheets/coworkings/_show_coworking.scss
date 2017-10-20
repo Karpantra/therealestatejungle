@@ -166,4 +166,23 @@
   text-align: left;
 }
 
+.hours {
+  text-align: left;
+  p {
+    font-size: 12px;
+    span {
+      font-size: 15px;
+      color: $my-green;
+      position: relative;
+      left: 15px;
+    }
+  }
+}
+
+.hours-24 {
+  text-align: center;
+  p {
+    font-size: 20px;
+  }
+}
 
