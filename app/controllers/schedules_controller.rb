@@ -3,6 +3,7 @@ class SchedulesController < ApplicationController
   def new
     @schedule = Schedule.new
     @coworking = Coworking.find(params[:coworking_id])
+    skip_authorization
   end
 
   def create
