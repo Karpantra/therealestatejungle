@@ -21,11 +21,14 @@ class SchedulesController < ApplicationController
 
   def edit
     @schedule = Schedule.find(params[:id])
+    @coworking = Coworking.find(params[:coworking_id])
     skip_authorization
   end
 
   def update
     @schedule = Schedule.find(params[:id])
+    @coworking = Coworking.find(params[:coworking_id])
+    skip_authorization
       if @schedule.update(schedule_params)
         # scheduleMailer.creation_confirmation(@schedule).deliver_now
         flash[:notice] = "Votre calendrier a bien été mis à jour"
