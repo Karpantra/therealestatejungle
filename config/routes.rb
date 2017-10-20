@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   resources :coworkings do
     resources :briefs, only: [:new, :create]
+    resources :schedules, only: [:new, :create, :edit, :update]
   end
 
 

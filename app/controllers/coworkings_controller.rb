@@ -68,6 +68,7 @@ class CoworkingsController < ApplicationController
   def show
     @coworking = Coworking.find(params[:id])
     @brief = Brief.new
+    @schedule = Schedule.new
     authorize @coworking
         @hash = Gmaps4rails.build_markers(@coworking) do |coworking, marker|
       marker.lat coworking.latitude

@@ -1,0 +1,77 @@
+
+<div class="modal fade" id="create-hours" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="create-hours">Renseigner les horaires d'ouverture pour le <%= @coworking.address %> <%= @coworking.city %> <%= @coworking.zip_code %></h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-demand-new">
+            <%= simple_form_for([@coworking, @schedule]) do |f| %>
+            <%= f.input :no_stop, as: :boolean, label: "Ouvert tous les jours 24/24" %>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :mond_start, label: "Lundi à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :mond_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :tue_start, label: "Mardi à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :tue_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :wed_start, label: "Mercredi à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :wed_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :thu_start, label: "Jeudi à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :thu_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :fri_start, label: "Vendredi à partir de",  collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :fri_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sat_start, label: "Samedi à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sat_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sun_start, label: "Dimanche à partir de", collection: Schedule::HOURS %>
+              </div>
+              <div class="col-xs-12 col-md-6">
+            <%= f.input :sun_end, label: "Jusqu'à", collection: Schedule::HOURS %>
+              </div>
+            </div>
+            <%= f.submit "Enregistrer mes horaires", class: "btn btn-primary btn-block", data: { confirm: "Les horaires d'ouverture seront enregistrées, vous pouvez les modifier à tout moment. Confirmez-vous les informations renseignées"} %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

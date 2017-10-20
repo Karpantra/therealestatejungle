@@ -30,8 +30,49 @@
             <i>Dernière mise à jour le <%= @coworking.updated_at.strftime("%-d-%-m-%Y") %></i>
           </div>
         </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="highlight-price">Horaires</h3>
+              <% if @coworking.schedules.blank? %>
+              <% if policy(@coworking).edit? %>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-hours">Renseigner les horaires</button>
+              <%= render 'schedules/new' %>
+              <% end %>
+              <% else %>
+              <div class="hours">
+              <% @coworking.schedules.each do |s| %>
+              <% unless s.no_stop == true %>
+              <p>Lun : <span><%= s.mond_start %> - <%= s.mond_end %></span></p>
+              <p>Mar : <span><%= s.tue_start %> - <%= s.tue_end %></span></p>
+              <p>Mer : <span><%= s.wed_start %> - <%= s.wed_end %></span></p>
+              <p>Jeu : <span><%= s.thu_start %> - <%= s.thu_end %></span></p>
+              <p>Ven : <span><%= s.fri_start %> - <%= s.fri_end %></span></p>
+              <% if s.sat_start == "Fermé" || s.sat_end == "Fermé" %>
+              <p>Sam : <span>Fermé</span></p>
+              <% else %>
+              <p>Sam : <span><%= s.sat_start %> - <%= s.sat_end %></span></p>
+              <% end %>
+              <% if s.sat_start == "Fermé" || s.sat_end == "Fermé" %>
+              <p>Dim : <span>Fermé</span></p>
+              <% else %>
+              <p>Dim : <span><%= s.sun_start %> - <%= s.sun_end %></span></p>
+              <% end %>
+              <% else %>
+              <div class="hours-24">
+              <p>Ouvert 24/7</p>
+              </div>
+              <% end %>
+              <% end %>
+              </div>
+              <%#= link_to "Mettre à jour", edit_coworking_schedule_path(@coworking.schedules) %>
+              <%#= render 'schedules/edit' %>
+              <% end %>
+          </div>
+        </div>
       </div>
     </div>
+
+
 
     <div class="col-xs-12 col-sm-6 col-sm-offset-1 col-md-6">
       <div class="special-offer">
