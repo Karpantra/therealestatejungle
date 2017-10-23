@@ -4,7 +4,7 @@ Rails.application.configure do
 
 
 
-  config.action_mailer.default_url_options = { host: "therealestatejungle.fr" }
+  # config.action_mailer.default_url_options = { host: "therealestatejungle.fr" }
   config.action_mailer.delivery_method     = :smtp
   config.action_mailer.perform_deliveries = true
   # config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
