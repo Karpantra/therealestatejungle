@@ -64,8 +64,10 @@
               <% end %>
               <% end %>
               </div>
+              <% if policy(@coworking).edit? %>
               <button type="button" class="btn btn-primary btn-recall-demands" data-toggle="modal" data-target="#edit-hours">Mettre à jour</button>
               <%= render 'schedules/edit' %>
+              <% end %>
               <% end %>
           </div>
         </div>
