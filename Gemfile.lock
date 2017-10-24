@@ -98,6 +98,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    cookies_eu (1.6.3)
+      js_cookie_rails
     crass (1.0.2)
     debug_inspector (0.0.3)
     devise (4.3.0)
@@ -155,6 +157,8 @@ GEM
       jquery-rails
       jquery-ui-rails (= 4.0.3)
       railties (>= 3.1.0)
+    js_cookie_rails (2.1.4)
+      railties (>= 3.1)
     json (2.1.0)
     jsonapi-serializers (1.0.0)
       activesupport
@@ -346,6 +350,7 @@ DEPENDENCIES
   chosen-rails
   cloudinary (= 1.1.7)
   coffee-rails
+  cookies_eu
   devise
   figaro
   font-awesome-sass

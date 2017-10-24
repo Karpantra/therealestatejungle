@@ -18,6 +18,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem "coffee-rails"
 
+# cookies
+gem 'cookies_eu'
+
 # Contact page
 gem 'mail_form'
 
