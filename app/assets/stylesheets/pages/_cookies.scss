@@ -1,6 +1,6 @@
  // main div
 .cookies-eu {
-  background-color: transparent;
+  background-color: $my-gray;
   line-height: 40px;
   position: fixed;
   z-index: 999;
@@ -9,18 +9,20 @@
   left: 0;
   padding: 0 20px;
   text-align: center;
+  border-top: none;
+  .cookies-eu-button-holder {
+    background-color: transparent;
+    // button
+    .cookies-eu-ok {
+      background-color: $my-green;
+  }
 }
 // content holder
 .cookies-eu-content-holder {
-  color: $my-gray;
+  color: $my-white;
 }
 // button holder
-.cookies-eu-button-holder {
-  background-color: transparent;
-  // button
-  .cookies-eu-ok {
-    background-color: $my-green;
-}
+
 
 }
 // link
