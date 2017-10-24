@@ -9,4 +9,5 @@
 //= require attachinary
 //= require underscore
 //= require gmaps/google
+//= require cookies_eu
 //= require_tree .
