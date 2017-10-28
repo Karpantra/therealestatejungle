@@ -14,7 +14,7 @@ class Demand < ApplicationRecord
   validates :move_in_date, presence: true
 
 
-  ZONE = ["Paris Centre - Ouest (arr. 1, 2, 8, 9, 16 ou 17)","Paris Centre - Est (arr. 3, 4, 10, 11 ou 12)", "Paris Nord (18, 19 ou 20)", "Paris Sud (5, 6, 7, 13, 14 ou 15)", "Croissant Ouest (de Asnières à St-Cloud)", "Croissant Est (de Aubervilliers &agrave; Villejuif)", "Deuxième couronne parisienne (ex. Antony, Villepinte, etc.)"]
+  ZONE = ["Paris Centre - Ouest (arr. 1, 2, 8, 9, 16 ou 17)","Paris Centre - Est (arr. 3, 4, 10, 11 ou 12)", "Paris Nord (18, 19 ou 20)", "Paris Sud (5, 6, 7, 13, 14 ou 15)", "Croissant Ouest (de Asnières à St-Cloud)", "Croissant Est (de Aubervilliers à Villejuif)", "Deuxième couronne parisienne (ex. Antony, Villepinte, etc.)", "Autre (à préciser dans 'Détails')"]
 end
 
 

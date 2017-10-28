@@ -10,7 +10,13 @@
     <% if user_signed_in? %>
 
     <!-- Links when logged in -->
-    <%= link_to "Recherche spécifique", new_demand_path, class: "navbar-wagon-item-demand navbar-wagon-link-demand tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Vous êtes un grand groupe ou une startup, décrivez en quelques minutes vos besoins, nous vous accompagnons dans votre projet"}  %>
+    <%= simple_form_for :coworking, :method => 'get', :html => {:class => 'form-search-banner'}, url: coworkings_path do |f| %>
+      <%= f.input_field :address, placeholder: "Où rêvez-vous de travailler ?", class: "search-query hidden" %>
+      <span>
+        <%= f.submit "Consulter toutes les offres", class: "navbar-wagon-item-demand navbar-wagon-link-demand", style:"text-decoration:none" %>
+      </span>
+      <% end %>
+    <%#= link_to "Recherche spécifique", new_demand_path, class: "navbar-wagon-item-demand navbar-wagon-link-demand tooltips", title: "", data: { toggle: "tooltip", placement: "bottom", original_title: "Vous êtes un grand groupe ou une startup, décrivez en quelques minutes vos besoins, nous vous accompagnons dans votre projet"}  %>
     <%= link_to "Tableau de bord", dashboard_users_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <div class="badge_message">
       <%= link_to "Messagerie", mailbox_inbox_path, class: "navbar-wagon-item navbar-wagon-link" %>
