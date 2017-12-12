@@ -1,3 +1,3 @@
 setTimeout(function() {
     $('#welcomeModal').modal();
-}, 2000);
+}, 15000);
